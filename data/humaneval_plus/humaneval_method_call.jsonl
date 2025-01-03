@@ -1,0 +1,164 @@
+{"task_id": "HumanEval/0", "method_call": "has_close_elements([0.1 * i for i in range(10000)], 0.5)"}
+{"task_id": "HumanEval/1", "method_call": "separate_paren_groups('((())()) (()()) ((())(())) ((()(()))(())) ((())()) (((()))(())) (()((()))) ()()()() (( )) (( )) (( )) (( )) (( )) (( ))') "}
+{"task_id": "HumanEval/2", "method_call": "truncate_number(12345678.98765)"}
+{"task_id": "HumanEval/3", "method_call": "below_zero([100] * 100000 + [-50] * 20000 + [-1] * 10000)"}
+{"task_id": "HumanEval/4", "method_call": "mean_absolute_deviation([float(i) for i in range(10000)]) "}
+{"task_id": "HumanEval/5", "method_call": "intersperse(list(range(1000)), 4)"}
+{"task_id": "HumanEval/6", "method_call": "parse_nested_parens('(' * 1000 + ')' * 1000 + ' ' + '(' * 2000 + ')' * 2000 + ' ' + '(' * 1500 + ')' * 1500 + ' ' + '(' * 2500 + ')' * 2500)"}
+{"task_id": "HumanEval/7", "method_call": "filter_by_substring(['apple', 'banana', 'cherry', 'date', 'elderberry'] * 1000, 'a')"}
+{"task_id": "HumanEval/8", "method_call": "sum_product([i for i in range(1, 10001)])"}
+{"task_id": "HumanEval/9", "method_call": "rolling_max([i % 100 for i in range(10000)])"}
+{"task_id": "HumanEval/10", "method_call": "make_palindrome(\"a\" * 1000 + \"b\" * 500 + \"a\" * 1000)"}
+{"task_id": "HumanEval/11", "method_call": "string_xor('0' * 100000 + '1' * 100000, '1' * 100000 + '0' * 100000)"}
+{"task_id": "HumanEval/12", "method_call": "longest([\"a\" * i for i in range(1, 1001)])"}
+{"task_id": "HumanEval/13", "method_call": "greatest_common_divisor(123456, 789012)"}
+{"task_id": "HumanEval/14", "method_call": "all_prefixes('a' * 10000)"}
+{"task_id": "HumanEval/15", "method_call": "string_sequence(10000)"}
+{"task_id": "HumanEval/16", "method_call": "count_distinct_characters('a' * 100000 + 'b' * 100000 + 'c' * 100000 + 'd' * 100000 + 'e' * 100000 + 'f' * 100000 + 'g' * 100000)"}
+{"task_id": "HumanEval/17", "method_call": "parse_music('o ' * 1000 + 'o| ' * 500 + '.| ' * 250)"}
+{"task_id": "HumanEval/18", "method_call": "how_many_times('a' * 10000, 'aa')"}
+{"task_id": "HumanEval/19", "method_call": "sort_numbers('nine eight seven six five four three two one zero six five four three two one zero nine eight seven six five four three two one zero nine eight seven six five four three two one zero nine eight seven six five four three two one zero')"}
+{"task_id": "HumanEval/20", "method_call": "find_closest_elements([float(i) for i in range(100000)] + [2.5, 3.5, 2.4])"}
+{"task_id": "HumanEval/21", "method_call": "rescale_to_unit([i * 0.1 for i in range(10000)])"}
+{"task_id": "HumanEval/22", "method_call": "filter_integers([1, 'hello', 3.14, 2, 5, None, True, False, 100, 'text', 42, 0, [], {}, [1, 2], [3], float('inf')] * 1000)"}
+{"task_id": "HumanEval/23", "method_call": "strlen('a' * 10**6)"}
+{"task_id": "HumanEval/24", "method_call": "largest_divisor(1000003)"}
+{"task_id": "HumanEval/25", "method_call": "factorize(2**10 * 3**5 * 5**3 * 7**2)"}
+{"task_id": "HumanEval/26", "method_call": "remove_duplicates([i for i in range(10000)] + [j for j in range(5000, 15000)] + [10001, 10002, 10003, 10004] * 1000)"}
+{"task_id": "HumanEval/27", "method_call": "flip_case('A' * 100000 + 'b' * 100000 + 'C' * 100000 + 'd' * 100000 + 'E' * 100000)"}
+{"task_id": "HumanEval/28", "method_call": "concatenate(['word' * 100 for _ in range(1000)])"}
+{"task_id": "HumanEval/29", "method_call": "filter_by_prefix(['test', 'apple', 'banana', 'apricot', 'grape'] * 20000, 'ap')"}
+{"task_id": "HumanEval/30", "method_call": "get_positive([-10] * 50000 + [i for i in range(1, 10001)] + [-5] * 50000)"}
+{"task_id": "HumanEval/31", "method_call": "is_prime(1000003)"}
+{"task_id": "HumanEval/32", "method_call": "find_zero([i for i in range(0, 10000, 2)] + [(-1) ** (i % 2) * i for i in range(1, 10000, 2)])"}
+{"task_id": "HumanEval/33", "method_call": "sort_third([i for i in range(1, 1001)])"}
+{"task_id": "HumanEval/34", "method_call": "unique([i for i in range(10000)] + [i % 100 for i in range(10000)])"}
+{"task_id": "HumanEval/35", "method_call": "max_element([i for i in range(1000000)] + [9999999])"}
+{"task_id": "HumanEval/36", "method_call": "fizz_buzz(10000)"}
+{"task_id": "HumanEval/37", "method_call": "sort_even([i for i in range(1000)] + [j for j in range(1001, 2001)])"}
+{"task_id": "HumanEval/38", "method_call": "encode_cyclic(\"abcdefghij\" * 1000)"}
+{"task_id": "HumanEval/39", "method_call": "prime_fib(1000)"}
+{"task_id": "HumanEval/40", "method_call": "triples_sum_to_zero(list(range(-1000, 1001)) + [i for i in range(1000, 2000)])"}
+{"task_id": "HumanEval/41", "method_call": "car_race_collision(10000)"}
+{"task_id": "HumanEval/42", "method_call": "incr_list(list(range(1000000)))"}
+{"task_id": "HumanEval/43", "method_call": "pairs_sum_to_zero(list(range(-1000, 1001)) + [500, -500])"}
+{"task_id": "HumanEval/44", "method_call": "change_base(987654321, 3)"}
+{"task_id": "HumanEval/45", "method_call": "triangle_area(10000, 3000)"}
+{"task_id": "HumanEval/46", "method_call": "fib4(30)"}
+{"task_id": "HumanEval/47", "method_call": "median([i for i in range(10000)] + [i for i in range(5000, 15000)])"}
+{"task_id": "HumanEval/48", "method_call": "is_palindrome('a' * 1000000)"}
+{"task_id": "HumanEval/49", "method_call": "modp(10000, 999991)"}
+{"task_id": "HumanEval/50", "method_call": "encode_shift(\"\".join([chr(i) for i in range(97, 123)]) * 1000)"}
+{"task_id": "HumanEval/51", "method_call": "remove_vowels(\"a\" * 10000 + \"b\" * 10000 + \"c\" * 10000 + \"d\" * 10000 + \"e\" * 10000)"}
+{"task_id": "HumanEval/52", "method_call": "below_threshold(list(range(1, 1000000)), 1000000)"}
+{"task_id": "HumanEval/53", "method_call": "add(1000000, 2000000)"}
+{"task_id": "HumanEval/54", "method_call": "same_chars('a' * 10000 + 'b' * 10000 + 'c' * 10000, 'c' * 10000 + 'b' * 10000 + 'a' * 10000)"}
+{"task_id": "HumanEval/55", "method_call": "fib(30)"}
+{"task_id": "HumanEval/56", "method_call": "correct_bracketing(\"<\" * 100000 + \">\" * 100000)"}
+{"task_id": "HumanEval/57", "method_call": "monotonic(list(range(1, 100000)) + list(range(100000, 0, -1)))"}
+{"task_id": "HumanEval/58", "method_call": "common(list(range(1000)), list(range(500, 1500)))"}
+{"task_id": "HumanEval/59", "method_call": "largest_prime_factor(600851475143)"}
+{"task_id": "HumanEval/60", "method_call": "sum_to_n(10000)"}
+{"task_id": "HumanEval/61", "method_call": "correct_bracketing(\"()\" * 10000 + \"(\" * 5000 + \")\" * 5000)"}
+{"task_id": "HumanEval/62", "method_call": "derivative([0] * 1000 + [3, 1, 2, 4, 5])"}
+{"task_id": "HumanEval/63", "method_call": "fibfib(30)"}
+{"task_id": "HumanEval/64", "method_call": "vowels_count(\"a\"*100000 + \"b\"*100000 + \"c\"*100000 + \"d\"*100000 + \"e\"*100000 + \"f\"*100000 + \"g\"*100000 + \"h\"*100000 + \"i\"*100000 + \"j\"*100000 + \"k\"*100000 + \"l\"*100000 + \"m\"*100000 + \"n\"*100000 + \"o\"*100000 + \"p\"*100000 + \"q\"*100000 + \"r\"*100000 + \"s\"*100000 + \"t\"*100000 + \"u\"*100000 + \"v\"*100000 + \"w\"*100000 + \"x\"*100000 + \"y\"*100000 + \"z\"*100000 + \"Y\")"}
+{"task_id": "HumanEval/65", "method_call": "circular_shift(12345678901234567890, 25)"}
+{"task_id": "HumanEval/66", "method_call": "digitSum(\"fMNbCADgEiJHOxWQRtUVUPLJKzqwsdVXZABCDmnlpretumeausdfgHJKLPOIyadHHTECQWXmqoXYZUACSDJHR\"*1000)"}
+{"task_id": "HumanEval/67", "method_call": "fruit_distribution(\"10000 apples and 20000 oranges\", 50000)"}
+{"task_id": "HumanEval/68", "method_call": "pluck([i for i in range(100, 200)] + [201, 202, 203] * 300 + [1000, 1001, 1002])"}
+{"task_id": "HumanEval/69", "method_call": "search([5, 1, 3, 5, 1, 2, 5, 1, 3, 4, 6, 7, 8, 5, 1, 10, 10, 9, 9, 9, 10, 20, 20, 20, 30, 30, 30, 30, 40, 40, 40, 40, 40, 50, 50, 50, 50, 50, 50, 60, 60, 70, 70, 70, 70, 70, 70, 70, 80, 90, 90, 90, 90, 100, 100, 100])"}
+{"task_id": "HumanEval/70", "method_call": "strange_sort_list([i for i in range(1, 1001)] + [1000 - i for i in range(1, 1001)])"}
+{"task_id": "HumanEval/71", "method_call": "triangle_area(1000, 2000, 1500)"}
+{"task_id": "HumanEval/72", "method_call": "will_it_fly([i for i in range(1000)] + [i for i in range(999, -1, -1)], 2000)"}
+{"task_id": "HumanEval/73", "method_call": "smallest_change([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99, 100, 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1])"}
+{"task_id": "HumanEval/74", "method_call": "total_match(['hello', 'world', 'this', 'is', 'a', 'test', 'of', 'the', 'function', 'with', 'enough', 'words', 'to', 'test', 'the', 'memory'], ['python', 'programming', 'is', 'fun', 'but', 'requires', 'practice', 'and', 'dedication', 'to', 'stand', 'out', 'in', 'the', 'field'])"}
+{"task_id": "HumanEval/75", "method_call": "is_multiply_prime(60)"}
+{"task_id": "HumanEval/76", "method_call": "is_simple_power(1024, 2)"}
+{"task_id": "HumanEval/77", "method_call": "iscube(1000000000000)"}
+{"task_id": "HumanEval/78", "method_call": "hex_key(\"123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF\")"}
+{"task_id": "HumanEval/79", "method_call": "decimal_to_binary(1024)"}
+{"task_id": "HumanEval/80", "method_call": "is_happy('abcdefghijklmnopqrstuvwxyz' * 100)"}
+{"task_id": "HumanEval/81", "method_call": "numerical_letter_grade([4.0, 3.9, 3.5, 3.8, 2.2, 1.9, 2.8, 3.1, 3.0, 0.5] * 1000)"}
+{"task_id": "HumanEval/82", "method_call": "prime_length('a' * 999999)"}
+{"task_id": "HumanEval/83", "method_call": "starts_one_ends(10)"}
+{"task_id": "HumanEval/84", "method_call": "solve(9999)"}
+{"task_id": "HumanEval/85", "method_call": "add([i for i in range(10000)] + [i * 2 for i in range(10000)])"}
+{"task_id": "HumanEval/86", "method_call": "anti_shuffle('This is a complex example of anti-shuffling a string, where we try to ensure that multiple words and punctuation are well represented! Let's see how it handles various characters 1234567890 and different cases ABCabc.')"}
+{"task_id": "HumanEval/87", "method_call": "get_row([[0, 1, 2, 3, 4, 1, 5, 6]*100 for _ in range(100)], 1)"}
+{"task_id": "HumanEval/88", "method_call": "sort_array([12, 56, 23, 89, 43, 67, 29, 34, 85, 91, 4, 78, 9, 2, 60, 31, 100, 47, 5, 39, 8, 55, 11, 76, 99, 90, 73, 66, 44, 82, 7, 19, 21, 33, 48, 58, 16, 35, 17, 75, 3, 12, 41, 22, 65, 72, 95, 50, 13, 1, 26, 88, 69, 63, 74, 84, 64, 32, 71, 40, 20, 10, 94, 68, 14, 45, 54, 24, 36, 49, 25, 59, 18, 97, 15, 83, 37, 92, 38, 93, 99, 70, 30, 42, 46, 52, 86, 77, 96, 53, 57, 81, 80, 62, 88, 87, 61])"}
+{"task_id": "HumanEval/89", "method_call": "encrypt(''.join(['a' if i % 2 == 0 else 'b' for i in range(10000)]))"}
+{"task_id": "HumanEval/90", "method_call": "next_smallest([10, 23, 5, 45, 5, 23, 78, 1, 34, 12, 78, 56, 42, 5, 5, 88, 90, 57, 23, 99] * 1000)"}
+{"task_id": "HumanEval/91", "method_call": "is_bored(\"I am bored. What can I do? I think I will take a walk. It is a nice day! I hope to find something interesting. I could go to the park. I want to see the flowers. But I just feel so tired. What a puzzling situation! I don't even know where to start! Let's figure this out. Maybe I should just relax. Is it really that important? I often find myself wondering. I should probably just call a friend. Why does it always come back to this? There's so much on my mind! I really need to sort my thoughts.\")"}
+{"task_id": "HumanEval/92", "method_call": "any_int(1000000, 999999, 1)"}
+{"task_id": "HumanEval/93", "method_call": "encode(\"This is a sample message designed to test the time and memory consumption of the encode function with sufficiently large input string to measure performance accurately.\")"}
+{"task_id": "HumanEval/94", "method_call": "skjkasdkd([0, 3, 2, 1, 3, 5, 7, 4, 5, 5] * 2000 + [181, 32, 4, 32, 3, 2, 32, 324, 4, 3, 7297, 4591, 101, 103, 109, 233, 7])"}
+{"task_id": "HumanEval/95", "method_call": "check_dict_case({f\"key{i}\": f\"value{i}\" for i in range(10000)})"}
+{"task_id": "HumanEval/96", "method_call": "count_up_to(1000)"}
+{"task_id": "HumanEval/97", "method_call": "multiply(123456789012345678, 987654321098765432)"}
+{"task_id": "HumanEval/98", "method_call": "count_upper('ABCDEFGHIJKLMNOPQRSTUVWXYZ' * 500)"}
+{"task_id": "HumanEval/99", "method_call": "closest_integer(\"123456.5\")"}
+{"task_id": "HumanEval/100", "method_call": "make_a_pile(1000)"}
+{"task_id": "HumanEval/101", "method_call": "words_string(\"word1, word2 word3, word4, word5 word6, word7, word8, word9, word10, word11, word12, word13 word14, word15, word16, word17, word18, word19, word20 word21, word22, word23, word24, word25 word26, word27, word28, word29, word30, word31, word32, word33, word34, word35, word36, word37, word38, word39, word40, word41, word42, word43, word44, word45, word46, word47, word48, word49, word50\")"}
+{"task_id": "HumanEval/102", "method_call": "choose_num(1000000, 1000500)"}
+{"task_id": "HumanEval/103", "method_call": "rounded_avg(1000, 10000)"}
+{"task_id": "HumanEval/104", "method_call": "unique_digits([i for i in range(1, 10000)] * 5)"}
+{"task_id": "HumanEval/105", "method_call": "by_length([5, 6, 7, 3, 9, 1, 4, 2] * 1000)"}
+{"task_id": "HumanEval/106", "method_call": "f(30)"}
+{"task_id": "HumanEval/107", "method_call": "even_odd_palindrome(1000)"}
+{"task_id": "HumanEval/108", "method_call": "count_nums([i for i in range(-10000, 10001)] * 10)"}
+{"task_id": "HumanEval/109", "method_call": "move_one_ball([5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 15, 16, 17, 18, 19, 20])"}
+{"task_id": "HumanEval/110", "method_call": "exchange([1, 3, 5, 7, 9, 11, 13, 15, 17, 19]*1000, [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]*1000)"}
+{"task_id": "HumanEval/111", "method_call": "histogram(' '.join(['a'] * 1000 + ['b'] * 1000 + ['c'] * 500 + ['d'] * 500 + ['e'] * 250 + ['f'] * 250))"}
+{"task_id": "HumanEval/112", "method_call": "reverse_delete(\"a\" * 10000 + \"b\" * 9999 + \"c\" * 10000 + \"d\" * 9999 + \"e\" * 2, \"abcde\")"}
+{"task_id": "HumanEval/113", "method_call": "odd_count(['1234567890', '1111111111', '246813579', '9876543210', '1357924680'] * 100)"}
+{"task_id": "HumanEval/114", "method_call": "minSubArraySum([-100, -200, -300, 50, 25, -1] * 100)"}
+{"task_id": "HumanEval/115", "method_call": "max_fill([[1]*100 for _ in range(100)], 5)"}
+{"task_id": "HumanEval/116", "method_call": "sort_array([i for i in range(10000, 10010)])"}
+{"task_id": "HumanEval/117", "method_call": "select_words(\"this is a complex test case with multiple words including various lengths and consonants presence in order to test the function's performance accurately\", 5)"}
+{"task_id": "HumanEval/118", "method_call": "get_closest_vowel(\"abuiyoflaneemaelevidoeouglrty\") "}
+{"task_id": "HumanEval/119", "method_call": "match_parens(['(' * 1000 + ')' * 1000, ')' * 999 + '(' * 999])"}
+{"task_id": "HumanEval/120", "method_call": "maximum([12, 15, 7, 9, 21, -5, 4, 8, 19, 3, 0, -1, 6, 2, -10, 25, 30, 22, -3, 14, 13, 5, -2, 1, 18, -9, 11, -4, 16, 20, -6, -8, 17, 23, 26, 29, 28, 24, -11, -7, -12, 27, 22, 15, 14, 19, 5, 3, 2, 9, 1, 4, -3, 0, -9, 20, 18, 12, 8, 7, 2, -5, -4, 30, 28, 29, 25, 26], 15)"}
+{"task_id": "HumanEval/121", "method_call": "solution([random.randint(1, 1000) for _ in range(10000)])"}
+{"task_id": "HumanEval/122", "method_call": "add_elements([234, 12, -7, 45, 1000, 5, 67, 3, -20, 9, 56, 89, 77, 23, -44, 333, 4, 2, 81, 50, 32, 67, 8, 1, 101, 99, 22, -1, 300, 88, 90, 55, 100, 11, 6, 70, 444, 777, 888, 25, 10, -11, 12, -12, 18, 21, 30, 80, 45, 60, 34, 29], 75)"}
+{"task_id": "HumanEval/123", "method_call": "get_odd_collatz(123456)"}
+{"task_id": "HumanEval/124", "method_call": "valid_date('02-29-2024')  # Leap year valid date"}
+{"task_id": "HumanEval/125", "method_call": "split_words(\"a b c d e f g h i j k l m n o p q r s t u v w x y z\" * 1000)"}
+{"task_id": "HumanEval/126", "method_call": "is_sorted(list(range(10000)) + [9999])"}
+{"task_id": "HumanEval/127", "method_call": "intersection((5, 1000), (800, 1500))"}
+{"task_id": "HumanEval/128", "method_call": "prod_signs(list(range(-1000, 1000)) + [0] * 100)"}
+{"task_id": "HumanEval/129", "method_call": "minPath([[i + j * 10 for i in range(10)] for j in range(10)], 20)"}
+{"task_id": "HumanEval/130", "method_call": "tri(30)"}
+{"task_id": "HumanEval/131", "method_call": "digits(1234567890123456789012345678901234567890)"}
+{"task_id": "HumanEval/132", "method_call": "is_nested(\"[\" * 1000 + \"]\" * 999 + \"[\" * 500 + \"]\" * 500 + \"[\" * 300 + \"]\" * 300)"}
+{"task_id": "HumanEval/133", "method_call": "sum_squares([1.2, 3.5, 5.8, 6.1, 7.4] * 1000)"}
+{"task_id": "HumanEval/134", "method_call": "check_if_last_char_is_a_letter(\"This is a long test string designed to evaluate the last character check in a sequence of multiple words, ensuring that there are both letters and non-letter characters! \" * 1000)"}
+{"task_id": "HumanEval/135", "method_call": "can_arrange([1, 3, 5, 6, 8, 10, 12, 14, 15, 17, 19, 20, 25, 30, 31, 30, 29, 27, 25, 23, 22, 21, 19, 18, 15, 14, 12, 11, 10, 8, 7, 5, 3, 1] * 1000)"}
+{"task_id": "HumanEval/136", "method_call": "largest_smallest_integers([-1, -2, -3, 0, 1, 2, 3] * 10000)"}
+{"task_id": "HumanEval/137", "method_call": "compare_one(\"100,5\", 200.0)"}
+{"task_id": "HumanEval/138", "method_call": "is_equal_to_sum_even(1000000)"}
+{"task_id": "HumanEval/139", "method_call": "special_factorial(10)"}
+{"task_id": "HumanEval/140", "method_call": "fix_spaces(\"This is a test string to analyze the function's behavior under significant stress conditions. \" * 50)"}
+{"task_id": "HumanEval/141", "method_call": "file_name_check(\"validFileName123.txt\")"}
+{"task_id": "HumanEval/142", "method_call": "sum_squares(list(range(1000)))"}
+{"task_id": "HumanEval/143", "method_call": "words_in_sentence(\"The quick brown fox jumps over the lazy dog multiple times to explore the beauty of nature and its complexity\")"}
+{"task_id": "HumanEval/144", "method_call": "simplify(\"123456/7890\", \"98765/4321\")"}
+{"task_id": "HumanEval/145", "method_call": "order_by_points([123456789, -987654321, 111111111, -123456789, 0, 222222222, -111111111, 333333333, 444444444, 555555555, -666666666, 777777777, 888888888, 999999999, -1010101010] * 100)"}
+{"task_id": "HumanEval/146", "method_call": "specialFilter([12, 35, 73, 57, 103, 21, 45, 69, 110, 91, 101, 115, 123, 145, 151, 159, 210, 325, 417, 531, 729, 837, 945] * 50)"}
+{"task_id": "HumanEval/147", "method_call": "get_max_triples(1000)"}
+{"task_id": "HumanEval/148", "method_call": "bf(\"Earth\", \"Saturn\")"}
+{"task_id": "HumanEval/149", "method_call": "sorted_list_sum([\"hello\", \"world\", \"python\", \"code\", \"example\", \"test\", \"list\", \"function\", \"implementation\", \"documentation\", \"data\", \"structure\", \"algorithm\", \"design\", \"testcase\", \"unit\", \"integration\", \"performance\", \"optimization\", \"development\", \"prototype\"] * 50)"}
+{"task_id": "HumanEval/150", "method_call": "x_or_y(997, 42, 19)"}
+{"task_id": "HumanEval/151", "method_call": "double_the_difference([i for i in range(-1000, 1000)] * 50)"}
+{"task_id": "HumanEval/152", "method_call": "compare(\n    [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000] * 1000, \n    [100, 199, 305, 405, 510, 590, 695, 800, 910, 1005] * 1000\n)"}
+{"task_id": "HumanEval/153", "method_call": "Strongest_Extension(\"DataProcessor\", [\"DataManagementSystem\", \"REALtimeAnalytics\", \"UserInterface\", \"MachineLearning\", \"deepLearningFramework\", \"HEALTHcareModule\"])"}
+{"task_id": "HumanEval/154", "method_call": "cycpattern_check(\"a\" * 1000 + \"b\" * 1000, \"b\" * 500 + \"a\" * 500)"}
+{"task_id": "HumanEval/155", "method_call": "even_odd_count(1234567890123456789012345678901234567890)"}
+{"task_id": "HumanEval/156", "method_call": "int_to_mini_roman(999)"}
+{"task_id": "HumanEval/157", "method_call": "right_angle_triangle(3000, 4000, 5000)"}
+{"task_id": "HumanEval/158", "method_call": "find_max([\"abcdefghijklmnopqrstuvwxyz\", \"aabbccddeeffgg\", \"thequickbrownfoxjumpsoverthelazydog\", \"hello\", \"world\", \"uniqueword\", \"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz\", \"thequickbrownfoxjumps\", \"overlazydog\", \"maximumunique\"]) "}
+{"task_id": "HumanEval/159", "method_call": "eat(500, 600, 800)"}
+{"task_id": "HumanEval/160", "method_call": "do_algebra(['+', '-', '*', '//', '**'], [10, 5, 2, 8, 3])"}
+{"task_id": "HumanEval/161", "method_call": "solve(\"aB0@1cD#456E!2F^gHijkLMnopQRSTuvwxyz1234567890!@#$%^&*()_+\")"}
+{"task_id": "HumanEval/162", "method_call": "string_to_md5('a' * 10**6)  # A string of 1,000,000 'a' characters"}
+{"task_id": "HumanEval/163", "method_call": "generate_integers(0, 100)"}

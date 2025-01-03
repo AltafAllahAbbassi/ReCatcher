@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: ReCatcher
+Version: 0.1
+Summary: Regression Testing Tool for Code LLM
+Author: Altaf Allah Abbassi
+Requires-Python: >=3.9
