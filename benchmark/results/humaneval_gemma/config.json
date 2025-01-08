@@ -1,0 +1,10 @@
+{
+    "dataset": "datasets/humaneval+/HumanEvalPlus.jsonl",
+    "task": "code_completion",
+    "generation_config": {
+        "do_sample": true,
+        "top_k": 10,
+        "temperature": 0.1,
+        "top_p": 0.95
+    }
+}

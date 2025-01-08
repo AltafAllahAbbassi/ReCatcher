@@ -1,0 +1,1238 @@
+task_id,prompt,model,result,extarcted_method,judgements,judgements_1,judgements_2,judgements_3,judgements_4,passed,compiled
+HumanEval/3,"from typing import List
+
+
+def below_zero(operations: List[int]) -> bool:
+    """""" You're given a list of deposit and withdrawal operations on a bank account that starts with
+    zero balance. Your task is to detect if at any point the balance of account fallls below zero, and
+    at that point function should return True. Otherwise it should return False.
+    >>> below_zero([1, 2, 3])
+    False
+    >>> below_zero([1, 2, -4, 5])
+    True
+    """"""
+",code_gemma,"from typing import List
+
+
+def below_zero(operations: List[int]) -> bool:
+	"""""" You're given a list of deposit and withdrawal operations on a bank account that starts with
+	zero balance. Your task is to detect if at any point the balance of account fallls below zero, and
+	at that point function should return True. Otherwise it should return False.
+	>>> below_zero([1, 2, 3])
+	False
+	>>> below_zero([1, 2, -4, 5])
+	True
+	""""""
+	balance = 0
+	for operation in operations:
+		balance += operation
+		if balance < 0:
+			return True
+	return False","from typing import List
+
+
+def below_zero(operations: List[int]) -> bool:
+	"""""" You're given a list of deposit and withdrawal operations on a bank account that starts with
+	zero balance. Your task is to detect if at any point the balance of account fallls below zero, and
+	at that point function should return True. Otherwise it should return False.
+	>>> below_zero([1, 2, 3])
+	False
+	>>> below_zero([1, 2, -4, 5])
+	True
+	""""""
+	balance = 0
+	for operation in operations:
+		balance += operation
+		if balance < 0:
+			return True
+	return False",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/5,"from typing import List
+
+
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    """""" Insert a number 'delimeter' between every two consecutive elements of input list `numbers'
+    >>> intersperse([], 4)
+    []
+    >>> intersperse([1, 2, 3], 4)
+    [1, 4, 2, 4, 3]
+    """"""
+",code_gemma,"from typing import List
+
+
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+	"""""" Insert a number 'delimeter' between every two consecutive elements of input list `numbers'
+	>>> intersperse([], 4)
+	[]
+	>>> intersperse([1, 2, 3], 4)
+	[1, 4, 2, 4, 3]
+	""""""
+","from typing import List
+
+
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+	"""""" Insert a number 'delimeter' between every two consecutive elements of input list `numbers'
+	>>> intersperse([], 4)
+	[]
+	>>> intersperse([1, 2, 3], 4)
+	[1, 4, 2, 4, 3]
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/6,"from typing import List
+
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+    """""" Input to this function is a string represented multiple groups for nested parentheses separated by spaces.
+    For each of the group, output the deepest level of nesting of parentheses.
+    E.g. (()()) has maximum two levels of nesting while ((())) has three.
+
+    >>> parse_nested_parens('(()()) ((())) () ((())()())')
+    [2, 3, 1, 3]
+    """"""
+",code_gemma,"from typing import List
+
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+	"""""" Input to this function is a string represented multiple groups for nested parentheses separated by spaces.
+	For each of the group, output the deepest level of nesting of parentheses.
+	E.g. (()()) has maximum two levels of nesting while ((())) has three.
+
+	>>> parse_nested_parens('(()()) ((())) () ((())()())')
+	[2, 3, 1, 3]
+	""""""
+","from typing import List
+
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+	"""""" Input to this function is a string represented multiple groups for nested parentheses separated by spaces.
+	For each of the group, output the deepest level of nesting of parentheses.
+	E.g. (()()) has maximum two levels of nesting while ((())) has three.
+
+	>>> parse_nested_parens('(()()) ((())) () ((())()())')
+	[2, 3, 1, 3]
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/7,"from typing import List
+
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    """""" Filter an input list of strings only for ones that contain given substring
+    >>> filter_by_substring([], 'a')
+    []
+    >>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')
+    ['abc', 'bacd', 'array']
+    """"""
+",code_gemma,"from typing import List
+
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+	"""""" Filter an input list of strings only for ones that contain given substring
+	>>> filter_by_substring([], 'a')
+	[]
+	>>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')
+	['abc', 'bacd', 'array']
+	""""""
+","from typing import List
+
+
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+	"""""" Filter an input list of strings only for ones that contain given substring
+	>>> filter_by_substring([], 'a')
+	[]
+	>>> filter_by_substring(['abc', 'bacd', 'cde', 'array'], 'a')
+	['abc', 'bacd', 'array']
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/15,"
+
+def string_sequence(n: int) -> str:
+    """""" Return a string containing space-delimited numbers starting from 0 upto n inclusive.
+    >>> string_sequence(0)
+    '0'
+    >>> string_sequence(5)
+    '0 1 2 3 4 5'
+    """"""
+",code_gemma,"
+
+def string_sequence(n: int) -> str:
+	"""""" Return a string containing space-delimited numbers starting from 0 upto n inclusive.
+	>>> string_sequence(0)
+	'0'
+	>>> string_sequence(5)
+	'0 1 2 3 4 5'
+	""""""
+","
+
+def string_sequence(n: int) -> str:
+	"""""" Return a string containing space-delimited numbers starting from 0 upto n inclusive.
+	>>> string_sequence(0)
+	'0'
+	>>> string_sequence(5)
+	'0 1 2 3 4 5'
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/16,"
+
+def count_distinct_characters(string: str) -> int:
+    """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
+    >>> count_distinct_characters('xyzXYZ')
+    3
+    >>> count_distinct_characters('Jerry')
+    4
+    """"""
+",code_gemma,"
+
+def count_distinct_characters(string: str) -> int:
+	"""""" Given a string, find out how many distinct characters (regardless of case) does it consist of
+	>>> count_distinct_characters('xyzXYZ')
+	3
+	>>> count_distinct_characters('Jerry')
+	4
+	""""""
+","
+
+def count_distinct_characters(string: str) -> int:
+	"""""" Given a string, find out how many distinct characters (regardless of case) does it consist of
+	>>> count_distinct_characters('xyzXYZ')
+	3
+	>>> count_distinct_characters('Jerry')
+	4
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/23,"
+
+def strlen(string: str) -> int:
+    """""" Return length of given string
+    >>> strlen('')
+    0
+    >>> strlen('abc')
+    3
+    """"""
+",code_gemma,"
+
+def strlen(string: str) -> int:
+	"""""" Return length of given string
+	>>> strlen('')
+	0
+	>>> strlen('abc')
+	3
+	""""""
+	return len(string)
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()","
+
+def strlen(string: str) -> int:
+	"""""" Return length of given string
+	>>> strlen('')
+	0
+	>>> strlen('abc')
+	3
+	""""""
+	return len(string)
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/27,"
+
+def flip_case(string: str) -> str:
+    """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
+    >>> flip_case('Hello')
+    'hELLO'
+    """"""
+",code_gemma,"
+
+def flip_case(string: str) -> str:
+	"""""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
+	>>> flip_case('Hello')
+	'hELLO'
+	""""""
+	return string.swapcase()
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()","
+
+def flip_case(string: str) -> str:
+	"""""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
+	>>> flip_case('Hello')
+	'hELLO'
+	""""""
+	return string.swapcase()
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/28,"from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+    """""" Concatenate list of strings into a single string
+    >>> concatenate([])
+    ''
+    >>> concatenate(['a', 'b', 'c'])
+    'abc'
+    """"""
+",code_gemma,"from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+	"""""" Concatenate list of strings into a single string
+	>>> concatenate([])
+	''
+	>>> concatenate(['a', 'b', 'c'])
+	'abc'
+	""""""
+	return ''.join(strings)
+
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()","from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+	"""""" Concatenate list of strings into a single string
+	>>> concatenate([])
+	''
+	>>> concatenate(['a', 'b', 'c'])
+	'abc'
+	""""""
+	return ''.join(strings)
+
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/29,"from typing import List
+
+
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+    """""" Filter an input list of strings only for ones that start with a given prefix.
+    >>> filter_by_prefix([], 'a')
+    []
+    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')
+    ['abc', 'array']
+    """"""
+",code_gemma,"from typing import List
+
+
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+	"""""" Filter an input list of strings only for ones that start with a given prefix.
+	>>> filter_by_prefix([], 'a')
+	[]
+	>>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')
+	['abc', 'array']
+	""""""
+","from typing import List
+
+
+def filter_by_prefix(strings: List[str], prefix: str) -> List[str]:
+	"""""" Filter an input list of strings only for ones that start with a given prefix.
+	>>> filter_by_prefix([], 'a')
+	[]
+	>>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')
+	['abc', 'array']
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/36,"
+
+def fizz_buzz(n: int):
+    """"""Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
+    >>> fizz_buzz(50)
+    0
+    >>> fizz_buzz(78)
+    2
+    >>> fizz_buzz(79)
+    3
+    """"""
+",code_gemma,"
+
+def fizz_buzz(n: int):
+	""""""Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
+	>>> fizz_buzz(50)
+	0
+	>>> fizz_buzz(78)
+	2
+	>>> fizz_buzz(79)
+	3
+	""""""
+","
+
+def fizz_buzz(n: int):
+	""""""Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
+	>>> fizz_buzz(50)
+	0
+	>>> fizz_buzz(78)
+	2
+	>>> fizz_buzz(79)
+	3
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/39,"
+
+def prime_fib(n: int):
+    """"""
+    prime_fib returns n-th number that is a Fibonacci number and it's also prime.
+    >>> prime_fib(1)
+    2
+    >>> prime_fib(2)
+    3
+    >>> prime_fib(3)
+    5
+    >>> prime_fib(4)
+    13
+    >>> prime_fib(5)
+    89
+    """"""
+",code_gemma,"
+
+def prime_fib(n: int):
+	""""""
+	prime_fib returns n-th number that is a Fibonacci number and it's also prime.
+	>>> prime_fib(1)
+	2
+	>>> prime_fib(2)
+	3
+	>>> prime_fib(3)
+	5
+	>>> prime_fib(4)
+	13
+	>>> prime_fib(5)
+	89
+	""""""
+	pass
+
+
+if __name__ == ""__main__"":
+	import doctest
+	doctest.testmod()","
+
+def prime_fib(n: int):
+	""""""
+	prime_fib returns n-th number that is a Fibonacci number and it's also prime.
+	>>> prime_fib(1)
+	2
+	>>> prime_fib(2)
+	3
+	>>> prime_fib(3)
+	5
+	>>> prime_fib(4)
+	13
+	>>> prime_fib(5)
+	89
+	""""""
+	pass
+
+
+if __name__ == ""__main__"":
+	import doctest
+	doctest.testmod()",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/41,"
+
+def car_race_collision(n: int):
+    """"""
+    Imagine a road that's a perfectly straight infinitely long line.
+    n cars are driving left to right;  simultaneously, a different set of n cars
+    are driving right to left.   The two sets of cars start out being very far from
+    each other.  All cars move in the same speed.  Two cars are said to collide
+    when a car that's moving left to right hits a car that's moving right to left.
+    However, the cars are infinitely sturdy and strong; as a result, they continue moving
+    in their trajectory as if they did not collide.
+
+    This function outputs the number of such collisions.
+    """"""
+",code_gemma,"
+
+def car_race_collision(n: int):
+	""""""
+	Imagine a road that's a perfectly straight infinitely long line.
+	n cars are driving left to right;▁▁simultaneously, a different set of n cars
+	are driving right to left.▁▁▁The two sets of cars start out being very far from
+	each other.▁▁All cars move in the same speed.▁▁Two cars are said to collide
+	when a car that's moving left to right hits a car that's moving right to left.
+	However, the cars are infinitely sturdy and strong; as a result, they continue moving
+	in their trajectory as if they did not collide.
+
+	This function outputs the number of such collisions.
+	""""""
+	pass
+
+
+def main():
+	pass
+
+
+if __name__ == ""__main__"":
+	main()","
+
+def car_race_collision(n: int):
+	""""""
+	Imagine a road that's a perfectly straight infinitely long line.
+	n cars are driving left to right;▁▁simultaneously, a different set of n cars
+	are driving right to left.▁▁▁The two sets of cars start out being very far from
+	each other.▁▁All cars move in the same speed.▁▁Two cars are said to collide
+	when a car that's moving left to right hits a car that's moving right to left.
+	However, the cars are infinitely sturdy and strong; as a result, they continue moving
+	in their trajectory as if they did not collide.
+
+	This function outputs the number of such collisions.
+	""""""
+	pass
+
+
+def main():
+	pass
+
+
+if __name__ == ""__main__"":
+	main()",{'inefficiencies': []},"{'inefficiencies': [{'code smell': 'Unimplemented Function', 'description and explanation': ""The function 'car_race_collision' is defined but not implemented. This results in a lack of functionality and does not fulfill the purpose described in the docstring."", 'line': 12}]}","{'inefficiencies': [{'code smell': 'Unimplemented Function', 'description and explanation': ""The function 'car_race_collision' is defined but not implemented. This results in a lack of functionality, as it does not perform any operations or return any values, which is critical for the purpose of the function."", 'line': 12}]}","{'inefficiencies': [{'code smell': 'Unimplemented Function', 'description and explanation': ""The function 'car_race_collision' is defined but not implemented. This results in a lack of functionality and does not fulfill the purpose described in the docstring."", 'line': 12}]}","{'inefficiencies': [{'code smell': 'Unimplemented Function', 'description and explanation': ""The function 'car_race_collision' is defined but not implemented. This results in a lack of functionality and does not fulfill the purpose described in the docstring."", 'line': 12}]}",False,True
+HumanEval/47,"
+
+def median(l: list):
+    """"""Return median of elements in the list l.
+    >>> median([3, 1, 2, 4, 5])
+    3
+    >>> median([-10, 4, 6, 1000, 10, 20])
+    15.0
+    """"""
+",code_gemma,"
+
+def median(l: list):
+	""""""Return median of elements in the list l.
+	>>> median([3, 1, 2, 4, 5])
+	3
+	>>> median([-10, 4, 6, 1000, 10, 20])
+	15.0
+	""""""
+	l.sort()
+	if len(l) % 2 == 0:
+		return (l[len(l) // 2] + l[len(l) // 2 - 1]) / 2
+	else:
+		return l[len(l) // 2]","
+
+def median(l: list):
+	""""""Return median of elements in the list l.
+	>>> median([3, 1, 2, 4, 5])
+	3
+	>>> median([-10, 4, 6, 1000, 10, 20])
+	15.0
+	""""""
+	l.sort()
+	if len(l) % 2 == 0:
+		return (l[len(l) // 2] + l[len(l) // 2 - 1]) / 2
+	else:
+		return l[len(l) // 2]",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/48,"
+
+def is_palindrome(text: str):
+    """"""
+    Checks if given string is a palindrome
+    >>> is_palindrome('')
+    True
+    >>> is_palindrome('aba')
+    True
+    >>> is_palindrome('aaaaa')
+    True
+    >>> is_palindrome('zbcd')
+    False
+    """"""
+",code_gemma,"
+
+def is_palindrome(text: str):
+	""""""
+	Checks if given string is a palindrome
+	>>> is_palindrome('')
+	True
+	>>> is_palindrome('aba')
+	True
+	>>> is_palindrome('aaaaa')
+	True
+	>>> is_palindrome('zbcd')
+	False
+	""""""
+	return text == text[::-1]
+
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()","
+
+def is_palindrome(text: str):
+	""""""
+	Checks if given string is a palindrome
+	>>> is_palindrome('')
+	True
+	>>> is_palindrome('aba')
+	True
+	>>> is_palindrome('aaaaa')
+	True
+	>>> is_palindrome('zbcd')
+	False
+	""""""
+	return text == text[::-1]
+
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/53,"
+
+def add(x: int, y: int):
+    """"""Add two numbers x and y
+    >>> add(2, 3)
+    5
+    >>> add(5, 7)
+    12
+    """"""
+",code_gemma,"
+
+def add(x: int, y: int):
+	""""""Add two numbers x and y
+	>>> add(2, 3)
+	5
+	>>> add(5, 7)
+	12
+	""""""
+	return x + y
+
+def sub(x: int, y: int):
+	""""""Substract two numbers x and y
+	>>> sub(2, 3)
+	-1
+	>>> sub(5, 7)
+	-2
+	""""""
+	return x - y","
+
+def add(x: int, y: int):
+	""""""Add two numbers x and y
+	>>> add(2, 3)
+	5
+	>>> add(5, 7)
+	12
+	""""""
+	return x + y
+
+def sub(x: int, y: int):
+	""""""Substract two numbers x and y
+	>>> sub(2, 3)
+	-1
+	>>> sub(5, 7)
+	-2
+	""""""
+	return x - y",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/54,"
+
+def same_chars(s0: str, s1: str):
+    """"""
+    Check if two words have the same characters.
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+    True
+    >>> same_chars('abcd', 'dddddddabc')
+    True
+    >>> same_chars('dddddddabc', 'abcd')
+    True
+    >>> same_chars('eabcd', 'dddddddabc')
+    False
+    >>> same_chars('abcd', 'dddddddabce')
+    False
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    False
+    """"""
+",code_gemma,"
+
+def same_chars(s0: str, s1: str):
+	""""""
+	Check if two words have the same characters.
+	>>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+	True
+	>>> same_chars('abcd', 'dddddddabc')
+	True
+	>>> same_chars('dddddddabc', 'abcd')
+	True
+	>>> same_chars('eabcd', 'dddddddabc')
+	False
+	>>> same_chars('abcd', 'dddddddabce')
+	False
+	>>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+	False
+	""""""
+","
+
+def same_chars(s0: str, s1: str):
+	""""""
+	Check if two words have the same characters.
+	>>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+	True
+	>>> same_chars('abcd', 'dddddddabc')
+	True
+	>>> same_chars('dddddddabc', 'abcd')
+	True
+	>>> same_chars('eabcd', 'dddddddabc')
+	False
+	>>> same_chars('abcd', 'dddddddabce')
+	False
+	>>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+	False
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/62,"
+
+def derivative(xs: list):
+    """""" xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    """"""
+",code_gemma,"
+
+def derivative(xs: list):
+	"""""" xs represent coefficients of a polynomial.
+	xs[0] + xs[1] * x + xs[2] * x^2 + ....
+	▁Return derivative of this polynomial in the same form.
+	>>> derivative([3, 1, 2, 4, 5])
+	[1, 4, 12, 20]
+	>>> derivative([1, 2, 3])
+	[2, 6]
+	""""""
+	return [xs[i] * i for i in range(1, len(xs))]
+
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()","
+
+def derivative(xs: list):
+	"""""" xs represent coefficients of a polynomial.
+	xs[0] + xs[1] * x + xs[2] * x^2 + ....
+	▁Return derivative of this polynomial in the same form.
+	>>> derivative([3, 1, 2, 4, 5])
+	[1, 4, 12, 20]
+	>>> derivative([1, 2, 3])
+	[2, 6]
+	""""""
+	return [xs[i] * i for i in range(1, len(xs))]
+
+
+if __name__ == '__main__':
+	import doctest
+	doctest.testmod()",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/66,"
+def digitSum(s):
+    """"""Task
+    Write a function that takes a string as input and returns the sum of the upper characters only'
+    ASCII codes.
+
+    Examples:
+        digitSum("""") => 0
+        digitSum(""abAB"") => 131
+        digitSum(""abcCd"") => 67
+        digitSum(""helloE"") => 69
+        digitSum(""woArBld"") => 131
+        digitSum(""aAaaaXa"") => 153
+    """"""
+",code_gemma,"
+def digitSum(s):
+	""""""Task
+	Write a function that takes a string as input and returns the sum of the upper characters only'
+	ASCII codes.
+
+	Examples:
+		digitSum("""") => 0
+		digitSum(""abAB"") => 131
+		digitSum(""abcCd"") => 67
+		digitSum(""helloE"") => 69
+		digitSum(""woArBld"") => 131
+		digitSum(""aAaaaXa"") => 153
+	""""""
+	if not s:
+		return 0
+	return sum(ord(c) for c in s if c.isupper())","
+def digitSum(s):
+	""""""Task
+	Write a function that takes a string as input and returns the sum of the upper characters only'
+	ASCII codes.
+
+	Examples:
+		digitSum("""") => 0
+		digitSum(""abAB"") => 131
+		digitSum(""abcCd"") => 67
+		digitSum(""helloE"") => 69
+		digitSum(""woArBld"") => 131
+		digitSum(""aAaaaXa"") => 153
+	""""""
+	if not s:
+		return 0
+	return sum(ord(c) for c in s if c.isupper())",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/84,"
+def solve(N):
+    """"""Given a positive integer N, return the total sum of its digits in binary.
+    
+    Example
+        For N = 1000, the sum of digits will be 1 the output should be ""1"".
+        For N = 150, the sum of digits will be 6 the output should be ""110"".
+        For N = 147, the sum of digits will be 12 the output should be ""1100"".
+    
+    Variables:
+        @N integer
+             Constraints: 0 ≤ N ≤ 10000.
+    Output:
+         a string of binary number
+    """"""
+",code_gemma,"
+def solve(N):
+	""""""Given a positive integer N, return the total sum of its digits in binary.
+	
+	Example
+		For N = 1000, the sum of digits will be 1 the output should be ""1"".
+		For N = 150, the sum of digits will be 6 the output should be ""110"".
+		For N = 147, the sum of digits will be 12 the output should be ""1100"".
+	
+	Variables:
+		@N integer
+			▁Constraints: 0 ≤ N ≤ 10000.
+	Output:
+		▁a string of binary number
+	""""""
+","
+def solve(N):
+	""""""Given a positive integer N, return the total sum of its digits in binary.
+	
+	Example
+		For N = 1000, the sum of digits will be 1 the output should be ""1"".
+		For N = 150, the sum of digits will be 6 the output should be ""110"".
+		For N = 147, the sum of digits will be 12 the output should be ""1100"".
+	
+	Variables:
+		@N integer
+			▁Constraints: 0 ≤ N ≤ 10000.
+	Output:
+		▁a string of binary number
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/91,"
+def is_bored(S):
+    """"""
+    You'll be given a string of words, and your task is to count the number
+    of boredoms. A boredom is a sentence that starts with the word ""I"".
+    Sentences are delimited by '.', '?' or '!'.
+   
+    For example:
+    >>> is_bored(""Hello world"")
+    0
+    >>> is_bored(""The sky is blue. The sun is shining. I love this weather"")
+    1
+    """"""
+",code_gemma,"
+def is_bored(S):
+	""""""
+	You'll be given a string of words, and your task is to count the number
+	of boredoms. A boredom is a sentence that starts with the word ""I"".
+	Sentences are delimited by '.', '?' or '!'.
+▁▁▁
+	For example:
+	>>> is_bored(""Hello world"")
+	0
+	>>> is_bored(""The sky is blue. The sun is shining. I love this weather"")
+	1
+	""""""
+","
+def is_bored(S):
+	""""""
+	You'll be given a string of words, and your task is to count the number
+	of boredoms. A boredom is a sentence that starts with the word ""I"".
+	Sentences are delimited by '.', '?' or '!'.
+▁▁▁
+	For example:
+	>>> is_bored(""Hello world"")
+	0
+	>>> is_bored(""The sky is blue. The sun is shining. I love this weather"")
+	1
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/98,"
+def count_upper(s):
+    """"""
+    Given a string s, count the number of uppercase vowels in even indices.
+    
+    For example:
+    count_upper('aBCdEf') returns 1
+    count_upper('abcdefg') returns 0
+    count_upper('dBBE') returns 0
+    """"""
+",code_gemma,"
+def count_upper(s):
+	""""""
+	Given a string s, count the number of uppercase vowels in even indices.
+	
+	For example:
+	count_upper('aBCdEf') returns 1
+	count_upper('abcdefg') returns 0
+	count_upper('dBBE') returns 0
+	""""""
+	
+	count = 0
+	for i in range(0, len(s), 2):
+		if s[i].isupper() and s[i] in 'AEIOU':
+			count += 1
+	return count","
+def count_upper(s):
+	""""""
+	Given a string s, count the number of uppercase vowels in even indices.
+	
+	For example:
+	count_upper('aBCdEf') returns 1
+	count_upper('abcdefg') returns 0
+	count_upper('dBBE') returns 0
+	""""""
+	
+	count = 0
+	for i in range(0, len(s), 2):
+		if s[i].isupper() and s[i] in 'AEIOU':
+			count += 1
+	return count",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/99,"
+def closest_integer(value):
+    '''
+    Create a function that takes a value (string) representing a number
+    and returns the closest integer to it. If the number is equidistant
+    from two integers, round it away from zero.
+
+    Examples
+    >>> closest_integer(""10"")
+    10
+    >>> closest_integer(""15.3"")
+    15
+
+    Note:
+    Rounding away from zero means that if the given number is equidistant
+    from two integers, the one you should return is the one that is the
+    farthest from zero. For example closest_integer(""14.5"") should
+    return 15 and closest_integer(""-14.5"") should return -15.
+    '''
+",code_gemma,"
+def closest_integer(value):
+	'''
+	Create a function that takes a value (string) representing a number
+	and returns the closest integer to it. If the number is equidistant
+	from two integers, round it away from zero.
+
+	Examples
+	>>> closest_integer(""10"")
+	10
+	>>> closest_integer(""15.3"")
+	15
+
+	Note:
+	Rounding away from zero means that if the given number is equidistant
+	from two integers, the one you should return is the one that is the
+	farthest from zero. For example closest_integer(""14.5"") should
+	return 15 and closest_integer(""-14.5"") should return -15.
+	'''
+","
+def closest_integer(value):
+	'''
+	Create a function that takes a value (string) representing a number
+	and returns the closest integer to it. If the number is equidistant
+	from two integers, round it away from zero.
+
+	Examples
+	>>> closest_integer(""10"")
+	10
+	>>> closest_integer(""15.3"")
+	15
+
+	Note:
+	Rounding away from zero means that if the given number is equidistant
+	from two integers, the one you should return is the one that is the
+	farthest from zero. For example closest_integer(""14.5"") should
+	return 15 and closest_integer(""-14.5"") should return -15.
+	'''
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/101,"
+def words_string(s):
+    """"""
+    You will be given a string of words separated by commas or spaces. Your task is
+    to split the string into words and return an array of the words.
+    
+    For example:
+    words_string(""Hi, my name is John"") == [""Hi"", ""my"", ""name"", ""is"", ""John""]
+    words_string(""One, two, three, four, five, six"") == [""One"", ""two"", ""three"", ""four"", ""five"", ""six""]
+    """"""
+",code_gemma,"
+def words_string(s):
+	""""""
+	You will be given a string of words separated by commas or spaces. Your task is
+	to split the string into words and return an array of the words.
+	
+	For example:
+	words_string(""Hi, my name is John"") == [""Hi"", ""my"", ""name"", ""is"", ""John""]
+	words_string(""One, two, three, four, five, six"") == [""One"", ""two"", ""three"", ""four"", ""five"", ""six""]
+	""""""
+","
+def words_string(s):
+	""""""
+	You will be given a string of words separated by commas or spaces. Your task is
+	to split the string into words and return an array of the words.
+	
+	For example:
+	words_string(""Hi, my name is John"") == [""Hi"", ""my"", ""name"", ""is"", ""John""]
+	words_string(""One, two, three, four, five, six"") == [""One"", ""two"", ""three"", ""four"", ""five"", ""six""]
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/114,"
+def minSubArraySum(nums):
+    """"""
+    Given an array of integers nums, find the minimum sum of any non-empty sub-array
+    of nums.
+    Example
+    minSubArraySum([2, 3, 4, 1, 2, 4]) == 1
+    minSubArraySum([-1, -2, -3]) == -6
+    """"""
+",code_gemma,"
+def minSubArraySum(nums):
+	""""""
+	Given an array of integers nums, find the minimum sum of any non-empty sub-array
+	of nums.
+	Example
+	minSubArraySum([2, 3, 4, 1, 2, 4]) == 1
+	minSubArraySum([-1, -2, -3]) == -6
+	""""""
+	if not nums:
+		return 0
+	min_sum = nums[0]
+	cur_sum = nums[0]
+	for i in range(1, len(nums)):
+		cur_sum = min(cur_sum + nums[i], nums[i])
+		min_sum = min(min_sum, cur_sum)
+	return min_sum","
+def minSubArraySum(nums):
+	""""""
+	Given an array of integers nums, find the minimum sum of any non-empty sub-array
+	of nums.
+	Example
+	minSubArraySum([2, 3, 4, 1, 2, 4]) == 1
+	minSubArraySum([-1, -2, -3]) == -6
+	""""""
+	if not nums:
+		return 0
+	min_sum = nums[0]
+	cur_sum = nums[0]
+	for i in range(1, len(nums)):
+		cur_sum = min(cur_sum + nums[i], nums[i])
+		min_sum = min(min_sum, cur_sum)
+	return min_sum",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},True,True
+HumanEval/119,"
+def match_parens(lst):
+    '''
+    You are given a list of two strings, both strings consist of open
+    parentheses '(' or close parentheses ')' only.
+    Your job is to check if it is possible to concatenate the two strings in
+    some order, that the resulting string will be good.
+    A string S is considered to be good if and only if all parentheses in S
+    are balanced. For example: the string '(())()' is good, while the string
+    '())' is not.
+    Return 'Yes' if there's a way to make a good string, and return 'No' otherwise.
+
+    Examples:
+    match_parens(['()(', ')']) == 'Yes'
+    match_parens([')', ')']) == 'No'
+    '''
+",code_gemma,"
+def match_parens(lst):
+	'''
+	You are given a list of two strings, both strings consist of open
+	parentheses '(' or close parentheses ')' only.
+	Your job is to check if it is possible to concatenate the two strings in
+	some order, that the resulting string will be good.
+	A string S is considered to be good if and only if all parentheses in S
+	are balanced. For example: the string '(())()' is good, while the string
+	'())' is not.
+	Return 'Yes' if there's a way to make a good string, and return 'No' otherwise.
+
+	Examples:
+	match_parens(['()(', ')']) == 'Yes'
+	match_parens([')', ')']) == 'No'
+	'''
+","
+def match_parens(lst):
+	'''
+	You are given a list of two strings, both strings consist of open
+	parentheses '(' or close parentheses ')' only.
+	Your job is to check if it is possible to concatenate the two strings in
+	some order, that the resulting string will be good.
+	A string S is considered to be good if and only if all parentheses in S
+	are balanced. For example: the string '(())()' is good, while the string
+	'())' is not.
+	Return 'Yes' if there's a way to make a good string, and return 'No' otherwise.
+
+	Examples:
+	match_parens(['()(', ')']) == 'Yes'
+	match_parens([')', ')']) == 'No'
+	'''
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/121,"
+def solution(lst):
+    """"""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
+    
+
+    Examples
+    solution([5, 8, 7, 1]) ==> 12
+    solution([3, 3, 3, 3, 3]) ==> 9
+    solution([30, 13, 24, 321]) ==>0
+    """"""
+",code_gemma,"
+def solution(lst):
+	""""""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
+	
+
+	Examples
+	solution([5, 8, 7, 1]) ==> 12
+	solution([3, 3, 3, 3, 3]) ==> 9
+	solution([30, 13, 24, 321]) ==>0
+	""""""
+","
+def solution(lst):
+	""""""Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
+	
+
+	Examples
+	solution([5, 8, 7, 1]) ==> 12
+	solution([3, 3, 3, 3, 3]) ==> 9
+	solution([30, 13, 24, 321]) ==>0
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/135,"
+def can_arrange(arr):
+    """"""Create a function which returns the largest index of an element which
+    is not greater than or equal to the element immediately preceding it. If
+    no such element exists then return -1. The given array will not contain
+    duplicate values.
+
+    Examples:
+    can_arrange([1,2,4,3,5]) = 3
+    can_arrange([1,2,3]) = -1
+    """"""
+",code_gemma,"
+def can_arrange(arr):
+	""""""Create a function which returns the largest index of an element which
+	is not greater than or equal to the element immediately preceding it. If
+	no such element exists then return -1. The given array will not contain
+	duplicate values.
+
+	Examples:
+	can_arrange([1,2,4,3,5]) = 3
+	can_arrange([1,2,3]) = -1
+	""""""
+","
+def can_arrange(arr):
+	""""""Create a function which returns the largest index of an element which
+	is not greater than or equal to the element immediately preceding it. If
+	no such element exists then return -1. The given array will not contain
+	duplicate values.
+
+	Examples:
+	can_arrange([1,2,4,3,5]) = 3
+	can_arrange([1,2,3]) = -1
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/141,"
+def file_name_check(file_name):
+    """"""Create a function which takes a string representing a file's name, and returns
+    'Yes' if the the file's name is valid, and returns 'No' otherwise.
+    A file's name is considered to be valid if and only if all the following conditions 
+    are met:
+    - There should not be more than three digits ('0'-'9') in the file's name.
+    - The file's name contains exactly one dot '.'
+    - The substring before the dot should not be empty, and it starts with a letter from 
+    the latin alphapet ('a'-'z' and 'A'-'Z').
+    - The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+    Examples:
+    file_name_check(""example.txt"") # => 'Yes'
+    file_name_check(""1example.dll"") # => 'No' (the name should start with a latin alphapet letter)
+    """"""
+",code_gemma,"
+def file_name_check(file_name):
+	""""""Create a function which takes a string representing a file's name, and returns
+	'Yes' if the the file's name is valid, and returns 'No' otherwise.
+	A file's name is considered to be valid if and only if all the following conditions 
+	are met:
+	- There should not be more than three digits ('0'-'9') in the file's name.
+	- The file's name contains exactly one dot '.'
+	- The substring before the dot should not be empty, and it starts with a letter from 
+	the latin alphapet ('a'-'z' and 'A'-'Z').
+	- The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+	Examples:
+	file_name_check(""example.txt"") # => 'Yes'
+	file_name_check(""1example.dll"") # => 'No' (the name should start with a latin alphapet letter)
+	""""""
+","
+def file_name_check(file_name):
+	""""""Create a function which takes a string representing a file's name, and returns
+	'Yes' if the the file's name is valid, and returns 'No' otherwise.
+	A file's name is considered to be valid if and only if all the following conditions 
+	are met:
+	- There should not be more than three digits ('0'-'9') in the file's name.
+	- The file's name contains exactly one dot '.'
+	- The substring before the dot should not be empty, and it starts with a letter from 
+	the latin alphapet ('a'-'z' and 'A'-'Z').
+	- The substring after the dot should be one of these: ['txt', 'exe', 'dll']
+	Examples:
+	file_name_check(""example.txt"") # => 'Yes'
+	file_name_check(""1example.dll"") # => 'No' (the name should start with a latin alphapet letter)
+	""""""
+",{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},{'inefficiencies': []},False,True
+HumanEval/145,"
+def order_by_points(nums):
+    """"""
+    Write a function which sorts the given list of integers
+    in ascending order according to the sum of their digits.
+    Note: if there are several items with similar sum of their digits,
+    order them based on their index in original list.
+
+    For example:
+    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+    >>> order_by_points([]) == []
+    """"""
+",code_gemma,"
+def order_by_points(nums):
+	""""""
+	Write a function which sorts the given list of integers
+	in ascending order according to the sum of their digits.
+	Note: if there are several items with similar sum of their digits,
+	order them based on their index in original list.
+
+	For example:
+	>>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+	>>> order_by_points([]) == []
+	""""""
+	pass
+
+
+if __name__ == '__main__':
+	import doctest
+	if doctest.testmod().failed == 0:
+		print(""\n*** ALL TESTS PASSED. YOU ARE A BEAUTIFUL PERSON!\n"")","
+def order_by_points(nums):
+	""""""
+	Write a function which sorts the given list of integers
+	in ascending order according to the sum of their digits.
+	Note: if there are several items with similar sum of their digits,
+	order them based on their index in original list.
+
+	For example:
+	>>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]
+	>>> order_by_points([]) == []
+	""""""
+	pass
+
+
+if __name__ == '__main__':
+	import doctest
+	if doctest.testmod().failed == 0:
+		print(""\n*** ALL TESTS PASSED. YOU ARE A BEAUTIFUL PERSON!\n"")",{'inefficiencies': []},"{'inefficiencies': [{'code smell': 'Incomplete Implementation', 'description and explanation': ""The function 'order_by_points' is defined but not implemented. It uses 'pass', which means it does nothing. This results in a function that cannot fulfill its intended purpose of sorting the list based on the sum of digits."", 'line': 10}]}","{'inefficiencies': [{'code smell': 'Incomplete Implementation', 'description and explanation': ""The function 'order_by_points' is defined but not implemented. It uses 'pass', which means it does nothing. This results in a function that cannot fulfill its intended purpose of sorting the list based on the sum of digits."", 'line': 10}]}",{'inefficiencies': []},"{'inefficiencies': [{'code smell': 'Incomplete Implementation', 'description and explanation': ""The function 'order_by_points' is defined but not implemented. It uses 'pass', which means it does nothing. This results in a function that cannot fulfill its intended purpose of sorting the list based on the sum of digits."", 'line': 10}]}",False,True
