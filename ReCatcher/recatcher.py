@@ -156,7 +156,7 @@ class ReCatcher(object):
                 prompt = result_df["prompt"][i]
                 code = result_df[f"exp_{str(j)}"][i]
                 method_name = extract_method_name(code)[0]
-                test = code + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
+                test = code + "\n"+ self.benchmark[i]["test"] + "\n" + f"check({method_name})"
                 to_save = {
                     "task_id": task_id,
                     "prompt": prompt,
@@ -170,9 +170,9 @@ class ReCatcher(object):
                     to_save["correct_code"] = False
                 result.append(to_save)
             results[f"exp_{j}"] = result
-            summary[f"exp_{j}"] = {"Correct code": len([x for x in result if x["correct_code"]])}
+            summary[f"exp_{j}"] = {"Correct code": len([x for x in result if not x["correct_code"]])}
             result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.json")
-            save_json(result_file, results)
+        save_json(result_file, results)
         return result_file, summary
     
     def test_performance(self, result1_df, result2_df, result_dir):
