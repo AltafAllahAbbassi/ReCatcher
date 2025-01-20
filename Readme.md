@@ -11,3 +11,5 @@ pip install -r requirements.txt
 
 Edit pylint to add the custom checker: put the file custom_checkers/custom_checker.py inside envs/ReCatcher/lib/python3.9/site-packages/pylint/checkers
 
+before running general logic and performance tests on bigcodebench, please install all dependencies found here: bigcodebench_requirements.txt
+
