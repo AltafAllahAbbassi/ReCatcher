@@ -8,6 +8,9 @@ from tqdm import tqdm
 from ReCatcher.utils import unnecessary_conditional_block, unnecessary_else, variable_naming, sub_readable, syntax_error, missing_import_declaration, code_duplication, comment_duplication
 from ReCatcher.utils import read_jsonl, extract_method_name, save_json, measure_execution_performance, execute_unittest
 from ReCatcher.constants import BENCHMARKS
+import matplotlib
+matplotlib.use('Agg') 
+
 
 class ReCatcher(object):
     def __init__(self, benchmark=BENCHMARKS["HUMANEVAL_PLUS"], benchmark_method_call = "/home/altaf/Desktop/ReCatcher/data/humaneval_plus/humaneval_method_call.jsonl", n_rep = 10):
@@ -15,7 +18,6 @@ class ReCatcher(object):
         if BENCHMARKS["HUMANEVAL_PLUS"] in benchmark:
             self.benchmark = read_jsonl(benchmark)
             self.benchmark_name = "humaneval"
-            self.benchmark_large_inputs = read_jsonl(benchmark_method_call)
         if BENCHMARKS["BIGCODEBENCH"] in benchmark:
             benchmark_df = pd.read_parquet(benchmark)
             self.benchmark = benchmark_df.to_dict(orient="records")
@@ -70,36 +72,7 @@ class ReCatcher(object):
         ## performance
         elif method == "compare_performance":
             result_file, results = self.test_performance(result1_df, result2_df, result_dir)
-            print(f"Results saved in: {result_file}")
-
-            counter_time = [dict(Counter(results[key]["time"])) for key in results.keys()]
-            counter_memory = [dict(Counter(results[key]["memory"])) for key in results.keys()]
-            
-            counter_time1 = [counter_time[i].get(1, 0) for i in range(len(counter_time))]
-            counter_time2 = [counter_time[i].get(2, 0) for i in range(len(counter_time))]
-
-            
-            
-            counter_memory1 = [counter_memory[i].get(1, 0) for i in range(len(counter_memory))]
-            counter_memory2 = [counter_memory[i].get(2, 0) for i in range(len(counter_memory))]
-            _, time_p_value = mannwhitneyu(counter_time1, counter_time2, alternative='two-sided')
-            _, memory_p_value = mannwhitneyu(counter_memory1, counter_memory2, alternative='two-sided')
-            
-            if time_p_value<0.05:
-                print("There is a significant difference in time")
-                print(mean(counter_time1))
-                print(mean(counter_time2))
-            else:
-                print("There is no a significant difference in time")
-                
-                
-            if memory_p_value<0.05:
-                print("There is a significant difference in memory")
-                print(mean(counter_memory1))
-                print(mean(counter_memory2))
-            else:
-                print("There is no a significant difference in memory")
-            
+            print(f"Results saved in: {result_file}")            
             return results, results
             
         else:
@@ -117,7 +90,7 @@ class ReCatcher(object):
                 task_id = result_df["task_id"][i]
                 prompt = result_df["prompt"][i]
                 code = result_df[f"exp_{str(j)}"][i]
-                method_name = extract_method_name(code)[0]
+                # method_name = extract_method_name(code)[0]
                 # test = code + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
                 to_save = {
                     "task_id": task_id,
@@ -211,10 +184,6 @@ class ReCatcher(object):
     def test_performance(self, result1_df, result2_df, result_dir):
         if self.benchmark_name == "humaneval":
             return self.test_performance_human_eval(result1_df, result2_df, result_dir)
-    
-    def test_performance_human_eval(self, result1_df, result2_df, result_dir):
-        if self.benchmark_name == "humaneval":
-            return self.test_performance_human_eval(result1_df, result2_df, result_dir)
 
     def test_performance_human_eval(self, result1_df, result2_df, result_dir):
         # if I Have number 1, this means code 1 is worse
@@ -231,18 +200,17 @@ class ReCatcher(object):
             mem2 = []
             time1 = []
             time2 = []
-            for j in tqdm(range(n_rep)):
+            for j in range(n_rep):
                 code1 = result1_df[f"exp_{str(j)}"][i]
                 code2 = result2_df[f"exp_{str(j)}"][i]
                 method_name = extract_method_name(code1)[0]
                 test1 = code1 + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
                 test2 = code2 + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
-                method_call =  self.benchmark_large_inputs[i]["method_call"]
                 try:
                     exec(test1)
                     exec(test2)
-                    per1 = measure_execution_performance(code=code1, method_call=method_call, n_repetition=self.n_rep)
-                    per2 = measure_execution_performance(code=code2, method_call=method_call, n_repetition=self.n_rep)
+                    per1 = measure_execution_performance(code=test1, n_repetition=self.n_rep)
+                    per2 = measure_execution_performance(code=test2, n_repetition=self.n_rep)
                     if not(per1["execution_time"] =="FAIL" or per2["execution_time"] =="FAIL" or per1["memory_usage"] =="FAIL" or per1["memory_usage"] =="FAIL"):
                         time1.extend(per1["execution_time"])
                         time2.extend(per2["execution_time"])
@@ -250,35 +218,34 @@ class ReCatcher(object):
                         mem2.extend(per2["memory_usage"])
                 except:
                     pass
-                        
-            _, time_p_value = mannwhitneyu(time1, time2, alternative='two-sided')
-            _, mem_p_value = mannwhitneyu(mem1, mem2, alternative='two-sided')            
-            if time_p_value<0.05:
-                if mean(time1)>mean(time2):
-                    time = 1
+            if len(time1) and len(time2) and len(mem1) and len(mem2):           
+                _, time_p_value = mannwhitneyu(time1, time2, alternative='two-sided')
+                _, mem_p_value = mannwhitneyu(mem1, mem2, alternative='two-sided')            
+                if time_p_value<0.05:
+                    if mean(time1)>mean(time2):
+                        time = 1
+                    else:
+                        time = 2
                 else:
-                    time = 2
-            else:
-                time = 0
-                        
-            if mem_p_value<0.05:
-                if mean(mem1)>mean(mem2):
-                    memory = 1
+                    time = 0
+                            
+                if mem_p_value<0.05:
+                    if mean(mem1)>mean(mem2):
+                        memory = 1
+                    else:
+                        memory = 2
                 else:
-                    memory = 2
-            else:
-                memory=0
-            time_result.append(time)
-            memory_result.append(memory)
-                        
-            to_save = {
-                "task_id": task_id,
-                "prompt": prompt,
-                "method_call": method_call, 
-                "mem_result": memory, 
-                "time_reuslt": time
-                }
-            results.append(to_save)
+                    memory=0
+                time_result.append(time)
+                memory_result.append(memory)
+                            
+                to_save = {
+                    "task_id": task_id,
+                    "prompt": prompt,
+                    "mem_result": memory, 
+                    "time_reuslt": time
+                    }
+                results.append(to_save)
         result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.json")
         save_json(result_file, results)
         summary["time"] = dict(Counter(time_result))
@@ -288,48 +255,12 @@ class ReCatcher(object):
 if __name__ == "__main__":
     
     re_catcher = ReCatcher(benchmark="/home/altaf/Desktop/ReCatcher/data/bigcode/dataset.parquet")
-    results1_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base.csv")
-    results2_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base.csv")
+    
+    # /home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base_8.csv
+    # /home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/JetBrains_deepseek-coder-6.7B-kexer_8.csv
+    # /home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/ori-cloud_ds-trinity-7b-v1_8.csv
+    results1_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/gpt-3.5-turbo_1.csv")
+    results2_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/gpt-4o_1.csv")
     x1, x2 = re_catcher.test_regression(result1_df=results1_df, result2_df=results2_df, method="general_logic", result_dir="results")
-    
-    # re_catcher = ReCatcher()
-    # result_dir = "Examples/results"
-    # import pandas as pd 
-    # results1_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/deepseek-ai_deepseek-coder-6.7b-base.csv")
-    # results2_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/JetBrains_deepseek-coder-6.7B-kexer.csv")
-    # x,y = re_catcher.test_performance_human_eval(results1_df, results2_df, result_dir)
-
-    # counter_time = [dict(Counter(y[key]["time"])) for key in y.keys()]
-    # counter_memory = [dict(Counter(y[key]["memory"])) for key in y.keys()]
-    
-    # counter_time1 = [counter_time[i].get(1, 0) for i in range(len(counter_time))]
-    # counter_time2 = [counter_time[i].get(2, 0) for i in range(len(counter_time))]
-
-    
-    
-    # counter_memory1 = [counter_memory[i].get(1, 0) for i in range(len(counter_memory))]
-    # counter_memory2 = [counter_memory[i].get(2, 0) for i in range(len(counter_memory))]
-    # _, time_p_value = mannwhitneyu(counter_time1, counter_time2, alternative='two-sided')
-    # _, memory_p_value = mannwhitneyu(counter_memory1, counter_memory2, alternative='two-sided')
-    
-    # if time_p_value<0.05:
-    #     print("There is a significant difference in time")
-    #     print(mean(counter_time1))
-    #     print(mean(counter_time2))
-    # else:
-    #     print("There is no a significant difference in time")
-        
-        
-    # if memory_p_value<0.05:
-    #     print("There is a significant difference in memory")
-    #     print(mean(counter_memory1))
-    #     print(mean(counter_memory2))
-    # else:
-    #     print("There is no a significant difference in memory")
-    
-    
-    
-
-    
-    
-    
+    print(x1)
+    print(x2)

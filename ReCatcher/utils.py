@@ -10,6 +10,11 @@ import tracemalloc
 import gc
 import difflib
 import subprocess
+import multiprocessing
+import unittest
+import io
+import gc
+import time
 # from ReCatcher.recatcher import ReCatcher
 from ReCatcher.constants import CODE_DUPLICATION_MIN_COUNT, PMD_COMMAND_TEMPLATE, COMMENT_DUPLICATION_THRESHOLD, COMMENT_DUPLICATION_MIN_COUNT
 
@@ -111,16 +116,16 @@ def comment_duplication(code, threshold=COMMENT_DUPLICATION_THRESHOLD, min_count
         if stripped_line.startswith("#"):
             comments.append(stripped_line)
 
-    # Extract lines from docstrings
-    docstring_pattern = r'("""[\s\S]*?"""|\'\'\'[\s\S]*?\'\'\')'
-    docstring_matches = re.findall(docstring_pattern, code, re.DOTALL)
+    # # Extract lines from docstrings
+    # docstring_pattern = r'("""[\s\S]*?"""|\'\'\'[\s\S]*?\'\'\')'
+    # docstring_matches = re.findall(docstring_pattern, code, re.DOTALL)
 
-    for match in docstring_matches:
-        docstring_lines = match.splitlines()
-        for doc_line in docstring_lines:
-            stripped_doc_line = doc_line.strip()
-            if stripped_doc_line!= '"""':  # Avoid empty lines
-                comments.append(stripped_doc_line)
+    # for match in docstring_matches:
+    #     docstring_lines = match.splitlines()
+    #     for doc_line in docstring_lines:
+    #         stripped_doc_line = doc_line.strip()
+    #         if stripped_doc_line!= '"""':  # Avoid empty lines
+    #             comments.append(stripped_doc_line)
                 
     if not comments:
         return False
@@ -198,9 +203,8 @@ def save_json(save_file, object):
     with open(save_file, 'w') as json_file:
         json.dump(object, json_file, indent=4)
         
-def measure_execution_performance(code, method_call, n_repetition):
+def measure_execution_performance(code, n_repetition):
     try:
-            code = code + "\n" + "x = " + method_call
             # Start tracking memory
             tracemalloc.start()
 
@@ -241,3 +245,87 @@ def measure_execution_performance(code, method_call, n_repetition):
             "execution_time": "FAIL", 
             "memory_usage": "FAIL"
     }
+    
+# def set_memory_limit(max_memory_mb):
+#     """
+#     Set a memory limit (in MB) for the current process.
+#     """
+#     soft, hard = max_memory_mb * 1024 * 1024, max_memory_mb * 1024 * 1024
+#     resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
+    
+# def execute_unittest(test_code, timeout=120, memory_limit=5*1024):
+#     try:
+#         result = {}
+#         def run_test():
+            
+#             exec(test_code, result)
+
+#         # Create a thread to run the test
+#         test_thread = threading.Thread(target=run_test)
+#         test_thread.start()
+#         test_thread.join(timeout)
+
+#         if test_thread.is_alive():
+#             return False
+
+#         test_output = result.get("test_output", "")
+#         # print(test_output)
+#         if "Failed" in test_code or "ERROR" in test_output:
+#             return False
+#         return True
+#     except:
+#         return False
+#     finally: gc.collect()
+
+
+
+def execute_unittest(test_code, timeout=60, memory_limit=5*1024):
+    try:
+        result = {}
+
+        def run_test(q):
+            try:
+                exec(test_code, result)
+                test_case_class = result.get("TestCases")
+                if test_case_class:
+                    output = io.StringIO()
+                    loader = unittest.TestLoader()
+                    suite = loader.loadTestsFromTestCase(test_case_class)
+                    runner = unittest.TextTestRunner(verbosity=2, stream=output)
+                    runner.run(suite)
+                    q.put(output.getvalue())  
+                else:
+                    q.put("Error: TestCases class not defined in the code")
+            except Exception as e:
+                q.put(str(e))
+
+        q = multiprocessing.Queue()
+        
+        # Create a process to run the test
+        test_process = multiprocessing.Process(target=run_test, args=(q,))
+        test_process.start()
+
+        # Monitor the process and enforce the timeout
+        start_time = time.time()
+        while test_process.is_alive():
+            if time.time() - start_time > timeout:
+                test_process.terminate()  # Force termination after timeout
+                test_process.join()  # Ensure process termination is complete
+                return False
+            time.sleep(0.1)  # Avoid tight looping
+
+        # Get the captured test output from the queue
+        if not q.empty():
+            test_output = q.get()
+        else:
+            test_output = "Error: No output captured"
+
+        # Check for failures or errors in the output
+        # print(test_output)
+        if "FAILED" in test_output:
+            return False
+        return True
+    except Exception as e:
+        return False
+    finally:
+        gc.collect()
