@@ -5,3 +5,4 @@ scipy
 pydriller
 validate_email
 openai
+fastparquet
