@@ -1,0 +1,5 @@
+{
+    "dataset": "/home/altaf/Desktop/Code_Inefficiencies/dataset/humaneval+/HumanEvalPlus.jsonl",
+    "task": "code_completion",
+    "generation_config": {}
+}

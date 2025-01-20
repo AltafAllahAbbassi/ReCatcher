@@ -1,0 +1,5 @@
+{
+    "dataset": "/home/altaf/Desktop/ReCatcher/data/bigcode/dataset.parquet",
+    "task": "code_completion",
+    "generation_config": {}
+}

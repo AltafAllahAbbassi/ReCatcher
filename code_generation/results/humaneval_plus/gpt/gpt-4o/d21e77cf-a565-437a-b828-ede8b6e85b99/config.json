@@ -1,0 +1,5 @@
+{
+    "dataset": "/home/altaf/Desktop/ReCatcher/data/humaneval_plus/HumanEvalPlus.jsonl",
+    "task": "code_completion",
+    "generation_config": {}
+}
