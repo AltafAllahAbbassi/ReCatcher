@@ -1,29 +1,29 @@
 import os 
 from openai import OpenAI 
-from dotenv import load_dotenv
-from huggingface_hub import login
 import uuid
+import re
+import pandas as pd
 from tqdm import tqdm
-from utils import add_jsonl_completion, add_jsonl_row, openai_call, save_json, human_eval_generate_prompt, read_jsonl, openai_call
+from utils import add_jsonl_completion, add_jsonl_row, openai_call, save_json, human_eval_generate_prompt, read_jsonl, openai_call, bigcodebench_generate_prompt
 from constants import TEMPERATURE, MAX_TOKENS, TOP_P, FREQUENCE_PENALITY, PRESENCE_PENALITY, BIGCODEBENCH, HUMAN_EVAL_DATASET
 
-
-load_dotenv()
-hf_token = os.getenv('HF_TOEKN')
-login(hf_token)
     
+# model = "gpt-4o"
+# model = "gpt-3.5-turbo"
 model = "gpt-4o-mini"
     
 datasets = [
-        "/home/altaf/Desktop/Code_Inefficiencies/dataset/humaneval+/HumanEvalPlus.jsonl"
+    "/home/altaf/Desktop/ReCatcher/data/bigcode/dataset.parquet"
+        # "/home/altaf/Desktop/ReCatcher/data/humaneval_plus/HumanEvalPlus.jsonl"
     ]
-client = OpenAI()
-
+# client = OpenAI(api_key="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")
+client = OpenAI(api_key = "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")
     
-    # for i in range(10):
 for dataset in datasets:
+        
         for i in range(1):
-            result_dir = os.path.join("results", "code_completion", f"{model}", "humaneval", str(uuid.uuid4()))
+            
+            result_dir = os.path.join("code_generation", "results",  "bigcodebench", "gpt", f"{model}", str(uuid.uuid4()))
             os.makedirs(os.path.join(result_dir))
             config_file = os.path.join(result_dir, 'config.json')
             result_file =  os.path.join(result_dir, 'result.json')            
@@ -44,6 +44,13 @@ for dataset in datasets:
                 generate_prompt = human_eval_generate_prompt
                 data_inputs = read_jsonl(dataset)
                 task_id_ = "task_id"
+            
+            elif "bigcode" in dataset:
+                generate_prompt = bigcodebench_generate_prompt
+                df = pd.read_parquet(dataset)
+                data_inputs = df.to_dict(orient="records")
+                task_id_ = "task_id"
+                
             else:
                 exit()
                 
