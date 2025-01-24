@@ -13,7 +13,7 @@ matplotlib.use('Agg')
 
 
 class ReCatcher(object):
-    def __init__(self, benchmark=BENCHMARKS["HUMANEVAL_PLUS"], benchmark_method_call = "/home/altaf/Desktop/ReCatcher/data/humaneval_plus/humaneval_method_call.jsonl", n_rep = 10):
+    def __init__(self, benchmark=BENCHMARKS["HUMANEVAL_PLUS"], n_rep = 10):
         self.n_rep = n_rep # how many times we repeat the execution for perforamnce
         if BENCHMARKS["HUMANEVAL_PLUS"] in benchmark:
             self.benchmark = read_jsonl(benchmark)
@@ -193,6 +193,7 @@ class ReCatcher(object):
         memory_result = []
         results = []
         summary = {}
+        
         for i in tqdm(range(len(result1_df))):
             task_id = result1_df["task_id"][i]
             prompt = result1_df["prompt"][i]
@@ -204,11 +205,15 @@ class ReCatcher(object):
                 code1 = result1_df[f"exp_{str(j)}"][i]
                 code2 = result2_df[f"exp_{str(j)}"][i]
                 method_name = extract_method_name(code1)[0]
-                test1 = code1 + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
-                test2 = code2 + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
+                test1 = code1 + "\n" + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
+                test2 = code2 + "\n" +self.benchmark[i]["test"] + "\n" + f"check({method_name})"
+                
+                # exec(test1)
+                # exec(test2)
+
                 try:
-                    exec(test1)
-                    exec(test2)
+                    # exec(test1)
+                    # exec(test2)
                     per1 = measure_execution_performance(code=test1, n_repetition=self.n_rep)
                     per2 = measure_execution_performance(code=test2, n_repetition=self.n_rep)
                     if not(per1["execution_time"] =="FAIL" or per2["execution_time"] =="FAIL" or per1["memory_usage"] =="FAIL" or per1["memory_usage"] =="FAIL"):
@@ -253,14 +258,23 @@ class ReCatcher(object):
         return  result_file, summary
     
 if __name__ == "__main__":
-    
+    # "/home/altaf/Desktop/ReCatcher/data/humaneval_plus/HumanEvalPlus.jsonl"
+    # /home/altaf/Desktop/ReCatcher/data/bigcode/dataset.parquet
     re_catcher = ReCatcher(benchmark="/home/altaf/Desktop/ReCatcher/data/bigcode/dataset.parquet")
     
-    # /home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base_8.csv
-    # /home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/JetBrains_deepseek-coder-6.7B-kexer_8.csv
-    # /home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/ori-cloud_ds-trinity-7b-v1_8.csv
-    results1_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/gpt-3.5-turbo_1.csv")
-    results2_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/gpt-4o_1.csv")
-    x1, x2 = re_catcher.test_regression(result1_df=results1_df, result2_df=results2_df, method="general_logic", result_dir="results")
+    # result1_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/meta-llama_CodeLlama-7b-hf.csv")
+    # result2_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base.csv")
+    
+    result1_df = pd.read_csv("//home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/ori-cloud_ds-trinity-7b-v1.csv")
+    result2_df = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/gpt-4o.csv")
+    
+    
+    
+    x1,x2 = re_catcher.test_regression(result1_df=result1_df, result2_df=result2_df, method="general_logic", result_dir="results")
+    print(x1)
+    print(x2)
+    
+    print("Begin code duplication")
+    x1, x2 = re_catcher.test_regression(result1_df=result1_df, result2_df=result2_df, method=code_duplication, result_dir="results")
     print(x1)
     print(x2)
