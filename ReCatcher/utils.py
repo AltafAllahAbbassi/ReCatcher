@@ -15,6 +15,8 @@ import unittest
 import io
 import gc
 import time
+import threading
+
 # from ReCatcher.recatcher import ReCatcher
 from ReCatcher.constants import CODE_DUPLICATION_MIN_COUNT, PMD_COMMAND_TEMPLATE, COMMENT_DUPLICATION_THRESHOLD, COMMENT_DUPLICATION_MIN_COUNT
 
@@ -203,7 +205,18 @@ def save_json(save_file, object):
     with open(save_file, 'w') as json_file:
         json.dump(object, json_file, indent=4)
         
-def measure_execution_performance(code, n_repetition):
+def measure_execution_performance(code, n_repetition, timeout=120):    
+        
+    def execute_with_timeout(code, timeout):
+        def exec_code(code):
+            exec(code)
+            
+        thread = threading.Thread(target=exec_code, args=(code,))
+        thread.start()
+        thread.join(timeout=timeout)
+        if thread.is_alive():
+            thread.join()  # Ensure the thread stops
+            raise Exception        
     try:
             # Start tracking memory
             tracemalloc.start()
@@ -223,7 +236,7 @@ def measure_execution_performance(code, n_repetition):
                 mem_before = tracemalloc.get_traced_memory()[0] / 10**6  # in MB
 
                 # Execute the code
-                exec(code, {})
+                execute_with_timeout(code, timeout)
 
                 # Track memory usage after execution
                 mem_after = tracemalloc.get_traced_memory()[0] / 10**6  # in MB

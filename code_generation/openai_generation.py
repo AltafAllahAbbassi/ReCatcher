@@ -8,20 +8,20 @@ from utils import add_jsonl_completion, add_jsonl_row, openai_call, save_json, h
 from constants import TEMPERATURE, MAX_TOKENS, TOP_P, FREQUENCE_PENALITY, PRESENCE_PENALITY, BIGCODEBENCH, HUMAN_EVAL_DATASET
 
     
-# model = "gpt-4o"
+model = "gpt-4o"
 # model = "gpt-3.5-turbo"
-model = "gpt-4o-mini"
+# model = "gpt-4o-mini"
     
 datasets = [
     "/home/altaf/Desktop/ReCatcher/data/bigcode/dataset.parquet"
         # "/home/altaf/Desktop/ReCatcher/data/humaneval_plus/HumanEvalPlus.jsonl"
     ]
 # client = OpenAI(api_key="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")
-client = OpenAI(api_key = "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")
+client = OpenAI(api_key = "")
     
 for dataset in datasets:
         
-        for i in range(1):
+        for i in range(2):
             
             result_dir = os.path.join("code_generation", "results",  "bigcodebench", "gpt", f"{model}", str(uuid.uuid4()))
             os.makedirs(os.path.join(result_dir))

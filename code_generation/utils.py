@@ -1,4 +1,5 @@
 import json
+import re
 
 def save_json(save_file, object):
     with open(save_file, 'w') as json_file:
@@ -102,4 +103,10 @@ def openai_call(prompt, client, model="gpt-4o-mini", temperature=1, max_tokens=2
         }
         
     )
-    return extract_python_code(response.choices[0].message.content)
+    x= extract_python_code(response.choices[0].message.content)
+    if not x: 
+        return response.choices[0].message.content
+    return x
+
+def bigcodebench_generate_prompt(x):
+    return [x["complete_prompt"]]
