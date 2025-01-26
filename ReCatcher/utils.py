@@ -205,39 +205,15 @@ def save_json(save_file, object):
     with open(save_file, 'w') as json_file:
         json.dump(object, json_file, indent=4)
         
-def measure_execution_performance(code, n_repetition, timeout=120):    
-        
-    def execute_with_timeout(code, timeout):
-        def exec_code(code):
-            exec(code)
-            
-        thread = threading.Thread(target=exec_code, args=(code,))
-        thread.start()
-        thread.join(timeout=timeout)
-        if thread.is_alive():
-            thread.join()  # Ensure the thread stops
-            raise Exception        
-    try:
-            # Start tracking memory
+def measure_execution_performance(code, n_repetition, method, timeout):        
             tracemalloc.start()
-
-            local_vars = {}
             execution_time = []
             memory_used = []
-
             for _ in range(n_repetition):
-                # Trigger garbage collection before each iteration
                 gc.collect()
-                
-                # Track execution start time
                 start_time = time.perf_counter()
-
-                # Track memory usage before execution
                 mem_before = tracemalloc.get_traced_memory()[0] / 10**6  # in MB
-
-                # Execute the code
-                execute_with_timeout(code, timeout)
-
+                pass_ = method(code, timeout=timeout)
                 # Track memory usage after execution
                 mem_after = tracemalloc.get_traced_memory()[0] / 10**6  # in MB
 
@@ -247,52 +223,47 @@ def measure_execution_performance(code, n_repetition, timeout=120):
                 # Calculate execution time
                 execution_time.append(end_time - start_time)
                 memory_used.append(mem_after - mem_before)  # Memory usage difference
+                if not pass_:
+                    return {
+                "execution_time": "FAIL", 
+                "memory_usage": "FAIL"
+                    }
+                    
 
             return {
             "execution_time": execution_time, 
             "memory_usage": memory_used
         }
-    except Exception as e:
-        print(f"Error: {e}")
-    return {
-            "execution_time": "FAIL", 
-            "memory_usage": "FAIL"
-    }
     
-# def set_memory_limit(max_memory_mb):
-#     """
-#     Set a memory limit (in MB) for the current process.
-#     """
-#     soft, hard = max_memory_mb * 1024 * 1024, max_memory_mb * 1024 * 1024
-#     resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
     
-# def execute_unittest(test_code, timeout=120, memory_limit=5*1024):
-#     try:
-#         result = {}
-#         def run_test():
+def execute_assert_tests(test_code, timeout):
+    ## if no timeout is defined
+    if timeout == 0:
+        try:
+            exec(test_code)
+            return True
+        except:
+            return False
+        
+    def execute_code(code, queue):
+        try:
+            exec(code, {})
+            queue.put(True)
+        except:
+            queue.put(False)
             
-#             exec(test_code, result)
-
-#         # Create a thread to run the test
-#         test_thread = threading.Thread(target=run_test)
-#         test_thread.start()
-#         test_thread.join(timeout)
-
-#         if test_thread.is_alive():
-#             return False
-
-#         test_output = result.get("test_output", "")
-#         # print(test_output)
-#         if "Failed" in test_code or "ERROR" in test_output:
-#             return False
-#         return True
-#     except:
-#         return False
-#     finally: gc.collect()
-
-
-
-def execute_unittest(test_code, timeout=60, memory_limit=5*1024):
+    queue = multiprocessing.Queue()
+    process = multiprocessing.Process(target=execute_code, args=(test_code, queue))
+    process.start()
+    process.join(timeout=timeout)
+    if process.is_alive():
+        process.terminate()
+        process.join()
+        return False
+    return queue.get() if not queue.empty() else False
+    
+    
+def execute_unittest(test_code, timeout):
     try:
         result = {}
 
@@ -319,13 +290,14 @@ def execute_unittest(test_code, timeout=60, memory_limit=5*1024):
         test_process.start()
 
         # Monitor the process and enforce the timeout
-        start_time = time.time()
-        while test_process.is_alive():
-            if time.time() - start_time > timeout:
-                test_process.terminate()  # Force termination after timeout
-                test_process.join()  # Ensure process termination is complete
-                return False
-            time.sleep(0.1)  # Avoid tight looping
+        if not timeout:
+            start_time = time.time()
+            while test_process.is_alive():
+                if time.time() - start_time > timeout:
+                    test_process.terminate()  # Force termination after timeout
+                    test_process.join()  # Ensure process termination is complete
+                    return False
+                time.sleep(0.1)  # Avoid tight looping
 
         # Get the captured test output from the queue
         if not q.empty():
@@ -333,8 +305,6 @@ def execute_unittest(test_code, timeout=60, memory_limit=5*1024):
         else:
             test_output = "Error: No output captured"
 
-        # Check for failures or errors in the output
-        # print(test_output)
         if "FAILED" in test_output:
             return False
         return True
