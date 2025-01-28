@@ -16,6 +16,7 @@ import io
 import gc
 import time
 import threading
+import resource
 
 # from ReCatcher.recatcher import ReCatcher
 from ReCatcher.constants import CODE_DUPLICATION_MIN_COUNT, PMD_COMMAND_TEMPLATE, COMMENT_DUPLICATION_THRESHOLD, COMMENT_DUPLICATION_MIN_COUNT
@@ -204,7 +205,7 @@ def extract_method_name(code):
 def save_json(save_file, object):
     with open(save_file, 'w') as json_file:
         json.dump(object, json_file, indent=4)
-        
+
 def measure_execution_performance(code, n_repetition, method, timeout):        
             tracemalloc.start()
             execution_time = []
@@ -213,7 +214,9 @@ def measure_execution_performance(code, n_repetition, method, timeout):
                 gc.collect()
                 start_time = time.perf_counter()
                 mem_before = tracemalloc.get_traced_memory()[0] / 10**6  # in MB
+
                 pass_ = method(code, timeout=timeout)
+
                 # Track memory usage after execution
                 mem_after = tracemalloc.get_traced_memory()[0] / 10**6  # in MB
 
@@ -261,14 +264,14 @@ def execute_assert_tests(test_code, timeout):
         process.join()
         return False
     return queue.get() if not queue.empty() else False
-    
-    
-def execute_unittest(test_code, timeout):
+
+   
+def execute_unittest(test_code, timeout=60, memory_limit=5*1024*1024*1024):
     try:
         result = {}
-
         def run_test(q):
             try:
+                resource.setrlimit(resource.RLIMIT_AS, (memory_limit, memory_limit))
                 exec(test_code, result)
                 test_case_class = result.get("TestCases")
                 if test_case_class:
@@ -282,29 +285,27 @@ def execute_unittest(test_code, timeout):
                     q.put("Error: TestCases class not defined in the code")
             except Exception as e:
                 q.put(str(e))
-
         q = multiprocessing.Queue()
         
         # Create a process to run the test
         test_process = multiprocessing.Process(target=run_test, args=(q,))
         test_process.start()
-
         # Monitor the process and enforce the timeout
-        if not timeout:
-            start_time = time.time()
-            while test_process.is_alive():
-                if time.time() - start_time > timeout:
-                    test_process.terminate()  # Force termination after timeout
-                    test_process.join()  # Ensure process termination is complete
-                    return False
-                time.sleep(0.1)  # Avoid tight looping
+        start_time = time.time()
+        while test_process.is_alive():
+            if time.time() - start_time > timeout:
+                test_process.terminate()  # Force termination after timeout
+                test_process.join()  # Ensure process termination is complete
+                return False
+            time.sleep(0.1)  # Avoid tight looping
+        # Get the captured test output from the queue        # print(test_output)
 
-        # Get the captured test output from the queue
         if not q.empty():
             test_output = q.get()
         else:
             test_output = "Error: No output captured"
-
+        # Check for failures or errors in the output
+        # print(test_output)
         if "FAILED" in test_output:
             return False
         return True

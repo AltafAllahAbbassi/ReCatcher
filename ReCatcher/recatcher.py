@@ -10,10 +10,10 @@ from ReCatcher.utils import read_jsonl, extract_method_name, save_json, measure_
 from ReCatcher.constants import BENCHMARKS
 import matplotlib
 matplotlib.use('Agg') 
-
+from difflib import SequenceMatcher
 
 class ReCatcher(object):
-    def __init__(self, benchmark=BENCHMARKS["HUMANEVAL_PLUS"], n_rep = 10, large_timeout=180, test_timeout=45):
+    def __init__(self, benchmark=BENCHMARKS["HUMANEVAL_PLUS"], n_rep = 5, large_timeout=180, test_timeout=45):
         self.n_rep = n_rep # how many times we repeat the execution for perforamnce
         self.large_timeout = large_timeout
         self.test_timeout = test_timeout
@@ -29,7 +29,7 @@ class ReCatcher(object):
             self.benchmark_name = "bigcodebench"
             # self.method_call 
             # self.large_timeout = 
-            # self.test_timeout = ""
+            # self.test_timeout = 120
 
     def test_regression(self, result1_df, result2_df, method, result_dir, large_input=True, timeout=True):
         os.makedirs(result_dir, exist_ok=True)
@@ -241,6 +241,14 @@ class ReCatcher(object):
                         time2.extend(per2["execution_time"])
                         mem1.extend(per1["memory_usage"])
                         mem2.extend(per2["memory_usage"])
+                        # difference_count = sum(max(i2 - i1, j2 - j1) for tag, i1, i2, j1, j2 in SequenceMatcher(None, test1, test2).get_opcodes() if tag != "equal")
+                        # print(difference_count)
+
+                        # print(test1)
+                        # print(test2)
+                        # print(time1, time2)
+                        # print(mem1, mem2)
+                        # exit()
                 except:
                     pass
             if len(time1) and len(time2) and len(mem1) and len(mem2):           
@@ -278,6 +286,59 @@ class ReCatcher(object):
         return  result_file, summary
     
 
-    
+   
 if __name__ == "__main__":
-    pass
+    large_input = False
+    timeout = True
+    # /home/altaf/Desktop/ReCatcher/
+    re_catcher = ReCatcher("/home/altaf/Desktop/ReCatcher/data/bigcode/dataset.parquet", test_timeout=120)
+    gpt3_5 = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/gpt-3.5-turbo.csv")
+    gpt4 = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/gpt-4o.csv")
+    gpt4mini = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/gpt-4o-mini.csv")
+    
+    codellama_base = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/meta-llama_CodeLlama-7b-hf.csv")
+    codellama_finetuned = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/JetBrains_CodeLlama-7B-Kexer.csv")
+    codellama_merged = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/DevQuasar_coma-7B-v0.1.csv")
+    
+    deepseek_base = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base.csv")
+    deepseek_finetuned = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/JetBrains_deepseek-coder-6.7B-kexer.csv")
+    deepseek_merged = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/ori-cloud_ds-trinity-7b-v1.csv")
+    
+    
+    # re_catcher = ReCatcher(benchmark="/home/altaf/Desktop/ReCatcher/data/humaneval_plus/HumanEvalPlus.jsonl")
+    # gpt3_5 = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/gpt-3.5-turbo.csv")
+    # gpt4 = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/gpt-4o.csv")
+    # gpt4mini = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/gpt-4o-mini.csv")
+    
+    # codellama_base = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/meta-llama_CodeLlama-7b-hf.csv")
+    # codellama_finetuned = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/JetBrains_CodeLlama-7B-Kexer.csv")
+    # codellama_merged = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/DevQuasar_coma-7B-v0.1.csv")
+    
+    # deepseek_base = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/deepseek-ai_deepseek-coder-6.7b-base.csv")
+    # deepseek_finetuned = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/JetBrains_deepseek-coder-6.7B-kexer.csv")
+    # deepseek_merged =pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_humaneval_plus/ori-cloud_ds-trinity-7b-v1.csv")
+    
+    x1, x2 = re_catcher.test_regression(result1_df= gpt3_5, result2_df=gpt4, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    print("gpt 3.5 vs gpt 4")
+    print(x1, x2)
+    
+    # x1, x2 = re_catcher.test_regression(result1_df= gpt4, result2_df=gpt4mini, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("gpt 4 vs gpt 4o mini")
+    # print(x1, x2)
+    
+    # x1, x2 = re_catcher.test_regression(result1_df= codellama_base, result2_df=codellama_finetuned, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("codellama base vs finetuned")
+    # print(x1, x2)
+    
+    # x1, x2 = re_catcher.test_regression(result1_df= codellama_base, result2_df=codellama_merged, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("codellama base vs merged")
+    # print(x1, x2)
+    
+    # x1, x2 = re_catcher.test_regression(result1_df= deepseek_base, result2_df=deepseek_finetuned, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("deepseek base vs finetuned")
+    # print(x1, x2)
+    
+    # x1, x2 = re_catcher.test_regression(result1_df= deepseek_base, result2_df=deepseek_merged, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("deepseek base vs merged")
+    # print(x1, x2)
+    

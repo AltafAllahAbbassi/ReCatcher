@@ -79,20 +79,13 @@ def extract_python_code(completion):
         return match.group(1).strip()
     return ""
 
-def openai_call(prompt, client, model="gpt-4o-mini", temperature=1, max_tokens=2048, top_p=1, frequency_penalty=0, presence_penalty=0):
+def openai_call(prompt, client, model="gpt-4o-mini", temperature=0, max_tokens=4096, top_p=1, frequency_penalty=0, presence_penalty=0, system_prompt = ""):
     response = client.chat.completions.create(
         model=model, 
-        messages = [
-            {
-                "role": "user", 
-                "content":[
-                    {
-                        "type": "text", 
-                        "text":prompt
-                    }
-                ]
-            }
-        ], 
+        messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ], 
         temperature=temperature,
         max_tokens=max_tokens,
         top_p=top_p,
