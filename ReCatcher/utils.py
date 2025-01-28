@@ -262,11 +262,12 @@ def execute_assert_tests(test_code, timeout):
     if process.is_alive():
         process.terminate()
         process.join()
+        print("Timeout")
         return False
     return queue.get() if not queue.empty() else False
 
    
-def execute_unittest(test_code, timeout=60, memory_limit=5*1024*1024*1024):
+def execute_unittest(test_code, timeout=60, memory_limit=10*1024*1024*1024):
     try:
         result = {}
         def run_test(q):
@@ -295,6 +296,7 @@ def execute_unittest(test_code, timeout=60, memory_limit=5*1024*1024*1024):
         while test_process.is_alive():
             if time.time() - start_time > timeout:
                 test_process.terminate()  # Force termination after timeout
+                print("timeout")
                 test_process.join()  # Ensure process termination is complete
                 return False
             time.sleep(0.1)  # Avoid tight looping

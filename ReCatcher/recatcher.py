@@ -198,8 +198,8 @@ class ReCatcher(object):
         memory_result = []
         results = []
         summary = {}
-        # for i in tqdm(range(len(result1_df))):
-        for i in tqdm(range(20)):
+        for i in tqdm(range(len(result1_df))):
+        # for i in tqdm(range(20)):
             task_id = result1_df["task_id"][i]
             prompt = result1_df["prompt"][i]
             mem1 = []
@@ -332,19 +332,19 @@ if __name__ == "__main__":
     print("codellama base vs merged")
     print(x1, x2)
     
-    x1, x2 = re_catcher.test_regression(result1_df= deepseek_base, result2_df=deepseek_finetuned, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
-    print("deepseek base vs finetuned")
-    print(x1, x2)
+    # x1, x2 = re_catcher.test_regression(result1_df= deepseek_base, result2_df=deepseek_finetuned, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("deepseek base vs finetuned")
+    # print(x1, x2)
     
-    x1, x2 = re_catcher.test_regression(result1_df= deepseek_base, result2_df=deepseek_merged, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
-    print("deepseek base vs merged")
-    print(x1, x2)
+    # x1, x2 = re_catcher.test_regression(result1_df= deepseek_base, result2_df=deepseek_merged, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("deepseek base vs merged")
+    # print(x1, x2)
     
-    x1, x2 = re_catcher.test_regression(result1_df= gpt3_5, result2_df=gpt4, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
-    print("gpt 3.5 vs gpt 4")
-    print(x1, x2)
+    # x1, x2 = re_catcher.test_regression(result1_df= gpt3_5, result2_df=gpt4, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("gpt 3.5 vs gpt 4")
+    # print(x1, x2)
     
-    x1, x2 = re_catcher.test_regression(result1_df= gpt4, result2_df=gpt4mini, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
-    print("gpt 4 vs gpt 4o mini")
-    print(x1, x2)
+    # x1, x2 = re_catcher.test_regression(result1_df= gpt4, result2_df=gpt4mini, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("gpt 4 vs gpt 4o mini")
+    # print(x1, x2)
     
