@@ -266,7 +266,8 @@ def execute_assert_tests(test_code, timeout):
         return False
     return queue.get() if not queue.empty() else False
 
-   
+
+
 def execute_unittest(test_code, timeout=60, memory_limit=10*1024*1024*1024):
     try:
         result = {}
@@ -315,3 +316,9 @@ def execute_unittest(test_code, timeout=60, memory_limit=10*1024*1024*1024):
         return False
     finally:
         gc.collect()
+        
+        
+def write_jsonl_line(file_, line):
+    with open(file_, "a", encoding="utf-8") as file:
+        json.dump(line, file)
+        file.write("\n") 
