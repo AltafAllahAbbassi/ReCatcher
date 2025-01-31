@@ -6,30 +6,25 @@ from scipy.stats import mannwhitneyu
 from statistics import mean
 from tqdm import tqdm
 from ReCatcher.utils import unnecessary_conditional_block, unnecessary_else, variable_naming, sub_readable, syntax_error, missing_import_declaration, code_duplication, comment_duplication
-from ReCatcher.utils import read_jsonl, extract_method_name, save_json, measure_execution_performance, execute_unittest, execute_assert_tests
+from ReCatcher.utils import read_jsonl, extract_method_name, save_json, measure_execution_performance, execute_unittest, execute_assert_tests, write_jsonl_line
 from ReCatcher.constants import BENCHMARKS
 import matplotlib
 matplotlib.use('Agg') 
-from difflib import SequenceMatcher
 
 class ReCatcher(object):
-    def __init__(self, benchmark=BENCHMARKS["HUMANEVAL_PLUS"], n_rep = 5, large_timeout=180, test_timeout=45):
+    def __init__(self, benchmark=BENCHMARKS["HUMANEVAL_PLUS"], n_rep = 5, large_timeout=600, test_timeout=120):
         self.n_rep = n_rep # how many times we repeat the execution for perforamnce
         self.large_timeout = large_timeout
         self.test_timeout = test_timeout
+        # self.method_call =  ## for large inputs
         if BENCHMARKS["HUMANEVAL_PLUS"] in benchmark:
             self.benchmark = read_jsonl(benchmark)
             self.benchmark_name = "humaneval"
-            self.method_call = read_jsonl("/workspace/ReCatcher/data/humaneval_plus/humaneval_method_call.jsonl")
- 
             
         if BENCHMARKS["BIGCODEBENCH"] in benchmark:
             benchmark_df = pd.read_parquet(benchmark)
             self.benchmark = benchmark_df.to_dict(orient="records")
             self.benchmark_name = "bigcodebench"
-            # self.method_call 
-            # self.large_timeout = 
-            # self.test_timeout = 120
 
     def test_regression(self, result1_df, result2_df, method, result_dir, large_input=True, timeout=True):
         os.makedirs(result_dir, exist_ok=True)
@@ -41,19 +36,7 @@ class ReCatcher(object):
             print(f"Results2 saved in: {result_file2}")
             if len(summary1.keys()) == len(summary2.keys()):
                 x1 = [summary1[key]["Total raised"] for key in summary1.keys()]
-                mean1= mean(x1)
                 x2 = [summary2[key]["Total raised"] for key in summary2.keys()]
-                mean2 = mean(x2)
-                print(f"Mean1: {mean1}")
-                print(f"Mean2: {mean2}")
-                _, p_value = mannwhitneyu(x1, x2, alternative='two-sided')
-                if p_value<0.05:
-                    print("There is a significant difference")
-                else:
-                    print("There is no difference")
-            else:
-                print("The number of experiments is different. We can't perform test")
-            return summary1, summary2
             
         ## general logic
         elif method == "general_logic":
@@ -63,31 +46,36 @@ class ReCatcher(object):
             print(f"Results2 saved in: {result_file2}")
             if len(summary1.keys()) == len(summary2.keys()):
                 x1 = [summary1[key]["Correct code"] for key in summary1.keys()]
-                mean1= mean(x1)
                 x2 = [summary2[key]["Correct code"] for key in summary2.keys()]
-                mean2 = mean(x2)
-                print(f"Mean1: {mean1}")
-                print(f"Mean2: {mean2}")
-                print()
-                _, p_value = mannwhitneyu(x1, x2, alternative='two-sided')
-                if p_value<0.05:
-                    print("There is a significant difference")
-                else:
-                    print("There is no difference")
-            else:
-                print("The number of experiments is different. We can't perform test")
-            return summary1, summary2
-        
+
         ## performance
         elif method == "performance":
             result_file, results = self.test_performance(result1_df, result2_df, result_dir, large_input, timeout)
             print(f"Results saved in: {result_file}")            
             return results, results
+        
             
         else:
             return "Test not supported"
         
+        if method == "general_logic" or method in [unnecessary_conditional_block, unnecessary_else, variable_naming, sub_readable, syntax_error, syntax_error, missing_import_declaration, code_duplication, comment_duplication]:
+            mean1= mean(x1)
+            mean2 = mean(x2)
+            print(f"Mean1: {mean1}")
+            print(f"Mean2: {mean2}")
+            u, p_value = mannwhitneyu(x1, x2, alternative='two-sided')
+            effect_ = u/(len(x1)*len(x2))
+            if p_value<0.05:
+                    print("There is a significant difference")
+            else:
+                    print("There is no difference")
+            print(f"p-value: {p_value}")
+            print(f"u: {u}")
+            print(f"effect_size: {effect_}")
+            return summary1, summary2
+        
     def test_static(self, result_df,  method, result_dir):
+        result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.json")
         os.makedirs(result_dir, exist_ok=True)
         assert len(result_df) == len(self.benchmark)
         n_rep = len([x for x in result_df.columns if x.startswith("exp")])
@@ -95,31 +83,37 @@ class ReCatcher(object):
         summary = {}
         for j in tqdm(range(n_rep)):
             result = []
-            for i in tqdm(range(len(result_df))):
+            for i in tqdm(range(5)):
+            # for i in tqdm(range(len(result_df))):
                 task_id = result_df["task_id"][i]
                 prompt = result_df["prompt"][i]
                 code = result_df[f"exp_{str(j)}"][i]
-                # method_name = extract_method_name(code)[0]
-                # test = code + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
+                if self.benchmark_name == "humaneval":
+                    method_name = extract_method_name(code)[0]
+                    test = code + self.benchmark[i]["test"] + "\n" + f"check({method_name})"
+                    correct_code = execute_assert_tests(test, self.test_timeout)
+                elif self.benchmark_name == "bigcodebench":
+                    test = code + "\n"+ self.benchmark[i]["test"] + f'\nimport io\noutput = io.StringIO()  # Create a StringIO buffer to capture the output\nloader = unittest.TestLoader()\nsuite = loader.loadTestsFromTestCase(TestCases)\nrunner = unittest.TextTestRunner(verbosity=2, stream=output)  # Direct output to the buffer\nrunner.run(suite)\ntest_output = output.getvalue()  # Get the captured output'
+                    correct_code = execute_unittest(test, timeout=self.test_timeout)
+                    
+                else:
+                    exit()
                 to_save = {
                     "task_id": task_id,
                     "prompt": prompt,
                     "code": code,
-                    "inef_test": method(code)
+                    "inef_test": method(code), 
+                    "correct_code": correct_code
+                    
                 }
-                # try:
-                #     exec(test)
-                #     to_save["correct_code"] = True
-                # except:
-                #     to_save["correct_code"] = False
+                write_jsonl_line(result_file, to_save)
                 result.append(to_save)
             results[f"exp_{j}"] = result
             summary[f"exp_{j}"] = {"Total raised": len([x for x in result if x["inef_test"]]),
-                                # "Correct code raised": len([x for x in result if x["inef_test"] and x["correct_code"]]),
-                                # "Incorrect code raised": len([x for x in result if x["inef_test"] and not x["correct_code"]]),
+                                "Correct code raised": len([x for x in result if x["inef_test"] and x["correct_code"]]),
+                                "Incorrect code raised": len([x for x in result if x["inef_test"] and not x["correct_code"]]),
                                 }
-        result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.json")
-        save_json(result_file, results)
+
         return result_file, summary
     
     def test_general_logic(self, result_df, result_dir):
@@ -132,8 +126,9 @@ class ReCatcher(object):
         os.makedirs(result_dir, exist_ok=True)
         assert len(result_df) == len(self.benchmark)
         n_rep = len([x for x in result_df.columns if x.startswith("exp")])
-        results = {}
+        result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.jsonl")
         summary = {}
+        results = {}
         for j in tqdm(range(n_rep)):
             result = []
             for i in tqdm(range(len(result_df))):
@@ -143,6 +138,7 @@ class ReCatcher(object):
                 method_name = extract_method_name(code)[0]
                 test = code + "\n"+ self.benchmark[i]["test"] + "\n" + f"check({method_name})"
                 to_save = {
+                    "exp": f"exp_{j}",
                     "task_id": task_id,
                     "prompt": prompt,
                     "code": code,
@@ -153,22 +149,23 @@ class ReCatcher(object):
                     to_save["correct_code"] = True
                 except:
                     to_save["correct_code"] = False
+                write_jsonl_line(result_file, to_save)
                 result.append(to_save)
             results[f"exp_{j}"] = result
-            summary[f"exp_{j}"] = {"Correct code": len([x for x in result if not x["correct_code"]])}
-            result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.json")
-        save_json(result_file, results)
+            summary[f"exp_{j}"] = {"Correct code": len([x for x in result if not x["correct_code"]])}       
         return result_file, summary
     
     def test_general_logic_bigcode_bench(self, result_df, result_dir):
         os.makedirs(result_dir, exist_ok=True)
+        result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.jsonl")
         assert len(result_df) == len(self.benchmark)
         n_rep = len([x for x in result_df.columns if x.startswith("exp")])
         results = {}
         summary = {}
         for j in range(n_rep):
             result = []
-            for i in tqdm(range(len(result_df))):
+            # for i in tqdm(range(len(result_df))):
+            for i in tqdm(range(5)):
                 task_id = result_df["task_id"][i]
                 prompt = result_df["prompt"][i]
                 code = result_df[f"exp_{str(j)}"][i]
@@ -177,17 +174,18 @@ class ReCatcher(object):
                     "task_id": task_id,
                     "prompt": prompt,
                     "code": code,
-                    "test": test
+                    "test": test, 
+                    "exp": f"exp_{j}"
                 }
                 try:
                     to_save["correct_code"] = execute_unittest(test)
                 except:
                     to_save["correct_code"] = False
+                write_jsonl_line(result_file, to_save)
                 result.append(to_save)
             results[f"exp_{j}"] = result
             summary[f"exp_{j}"] = {"Correct code": len([x for x in result if not x["correct_code"]])}
-            result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.json")
-        save_json(result_file, results)
+            
         return result_file, summary
         
     def test_performance(self, result1_df, result2_df, result_dir, large_input, timeout):
@@ -290,24 +288,25 @@ class ReCatcher(object):
         return  result_file, summary
     
 
-   
+
+
 if __name__ == "__main__":
     large_input = False
     timeout = True
     # /workspace/ReCatcher/
     # /workspace/ReCatcher/data
-    re_catcher = ReCatcher("/workspace/ReCatcher/data/bigcode/dataset.parquet", test_timeout=45)
-    gpt3_5 = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/gpt-3.5-turbo.csv")
-    gpt4 = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/gpt-4o.csv")
-    gpt4mini = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/gpt-4o-mini.csv")
+    re_catcher = ReCatcher("/home/altaf/Desktop/ReCatcher/data/bigcode/dataset.parquet", test_timeout=45)
+    gpt3_5 = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base.csv")
+    gpt4 = pd.read_csv("/home/altaf/Desktop/ReCatcher/code_generation/results/merged_bigcodebench/DevQuasar_coma-7B-v0.1.csv")
+    # gpt4mini = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/gpt-4o-mini.csv")
     
-    codellama_base = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/meta-llama_CodeLlama-7b-hf.csv")
-    codellama_finetuned = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/JetBrains_CodeLlama-7B-Kexer.csv")
-    codellama_merged = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/DevQuasar_coma-7B-v0.1.csv")
+    # codellama_base = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/meta-llama_CodeLlama-7b-hf.csv")
+    # codellama_finetuned = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/JetBrains_CodeLlama-7B-Kexer.csv")
+    # codellama_merged = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/DevQuasar_coma-7B-v0.1.csv")
     
-    deepseek_base = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base.csv")
-    deepseek_finetuned = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/JetBrains_deepseek-coder-6.7B-kexer.csv")
-    deepseek_merged = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/ori-cloud_ds-trinity-7b-v1.csv")
+    # deepseek_base = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/deepseek-ai_deepseek-coder-6.7b-base.csv")
+    # deepseek_finetuned = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/JetBrains_deepseek-coder-6.7B-kexer.csv")
+    # deepseek_merged = pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_bigcodebench/ori-cloud_ds-trinity-7b-v1.csv")
     
     
     # re_catcher = ReCatcher(benchmark="/workspace/ReCatcher/data/humaneval_plus/HumanEvalPlus.jsonl")
@@ -324,13 +323,13 @@ if __name__ == "__main__":
     # deepseek_merged =pd.read_csv("/workspace/ReCatcher/code_generation/results/merged_humaneval_plus/ori-cloud_ds-trinity-7b-v1.csv")
     
 
-    x1, x2 = re_catcher.test_regression(result1_df= codellama_base, result2_df=codellama_finetuned, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
-    print("codellama base vs finetuned")
-    print(x1, x2)
+    # x1, x2 = re_catcher.test_regression(result1_df= codellama_base, result2_df=codellama_finetuned, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("codellama base vs finetuned")
+    # print(x1, x2)
     
-    x1, x2 = re_catcher.test_regression(result1_df= codellama_base, result2_df=codellama_merged, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
-    print("codellama base vs merged")
-    print(x1, x2)
+    # x1, x2 = re_catcher.test_regression(result1_df= codellama_base, result2_df=codellama_merged, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
+    # print("codellama base vs merged")
+    # print(x1, x2)
     
     # x1, x2 = re_catcher.test_regression(result1_df= deepseek_base, result2_df=deepseek_finetuned, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
     # print("deepseek base vs finetuned")
@@ -340,9 +339,9 @@ if __name__ == "__main__":
     # print("deepseek base vs merged")
     # print(x1, x2)
     
-    # x1, x2 = re_catcher.test_regression(result1_df= gpt3_5, result2_df=gpt4, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
-    # print("gpt 3.5 vs gpt 4")
-    # print(x1, x2)
+    x1, x2 = re_catcher.test_regression(result1_df= gpt3_5, result2_df=gpt4, method=unnecessary_else, large_input=large_input, timeout=timeout, result_dir="results")
+    print("gpt 3.5 vs gpt 4")
+    print(x1, x2)
     
     # x1, x2 = re_catcher.test_regression(result1_df= gpt4, result2_df=gpt4mini, method="performance", large_input=large_input, timeout=timeout, result_dir="results")
     # print("gpt 4 vs gpt 4o mini")
