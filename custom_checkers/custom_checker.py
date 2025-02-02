@@ -1,11 +1,8 @@
 from pylint.checkers import BaseChecker
-from pylint.interfaces import IAstroidChecker
 from astroid import nodes
 
 class UnnecessaryLambdaWithReduceChecker(BaseChecker):
     """Checker for unnecessary lambda functions with reduce."""
-    __implements__ = IAstroidChecker
-
     name = 'unnecessary-lambda-with-reduce'
     priority = -1
     msgs = {
@@ -18,15 +15,14 @@ class UnnecessaryLambdaWithReduceChecker(BaseChecker):
 
     def visit_call(self, node):
         """Visit call nodes to check for reduce with lambda."""
+        # Check if the call is to 'reduce' with a lambda as the first argument
         if isinstance(node.func, nodes.Name) and node.func.name == 'reduce':
-            if isinstance(node.args[0], nodes.Lambda):
+            if node.args and isinstance(node.args[0], nodes.Lambda):
                 self.add_message('unnecessary-lambda-with-reduce', node=node)
 
 
 class UnnecessaryConditionalBlockChecker(BaseChecker):
     """Checker for unnecessary conditional blocks."""
-    __implements__ = IAstroidChecker
-
     name = 'unnecessary-conditional-block'
     priority = -1
     msgs = {
@@ -39,9 +35,11 @@ class UnnecessaryConditionalBlockChecker(BaseChecker):
 
     def visit_if(self, node):
         """Visit if nodes to check for unnecessary conditional blocks."""
-        # Check for an `if` block with `return True` and `return False`
+        # Ensure both if and else blocks have exactly one return statement
         if (
-            isinstance(node.body[0], nodes.Return)
+            len(node.body) == 1
+            and len(node.orelse) == 1
+            and isinstance(node.body[0], nodes.Return)
             and isinstance(node.orelse[0], nodes.Return)
             and isinstance(node.body[0].value, nodes.Const)
             and isinstance(node.orelse[0].value, nodes.Const)
