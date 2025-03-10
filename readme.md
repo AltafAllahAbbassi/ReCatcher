@@ -10,9 +10,8 @@ This repository contains the replication package for **ReCatcher: Towards Regres
 
 ## Data Availability
 
-Our data is publicly available at:
-- **Generated code snippets**: [Zenodo link]
-- **Regression testing results**: [Zenodo link]
+The complete dataset, including **generated code snippets** and **regression testing results**, can be found at:  
+🔗 **Replication Package**: https://zenodo.org/records/14997627
 
 ## Setup Instructions
 
