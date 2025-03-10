@@ -1,0 +1,55 @@
+# Byte-compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+ENV/
+*.env
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+*.eggs/
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.iml
+
+# Test and coverage reports
+*.log
+*.tox/
+*.nox/
+*.coverage
+*.coverage.*
+nosetests.xml
+coverage.xml
+*.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyInstaller
+*.spec
+
+# pipenv
+Pipfile.lock
+
+# pytest
+.cache/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+
+# recatcher related 
+testing_results
+code_generation/results
+dataset
