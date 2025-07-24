@@ -172,9 +172,9 @@ def save_output_comments(exp_id, task_id, code_base, code_variant, base_mean_tim
         print(f"An error occurred: {e}")
 
 def get_evaluation(base_mean, variant_mean):
-    if base_mean > variant_mean:
+    if base_mean < variant_mean:
         evaluation = "CODE_BASE"
-    elif base_mean < variant_mean:
+    elif base_mean > variant_mean:
         evaluation = "CODE_VARIANT"
     elif base_mean == variant_mean:
         evaluation = "EQUAL"
