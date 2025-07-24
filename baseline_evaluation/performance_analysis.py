@@ -1,3 +1,4 @@
+import ast
 import csv
 import gc
 import io
@@ -183,6 +184,15 @@ def get_evaluation(base_mean, variant_mean):
 
     return evaluation
 
+def codes_are_structurally_equal(code1, code2):
+    try:
+        tree1 = ast.dump(ast.parse(code1))
+        tree2 = ast.dump(ast.parse(code2))
+        return tree1 == tree2
+    except Exception as e:
+        print("SyntaxError" + e)
+        return False
+
 if __name__ == "__main__":
     exps = ["exp_0", "exp_1", "exp_2", "exp_3", "exp_4", "exp_5", "exp_6", "exp_7", "exp_8", "exp_9", "exp_10"]
     try:
@@ -196,20 +206,26 @@ if __name__ == "__main__":
                 for task_id_base, test_base in base.items():
                     if variant.get(task_id_base) is not None:
                         code_base = base.get(task_id_base)
-                        base_results = measure_execution_performance(code_base, 5)
                         code_variant = variant.get(task_id_base)
-                        variant_results = measure_execution_performance(code_variant, 5)
-                        base_mean_time = statistics.mean(base_results.get("execution_time"))
-                        variant_mean_time = statistics.mean(variant_results.get("execution_time"))
-                        base_mean_memory = statistics.mean(base_results.get("memory_usage"))
-                        variant_mean_memory = statistics.mean(variant_results.get("memory_usage"))
 
-                        evaluation_time = get_evaluation(base_mean_time, variant_mean_time)
-                        evaluation_memory = get_evaluation(base_mean_memory, variant_mean_memory)
+                        if codes_are_structurally_equal(code_base, code_variant):
+                            base_results = measure_execution_performance(code_base, 10)
+                            variant_results = measure_execution_performance(code_variant, 10)
 
-                        save_output_comments(one_exp, task_id_base, code_base, code_variant, base_mean_time, variant_mean_time,
-                                             evaluation_time, base_mean_memory, variant_mean_memory,
-                                             evaluation_memory)
+                            base_mean_time = statistics.mean(base_results.get("execution_time"))
+                            variant_mean_time = statistics.mean(variant_results.get("execution_time"))
+                            base_mean_memory = statistics.mean(base_results.get("memory_usage"))
+                            variant_mean_memory = statistics.mean(variant_results.get("memory_usage"))
+
+                            evaluation_time = get_evaluation(base_mean_time, variant_mean_time)
+                            evaluation_memory = get_evaluation(base_mean_memory, variant_mean_memory)
+
+                            save_output_comments(one_exp, task_id_base, code_base, code_variant, base_mean_time, variant_mean_time,
+                                                 evaluation_time, base_mean_memory, variant_mean_memory,
+                                                 evaluation_memory)
+                        else:
+                            save_output_comments(one_exp, task_id_base, code_base, code_variant, "NA",
+                                                 "NA","EQUAL", "NA", "NA","EQUAL")
 
     except subprocess.CalledProcessError as e:
         print(f"Failed to install required packages: {e}")

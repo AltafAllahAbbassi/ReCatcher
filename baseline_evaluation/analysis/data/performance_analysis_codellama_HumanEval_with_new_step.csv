@@ -49,7 +49,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.3423167800006923,1.175134740001522,EQUAL,0.07747899999999999,0.0008745999999999921,EQUAL
+check(filter_by_substring)",1.2546491200017045,1.4650452900037636,SOLUTION ONE,0.0391396,0.0008353000000000055,EQUAL
 exp_0,HumanEval/9,"from typing import List, Tuple
 
 
@@ -107,7 +107,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 1]) == [4, 4, 4, 4]
     assert candidate([3, 2, 3, 100, 3]) == [3, 3, 3, 100, 100]
 
-check(rolling_max)",1.4952825799991842,1.5342606399965006,EQUAL,0.0008257999999999987,0.0006727999999999956,EQUAL
+check(rolling_max)",1.4130162799992831,1.202919939995627,EQUAL,0.0008996999999999977,0.0008287999999999851,SOLUTION TWO
 exp_0,HumanEval/11,"from typing import List
 
 
@@ -157,7 +157,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.495498340006452,1.4741552599996794,EQUAL,0.0009446000000000066,0.0008505999999999902,EQUAL
+check(string_xor)",1.2028964100027224,1.2136761799978557,EQUAL,0.0007680000000000131,0.000644399999999995,SOLUTION TWO
 exp_0,HumanEval/12,"from typing import List, Optional
 
 
@@ -225,7 +225,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.4565161800011992,1.4735311599972192,EQUAL,0.0008265999999999996,0.0008736000000000077,EQUAL
+check(longest)",1.1610433999972885,1.203353049996076,EQUAL,0.00072549999999999,0.0006432000000000104,EQUAL
 exp_0,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -274,7 +274,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.3874782199971378,1.3287338400026782,EQUAL,0.0007329999999999947,0.0006268000000000052,EQUAL
+check(greatest_common_divisor)",1.2035750299983192,1.1819468800036703,EQUAL,0.0008620000000000072,0.0006203000000000014,SOLUTION TWO
 exp_0,HumanEval/14,"from typing import List
 
 
@@ -319,7 +319,7 @@ def check(candidate):
     assert candidate('asdfgh') == ['a', 'as', 'asd', 'asdf', 'asdfg', 'asdfgh']
     assert candidate('WWW') == ['W', 'WW', 'WWW']
 
-check(all_prefixes)",1.391042180004297,1.5368831800064071,SOLUTION ONE,0.0006527999999999979,0.0006707999999999936,EQUAL
+check(all_prefixes)",1.1606575399986467,1.141907970001921,EQUAL,0.0006517999999999857,0.0006732000000000016,EQUAL
 exp_0,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -370,7 +370,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.5328211599960924,1.5117636199924163,EQUAL,0.0008162000000000002,0.0006037999999999877,SOLUTION TWO
+check(count_distinct_characters)",1.1511078800016548,1.1908312399988064,EQUAL,0.000644699999999987,0.0006688000000000139,EQUAL
 exp_0,HumanEval/21,"from typing import List
 
 
@@ -425,7 +425,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.554600119998213,1.514867680001771,EQUAL,0.0007218000000000169,0.0006496000000000057,EQUAL
+check(rescale_to_unit)",1.1623523999995087,1.1434255600062897,EQUAL,0.0006726999999999928,0.0007028999999999841,EQUAL
 exp_0,HumanEval/22,"from typing import List, Any
 
 
@@ -474,7 +474,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.514872680004919,1.5089910400041844,EQUAL,0.0005928000000000044,0.0006016000000000022,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_0,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -517,7 +517,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.514423159993021,1.514500980003504,EQUAL,0.0006151999999999935,0.0006031999999999927,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_0,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -556,7 +556,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.5140911200025584,1.493056680005975,EQUAL,0.0006286000000000236,0.0006283999999999845,EQUAL
+check(flip_case)",1.1426958800002467,1.1613408099976368,EQUAL,0.000733499999999998,0.0005980000000000097,SOLUTION TWO
 exp_0,HumanEval/28,"from typing import List
 
 
@@ -605,7 +605,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.4960446600045543,1.4902475599956233,EQUAL,0.000628200000000001,0.0005909999999999971,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_0,HumanEval/29,"from typing import List
 
 
@@ -652,7 +652,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.4955480799952057,1.6218737400020473,SOLUTION ONE,0.0005668000000000007,0.0006016000000000132,EQUAL
+check(filter_by_prefix)",1.1774897700030125,1.1536820999986959,EQUAL,0.0006925999999999877,0.000661700000000004,EQUAL
 exp_0,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -693,7 +693,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.5934742999903393,1.4169479000091088,SOLUTION TWO,0.0006139999999999924,0.000601599999999991,EQUAL
+check(get_positive)",1.1922429900063434,1.2709425999957602,EQUAL,0.0005999999999999839,0.0006570000000000187,SOLUTION ONE
 exp_0,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -724,7 +724,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.4771666800021195,1.4420157199958339,EQUAL,0.000604400000000016,0.0006016000000000132,EQUAL
+check(unique)",1.1985101199999917,1.212136540003121,EQUAL,0.0006147999999999987,0.0006189999999999974,EQUAL
 exp_0,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -759,7 +759,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.3705678400059695,1.5301043200073763,SOLUTION ONE,0.0006027999999999812,0.000601599999999991,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_0,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -798,7 +798,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.4514583399926777,1.4534877999976743,EQUAL,0.0005839999999999957,0.000601599999999991,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_0,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -833,7 +833,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.4735798599896952,1.4315893399936612,EQUAL,0.0006248000000000032,0.0006128000000000022,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_0,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -885,7 +885,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.4703736399998888,1.5100381400028708,EQUAL,0.0006030000000000091,0.0006016000000000022,EQUAL
+check(median)",1.223072420002427,1.2751539700024295,EQUAL,0.0006067999999999907,0.0005967999999999974,EQUAL
 exp_0,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -942,7 +942,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.5580509399995208,1.5534296999976505,EQUAL,0.0008877999999999941,0.0007211999999999885,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_0,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -1001,7 +1001,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.47381127999397,1.513047919998644,EQUAL,0.0006377999999999884,0.0006016000000000132,EQUAL
+check(modp)",1.2632026800012681,1.2127666900050826,EQUAL,0.0006687999999999972,0.0006199000000000176,EQUAL
 exp_0,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -1056,7 +1056,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.4754332200041973,1.5155221400083974,EQUAL,0.0007091999999999987,0.000601599999999991,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_0,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -1109,7 +1109,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.5139256600057707,1.43858748000348,EQUAL,0.0006144000000000039,0.0006016000000000022,EQUAL
+check(fib)",1.2686138999939431,1.161891170006129,EQUAL,0.0006159999999999832,0.0006029999999999924,EQUAL
 exp_0,HumanEval/57,"def monotonic(l: list):
     """"""Return True is list elements are monotonically increasing or decreasing.
     >>> monotonic([1, 2, 4, 20])
@@ -1162,7 +1162,7 @@ def check(candidate):
     assert candidate([9, 9, 9, 9]) == True
 
 
-check(monotonic)",1.4549595399934332,1.4511253800010309,EQUAL,0.0006963999999999859,0.000601599999999991,EQUAL
+check(monotonic)",1.1595568999968235,1.1839945500018074,EQUAL,0.0005915000000000059,0.0005968000000000029,EQUAL
 exp_0,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -1206,7 +1206,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.4955938400002196,1.5125545400020202,EQUAL,0.0008510000000000239,0.0006137999999999977,SOLUTION TWO
+check(common)",1.1689681899966673,1.2370246700011194,EQUAL,0.0006054000000000115,0.0005968000000000029,EQUAL
 exp_0,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -1261,7 +1261,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.5358329599897842,1.4750976999988779,EQUAL,0.0007461999999999969,0.0008618000000000014,EQUAL
+check(sum_to_n)",1.163345350002055,1.1596586200059391,EQUAL,0.0005973999999999979,0.0005973000000000006,EQUAL
 exp_0,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -1328,7 +1328,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",1.5152054999954998,1.4807341799954883,EQUAL,0.0006506000000000012,0.0005914000000000197,EQUAL
+check(digitSum)",1.130379860001267,1.1505894100002478,EQUAL,0.0005933000000000133,0.0005968000000000029,EQUAL
 exp_0,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -1412,7 +1412,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.4939481000008528,1.457835599995451,EQUAL,0.0009288000000000296,0.0009461999999999859,EQUAL
+check(will_it_fly)",1.2248681799974293,1.160439520009095,EQUAL,0.0007267999999999941,0.0007226000000000066,EQUAL
 exp_0,HumanEval/74,"def total_match(lst1, lst2):
     '''
     Write a function that accepts two lists of strings and returns the list that has 
@@ -1496,7 +1496,7 @@ def check(candidate):
     assert candidate(['this'], []) == []
 
 
-check(total_match)",1.5588667200063355,1.4938757400028408,SOLUTION TWO,0.0009809999999999875,0.0009521999999999919,EQUAL
+check(total_match)",1.15384690000501,1.1843301899993093,EQUAL,0.0007735999999999909,0.000771899999999992,EQUAL
 exp_0,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -1553,7 +1553,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.5540988599939738,1.5334567399986554,EQUAL,0.0006294000000000022,0.0006231999999999904,EQUAL
+check(multiply)",1.2156349600001704,1.2462036999990231,EQUAL,0.0005914999999999837,0.0006087999999999927,EQUAL
 exp_0,HumanEval/114,"def minSubArraySum(nums):
     """"""
     Given an array of integers nums, find the minimum sum of any non-empty sub-array
@@ -1627,7 +1627,7 @@ def check(candidate):
     assert candidate([7]) == 7
     assert candidate([1, -1]) == -1
 
-check(minSubArraySum)",1.4354702799988446,1.4342859800031875,EQUAL,0.0005901999999999852,0.0006367999999999929,EQUAL
+check(minSubArraySum)",1.1810381499992217,1.1511808999988715,EQUAL,0.0005753999999999926,0.0005967999999999917,EQUAL
 exp_0,HumanEval/123,"def get_odd_collatz(n):
     """"""
     Given a positive integer n, return a sorted list that has the odd numbers in collatz sequence.
@@ -1709,7 +1709,7 @@ def check(candidate):
     assert candidate(1) == [1], ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(get_odd_collatz)",1.5012246800004505,1.4752350399910938,EQUAL,0.0005779999999999897,0.0006012000000000017,EQUAL
+check(get_odd_collatz)",1.1620848199992906,1.2048911200021393,EQUAL,0.0006012999999999935,0.0005967999999999974,EQUAL
 exp_0,HumanEval/136,"def largest_smallest_integers(lst):
     '''
     Create a function that returns a tuple (a, b), where 'a' is
@@ -1799,7 +1799,7 @@ def check(candidate):
     # Check some edge cases that are easy to work out by hand.
     assert True
 
-check(largest_smallest_integers)",1.514924300002167,1.5143519399978687,EQUAL,0.000601599999999991,0.000601599999999991,EQUAL
+check(largest_smallest_integers)",1.214405899992562,1.2502694900031202,EQUAL,0.0005991000000000024,0.0006144999999999956,EQUAL
 exp_0,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -1862,7 +1862,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.5335094799986109,1.4921929000003729,EQUAL,0.0005902000000000074,0.0006016000000000022,EQUAL
+check(compare)",1.1723621699988143,1.1525763199984795,EQUAL,0.0006077999999999917,0.0005967999999999974,EQUAL
 exp_1,HumanEval/7,"from typing import List
 
 
@@ -1913,7 +1913,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.6143890200008173,1.4580494400055612,EQUAL,0.000612400000000024,0.0006237999999999966,EQUAL
+check(filter_by_substring)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/9,"from typing import List, Tuple
 
 
@@ -1974,7 +1974,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 1]) == [4, 4, 4, 4]
     assert candidate([3, 2, 3, 100, 3]) == [3, 3, 3, 100, 100]
 
-check(rolling_max)",1.1722781400079838,1.1896878999948968,EQUAL,0.0006012000000000129,0.0006028000000000144,EQUAL
+check(rolling_max)",1.68469313000096,1.8102700599993113,EQUAL,0.03922509999999999,0.0008815999999999991,EQUAL
 exp_1,HumanEval/11,"from typing import List
 
 
@@ -2024,7 +2024,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.192480220005382,1.233856259996537,EQUAL,0.0006000000000000005,0.0006016000000000022,EQUAL
+check(string_xor)",1.8424142300063977,1.9222471599990967,EQUAL,0.0008502999999999927,0.0006495999999999946,SOLUTION TWO
 exp_1,HumanEval/12,"from typing import List, Optional
 
 
@@ -2092,7 +2092,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.212700720009161,1.2304819799901452,EQUAL,0.0005940000000000057,0.0006043999999999939,EQUAL
+check(longest)",1.7593636100034928,1.778540239998256,EQUAL,0.0007508000000000014,0.0007517999999999969,EQUAL
 exp_1,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -2141,7 +2141,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.4130705800023862,1.5369962999946438,EQUAL,0.0006015999999999799,0.000603599999999993,EQUAL
+check(greatest_common_divisor)",1.8810380100010662,1.7610385599953589,EQUAL,0.0006844000000000017,0.0006870000000000154,EQUAL
 exp_1,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -2191,7 +2191,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.4515119000046979,1.4164055400004145,EQUAL,0.0005926000000000097,0.0006037999999999766,EQUAL
+check(count_distinct_characters)",1.6199201100040228,1.6940497000003234,EQUAL,0.0006680999999999937,0.0006154000000000049,EQUAL
 exp_1,HumanEval/21,"from typing import List
 
 
@@ -2248,7 +2248,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.454068739997456,1.4758380000013858,EQUAL,0.0005902000000000074,0.0006016000000000022,EQUAL
+check(rescale_to_unit)",1.7394678700045916,1.7643313099921216,SOLUTION ONE,0.0006150999999999962,0.0006734000000000074,EQUAL
 exp_1,HumanEval/22,"from typing import List, Any
 
 
@@ -2297,7 +2297,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.433393979992252,1.4534548199968413,EQUAL,0.0006028000000000144,0.0006032000000000037,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -2340,7 +2340,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.4343561599962413,1.4341783399984707,EQUAL,0.0005894000000000066,0.0006016000000000244,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -2379,7 +2379,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.4716872999968473,1.52159823999973,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(flip_case)",1.7369624200015097,1.8313148999994155,SOLUTION ONE,0.0005950000000000122,0.0005972999999999895,EQUAL
 exp_1,HumanEval/28,"from typing import List
 
 
@@ -2428,7 +2428,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.5135186000028624,1.510508160002064,EQUAL,0.0006140000000000034,0.0006240000000000024,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/29,"from typing import List
 
 
@@ -2475,7 +2475,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.4573355999949853,1.4713286600075661,EQUAL,0.0006015999999999799,0.0006136000000000142,EQUAL
+check(filter_by_prefix)",1.797906119999243,1.5023556100029964,SOLUTION TWO,0.0006013999999999909,0.0005967999999999974,EQUAL
 exp_1,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -2516,7 +2516,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.4549555799923837,1.5301244000031147,EQUAL,0.000592400000000004,0.0006016000000000022,EQUAL
+check(get_positive)",1.6860637499950826,1.7678380900033517,EQUAL,0.000622600000000012,0.000603599999999993,EQUAL
 exp_1,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -2547,7 +2547,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.5128150600008667,1.4924388199986425,EQUAL,0.0005914000000000197,0.0006016000000000244,EQUAL
+check(unique)",1.730959559994517,1.5741488700004993,SOLUTION TWO,0.000600100000000009,0.0005983999999999989,EQUAL
 exp_1,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -2582,7 +2582,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.4131749600055628,1.190488040004857,SOLUTION TWO,0.0005802000000000307,0.0006016000000000244,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -2621,7 +2621,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.1510310999990907,1.229715539998142,EQUAL,0.0006013999999999742,0.0006139999999999812,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -2656,7 +2656,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.4750910399947315,1.5161638199933805,EQUAL,0.0005901999999999852,0.0006015999999999799,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/46,"def fib4(n: int):
     """"""The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fib4(0) -> 0
@@ -2725,7 +2725,7 @@ def check(candidate):
     assert candidate(12) == 386
 
 
-check(fib4)",1.4744169199897441,1.430520719999913,EQUAL,0.0006015999999999799,0.0006015999999999799,EQUAL
+check(fib4)",1.7381215399916983,1.7897998599975835,SOLUTION ONE,0.0005983999999999934,0.0005976000000000037,EQUAL
 exp_1,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -2778,7 +2778,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.5153140800073743,1.4317436399986037,EQUAL,0.0006151999999999935,0.0006023999999999807,EQUAL
+check(median)",1.8111964700103271,1.7639678799983813,EQUAL,0.0006043999999999939,0.0005973999999999979,EQUAL
 exp_1,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -2835,7 +2835,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.5746843400062063,1.4195411999884526,EQUAL,0.0006162000000000001,0.0006016000000000022,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -2894,7 +2894,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.1556134200072847,1.1135287400044036,EQUAL,0.0005793999999999855,0.0006015999999999799,EQUAL
+check(modp)",1.7721815700031585,1.779697969998233,EQUAL,0.0005797999999999914,0.0006024000000000029,EQUAL
 exp_1,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -2949,7 +2949,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.1785025799938011,1.4345016199920793,SOLUTION ONE,0.0006013999999999964,0.0006016000000000022,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_1,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -3002,7 +3002,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.471359939983813,1.4748282799962908,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(fib)",1.7359666899981676,1.7719026799954007,EQUAL,0.000608000000000003,0.0006035999999999986,EQUAL
 exp_1,HumanEval/57,"def monotonic(l: list):
     """"""Return True is list elements are monotonically increasing or decreasing.
     >>> monotonic([1, 2, 4, 20])
@@ -3055,7 +3055,7 @@ def check(candidate):
     assert candidate([9, 9, 9, 9]) == True
 
 
-check(monotonic)",1.4542990200046915,1.4542443000013008,EQUAL,0.0005685999999999857,0.0006016000000000022,EQUAL
+check(monotonic)",1.7407747000019298,1.4916099900001427,SOLUTION TWO,0.0005865000000000009,0.0006029000000000006,EQUAL
 exp_1,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -3099,7 +3099,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.4755149599979631,1.4924723399919457,EQUAL,0.0005793999999999855,0.0006027999999999922,EQUAL
+check(common)",1.6647077999950852,1.8083221900014905,SOLUTION ONE,0.000587399999999999,0.0006038000000000044,EQUAL
 exp_1,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -3154,7 +3154,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.5126771999930497,1.511898560001282,EQUAL,0.0005935999999999942,0.0006016000000000022,EQUAL
+check(sum_to_n)",1.8210700200026622,1.7670238599966979,SOLUTION TWO,0.0005828,0.000603999999999999,EQUAL
 exp_1,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -3221,7 +3221,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",1.4542855799896643,1.5125505200063345,EQUAL,0.0006051999999999947,0.0006039999999999824,EQUAL
+check(digitSum)",1.7710291299968959,1.8282152900035726,EQUAL,0.000598999999999994,0.0005975999999999982,EQUAL
 exp_1,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -3305,7 +3305,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.5164879000047222,1.4965953200065996,EQUAL,0.0008368000000000154,0.0008495999999999837,EQUAL
+check(will_it_fly)",1.7462978199997452,1.7873132799984888,EQUAL,0.0007323000000000135,0.0007219999999999949,EQUAL
 exp_1,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -3362,7 +3362,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.5353394799982198,1.4992115800036117,EQUAL,0.000602999999999998,0.0006016000000000244,EQUAL
+check(multiply)",1.5653211199998622,1.7717247399996268,SOLUTION ONE,0.0006200000000000094,0.0007445999999999952,EQUAL
 exp_1,HumanEval/136,"def largest_smallest_integers(lst):
     '''
     Create a function that returns a tuple (a, b), where 'a' is
@@ -3460,7 +3460,7 @@ def check(candidate):
     # Check some edge cases that are easy to work out by hand.
     assert True
 
-check(largest_smallest_integers)",1.7593421400059015,1.8793061600008514,EQUAL,0.0006040000000000045,0.0006016000000000022,EQUAL
+check(largest_smallest_integers)",1.8090575200039893,1.7790065699955449,EQUAL,0.0005956999999999935,0.0006205000000000016,EQUAL
 exp_1,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -3523,7 +3523,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.8629279800050427,1.7655789799930062,EQUAL,0.0005923999999999819,0.0006015999999999799,EQUAL
+check(compare)",1.765660280000884,1.7683825100073591,EQUAL,0.0007383999999999946,0.0006560999999999983,EQUAL
 exp_2,HumanEval/7,"from typing import List
 
 
@@ -3574,7 +3574,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.512591500004055,1.6023190999927466,EQUAL,0.0005944000000000172,0.0006025999999999865,EQUAL
+check(filter_by_substring)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/9,"from typing import List, Tuple
 
 
@@ -3632,7 +3632,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 1]) == [4, 4, 4, 4]
     assert candidate([3, 2, 3, 100, 3]) == [3, 3, 3, 100, 100]
 
-check(rolling_max)",1.79901833999902,1.8378323799930514,EQUAL,0.0005944000000000394,0.0006127999999999912,EQUAL
+check(rolling_max)",1.581972629998927,1.6594503000000258,EQUAL,0.0391694,0.0007903999999999911,EQUAL
 exp_2,HumanEval/11,"from typing import List
 
 
@@ -3682,7 +3682,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.877425480011152,1.8382013600028586,EQUAL,0.0005795999999999912,0.0006016000000000244,EQUAL
+check(string_xor)",1.7742801899905316,1.8449834400002145,EQUAL,0.000805399999999995,0.0007221999999999895,EQUAL
 exp_2,HumanEval/12,"from typing import List, Optional
 
 
@@ -3750,7 +3750,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.5792587399890181,1.9834008799982257,SOLUTION ONE,0.0006032000000000037,0.0006024000000000029,EQUAL
+check(longest)",1.812973249994684,1.766802020004252,EQUAL,0.0008104000000000056,0.0007512000000000074,EQUAL
 exp_2,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -3799,7 +3799,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",2.0925504599988924,1.5213959800079464,SOLUTION TWO,0.0006140000000000034,0.0006016000000000022,EQUAL
+check(greatest_common_divisor)",1.749558590000379,1.7682249299978139,EQUAL,0.0007155000000000133,0.0008328000000000002,EQUAL
 exp_2,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -3850,7 +3850,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.518028879998019,1.554343479993986,EQUAL,0.0006000000000000005,0.0006140000000000034,EQUAL
+check(count_distinct_characters)",1.8013769900018815,1.771308349998435,EQUAL,0.0007151000000000074,0.0006561999999999957,EQUAL
 exp_2,HumanEval/21,"from typing import List
 
 
@@ -3908,7 +3908,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.7975913199945353,1.839558319997741,EQUAL,0.0005778000000000061,0.0005983999999999767,EQUAL
+check(rescale_to_unit)",1.602401520003332,1.5991895600047428,EQUAL,0.0007231999999999905,0.0006038000000000154,SOLUTION TWO
 exp_2,HumanEval/22,"from typing import List, Any
 
 
@@ -3957,7 +3957,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.860098079999443,1.8167071800038683,SOLUTION TWO,0.0005800000000000027,0.0006143999999999927,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -4000,7 +4000,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.8245650600001682,1.879891720006708,EQUAL,0.0006128000000000134,0.0006016000000000022,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -4039,7 +4039,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.9419210200023371,1.8216618199890946,EQUAL,0.000591800000000009,0.0006127999999999912,EQUAL
+check(flip_case)",1.5715356500033522,1.6228766299987911,EQUAL,0.0006626000000000021,0.0006691000000000058,EQUAL
 exp_2,HumanEval/28,"from typing import List
 
 
@@ -4088,7 +4088,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.8169797600014135,1.797539219999453,EQUAL,0.0006024000000000029,0.0006009999999999849,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/29,"from typing import List
 
 
@@ -4135,7 +4135,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.8804141799977514,1.7586210600100458,SOLUTION TWO,0.0005919999999999925,0.0006016000000000022,EQUAL
+check(filter_by_prefix)",1.7946535299997777,1.7782683800061931,EQUAL,0.000639099999999998,0.0006323000000000023,EQUAL
 exp_2,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -4176,7 +4176,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.8417872400023043,1.8168729999975768,EQUAL,0.0005865999999999705,0.0006011999999999907,EQUAL
+check(get_positive)",1.760838450002484,1.7683738099993207,EQUAL,0.0007432999999999968,0.0006283000000000038,EQUAL
 exp_2,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -4207,7 +4207,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.860550540004624,1.8266304600052536,EQUAL,0.0005691999999999809,0.0006015999999999799,EQUAL
+check(unique)",1.814443949997076,1.7596230999974067,EQUAL,0.0006083000000000171,0.0005968000000000084,EQUAL
 exp_2,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -4242,7 +4242,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.7988961399998515,1.8773776799964252,EQUAL,0.0006021999999999972,0.0006016000000000022,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -4281,7 +4281,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.903393660002621,1.8055906200024765,EQUAL,0.0005676000000000014,0.0006016000000000022,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -4316,7 +4316,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.8157561599975451,1.8615268800000195,EQUAL,0.0005996000000000112,0.0006140000000000034,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -4368,7 +4368,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.8404793599969707,1.838702599995304,EQUAL,0.0005888000000000115,0.0006016000000000244,EQUAL
+check(median)",1.7592263100028505,1.7999660799920094,SOLUTION ONE,0.0006495000000000084,0.000614600000000004,EQUAL
 exp_2,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -4425,7 +4425,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.7781258799950592,1.638371279987041,EQUAL,0.0005722000000000005,0.0006016000000000022,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -4484,7 +4484,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.8615818999998737,1.7969107999932021,EQUAL,0.0006016000000000022,0.0006032000000000037,EQUAL
+check(modp)",1.7929843899968545,1.8115737900021487,EQUAL,0.0006201000000000178,0.0005972000000000032,EQUAL
 exp_2,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -4539,7 +4539,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.9021375400014222,1.8432961800019256,EQUAL,0.0006126000000000076,0.0006016000000000244,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -4592,7 +4592,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.8434348799986764,1.8620049199962523,EQUAL,0.0005800000000000249,0.0006264000000000269,SOLUTION ONE
+check(fib)",1.7689735799998743,1.7701914900011615,EQUAL,0.0006138000000000254,0.0006153000000000131,EQUAL
 exp_2,HumanEval/57,"def monotonic(l: list):
     """"""Return True is list elements are monotonically increasing or decreasing.
     >>> monotonic([1, 2, 4, 20])
@@ -4645,7 +4645,7 @@ def check(candidate):
     assert candidate([9, 9, 9, 9]) == True
 
 
-check(monotonic)",1.819890660000965,1.709688340005232,EQUAL,0.0005931999999999827,0.0006016000000000022,EQUAL
+check(monotonic)",1.7758737499971176,1.8199062700005015,EQUAL,0.0006199000000000288,0.0006091999999999987,EQUAL
 exp_2,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -4689,7 +4689,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.6587215400009883,1.7696217400080059,EQUAL,0.0006015999999999799,0.0005999999999999784,EQUAL
+check(common)",1.5369868100009625,1.7779597200016724,SOLUTION ONE,0.0006516000000000022,0.0006067999999999907,EQUAL
 exp_2,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -4744,7 +4744,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.8575794800068253,1.6359697800071444,EQUAL,0.0005905999999999967,0.0006016000000000022,EQUAL
+check(sum_to_n)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_2,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -4811,7 +4811,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",1.8408797800075263,1.818337900005281,EQUAL,0.0005923999999999819,0.0006024000000000029,EQUAL
+check(digitSum)",1.767410800003563,1.767678629999864,EQUAL,0.0006036999999999903,0.0006210000000000104,EQUAL
 exp_2,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -4895,7 +4895,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.8216555400111247,1.8401104399992618,EQUAL,0.0008495999999999837,0.0008520000000000083,EQUAL
+check(will_it_fly)",1.7968431799992686,1.7680759399983799,EQUAL,0.0007279999999999897,0.0007283999999999957,EQUAL
 exp_2,HumanEval/74,"def total_match(lst1, lst2):
     '''
     Write a function that accepts two lists of strings and returns the list that has 
@@ -4979,7 +4979,7 @@ def check(candidate):
     assert candidate(['this'], []) == []
 
 
-check(total_match)",1.9035307999991347,1.8574496199958959,EQUAL,0.0009429999999999827,0.0009509999999999907,EQUAL
+check(total_match)",1.7506166000064696,1.7701415599993198,EQUAL,0.0007801000000000113,0.000777199999999989,EQUAL
 exp_2,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -5036,7 +5036,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.9052794000075663,1.8570406800019554,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(multiply)",1.7908879000024172,1.7562227300019004,SOLUTION TWO,0.0006007999999999957,0.0005975999999999982,EQUAL
 exp_2,HumanEval/136,"def largest_smallest_integers(lst):
     '''
     Create a function that returns a tuple (a, b), where 'a' is
@@ -5134,7 +5134,7 @@ def check(candidate):
     # Check some edge cases that are easy to work out by hand.
     assert True
 
-check(largest_smallest_integers)",1.8439482400019187,1.8577377999958116,EQUAL,0.0005907999999999802,0.0006015999999999799,EQUAL
+check(largest_smallest_integers)",1.7293191200005822,1.7506262499984586,EQUAL,0.0006040999999999908,0.0005967999999999974,EQUAL
 exp_2,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -5197,7 +5197,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.8172600399993826,1.75747776000062,EQUAL,0.0005885999999999836,0.0006015999999999799,EQUAL
+check(compare)",1.7582715100084898,1.8016002300020773,EQUAL,0.0005883999999999889,0.0006023999999999974,EQUAL
 exp_3,HumanEval/7,"from typing import List
 
 
@@ -5248,7 +5248,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.8372163199994247,1.857982759998413,EQUAL,0.0005901999999999852,0.0006015999999999799,EQUAL
+check(filter_by_substring)",1.6532660900003975,1.7733627499983413,EQUAL,0.03922290000000001,0.0008935999999999999,EQUAL
 exp_3,HumanEval/11,"from typing import List
 
 
@@ -5298,7 +5298,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.8374934000021312,1.7992073000001256,EQUAL,0.0005795999999999912,0.0006128000000000134,EQUAL
+check(string_xor)",1.776858940004604,1.7991384700027993,EQUAL,0.0007626999999999828,0.0006925000000000015,EQUAL
 exp_3,HumanEval/12,"from typing import List, Optional
 
 
@@ -5366,7 +5366,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.9212158599984832,1.9094538200064561,EQUAL,0.0005905999999999967,0.0006016000000000022,EQUAL
+check(longest)",1.7700272599962772,1.747749739998835,EQUAL,0.0006494000000000111,0.000739499999999993,EQUAL
 exp_3,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -5415,7 +5415,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.8186390399991068,1.9200962200004141,EQUAL,0.0005801999999999862,0.0006015999999999799,EQUAL
+check(greatest_common_divisor)",1.8405049900029553,1.7794074500008719,EQUAL,0.0007852999999999998,0.0006717999999999946,EQUAL
 exp_3,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -5466,7 +5466,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.8833709400088992,1.8600838599901182,EQUAL,0.0006015999999999799,0.0006127999999999912,EQUAL
+check(count_distinct_characters)",1.8804517100012164,1.931103259997326,EQUAL,0.0007960000000000022,0.0008200999999999958,EQUAL
 exp_3,HumanEval/21,"from typing import List
 
 
@@ -5523,7 +5523,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.8168028599990067,1.8201214000117034,EQUAL,0.0006140000000000034,0.0006016000000000022,EQUAL
+check(rescale_to_unit)",1.7771701299963751,1.749408420000691,EQUAL,0.0008276000000000061,0.0008088999999999958,EQUAL
 exp_3,HumanEval/22,"from typing import List, Any
 
 
@@ -5572,7 +5572,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.7788306799833662,2.302599139994709,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_3,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -5615,7 +5615,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",2.1445835199963765,1.653615840006387,EQUAL,0.000592400000000004,0.0006016000000000022,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_3,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -5654,7 +5654,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.6821931599988602,1.8359993200108875,EQUAL,0.0005799999999999805,0.0006015999999999799,EQUAL
+check(flip_case)",1.874040210005478,1.7927388700074516,EQUAL,0.0007580999999999893,0.0006475999999999926,EQUAL
 exp_3,HumanEval/28,"from typing import List
 
 
@@ -5703,7 +5703,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.796517819998553,1.879623979999451,SOLUTION ONE,0.0005912000000000139,0.0006016000000000244,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_3,HumanEval/29,"from typing import List
 
 
@@ -5750,7 +5750,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.6661181599949486,1.4779070399992633,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(filter_by_prefix)",1.8328750700020464,1.761588440000196,SOLUTION TWO,0.0006579999999999919,0.0006450999999999929,EQUAL
 exp_3,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -5791,7 +5791,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.717702060006559,1.8192418199963867,EQUAL,0.0006015999999999799,0.0006015999999999799,EQUAL
+check(get_positive)",1.7260270900005708,1.5462359599972841,SOLUTION TWO,0.0006934000000000217,0.0006254000000000092,EQUAL
 exp_3,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -5822,7 +5822,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.7966366399952676,1.7783288199978415,EQUAL,0.000614199999999987,0.0006028000000000144,EQUAL
+check(unique)",1.759759260006831,1.8524088999984087,SOLUTION ONE,0.0006086000000000036,0.0006344000000000017,EQUAL
 exp_3,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -5857,7 +5857,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.8794447599968407,1.7993712800031063,EQUAL,0.0005684000000000022,0.0006016000000000022,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_3,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -5896,7 +5896,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.7980667199939488,1.7765608600049745,EQUAL,0.0006015999999999799,0.0006015999999999799,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_3,HumanEval/43,"def pairs_sum_to_zero(l):
     """"""
     pairs_sum_to_zero takes a list of integers as an input.
@@ -5985,7 +5985,7 @@ def check(candidate):
     assert candidate([-3, 9, -1, 4, 2, 31]) == False
 
 
-check(pairs_sum_to_zero)",1.8430201999959537,1.917566780000925,EQUAL,0.0005799999999999805,0.0006015999999999799,EQUAL
+check(pairs_sum_to_zero)",1.6185690400016028,1.732165110000642,EQUAL,0.0006626999999999938,0.0006033000000000011,SOLUTION TWO
 exp_3,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -6020,7 +6020,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.8839753600070253,1.8362862199952361,EQUAL,0.0005794000000000077,0.0006016000000000244,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_3,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -6073,7 +6073,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.8210097600007429,1.837551520008128,EQUAL,0.0005892000000000009,0.0006016000000000022,EQUAL
+check(median)",1.7603657500003465,1.7773808599973564,EQUAL,0.0006793000000000271,0.000619199999999992,SOLUTION TWO
 exp_3,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -6130,7 +6130,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.8378981000045314,1.821012459998019,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_3,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -6189,7 +6189,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.978000600001542,1.8770276200026275,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(modp)",1.5586988599970937,1.5854868800059194,EQUAL,0.0006051999999999947,0.0006029999999999924,EQUAL
 exp_3,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -6244,7 +6244,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.8169318600092084,1.8373133999935818,EQUAL,0.0005918000000000312,0.0006128000000000134,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_3,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -6297,7 +6297,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.8209483199985699,1.8210549200011883,EQUAL,0.0005994000000000055,0.0006016000000000022,EQUAL
+check(fib)",1.8270182199979899,1.799175499996636,EQUAL,0.0006104000000000165,0.0006029999999999924,EQUAL
 exp_3,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -6341,7 +6341,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.8242973399988842,1.8177553000045008,EQUAL,0.0005561999999999845,0.0006127999999999912,EQUAL
+check(common)",1.778132069995627,1.7478104100038763,EQUAL,0.0006311999999999984,0.0005995000000000028,EQUAL
 exp_3,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -6396,7 +6396,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",2.549184599996079,3.0239656200050375,SOLUTION ONE,0.0005773999999999946,0.0006016000000000022,EQUAL
+check(sum_to_n)",1.8387824099976569,1.8704381599964108,EQUAL,0.0005915999999999977,0.0006031999999999982,EQUAL
 exp_3,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -6463,7 +6463,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",2.9738033599918707,1.9185505800007376,EQUAL,0.0006127999999999912,0.0006015999999999799,EQUAL
+check(digitSum)",1.7900438399985432,1.676861329996609,EQUAL,0.0005919999999999925,0.0005976000000000037,EQUAL
 exp_3,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -6547,7 +6547,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.471582059992943,1.8617778000072576,SOLUTION ONE,0.0008382000000000112,0.0008519999999999861,EQUAL
+check(will_it_fly)",1.6881136300042272,1.7959000200004085,EQUAL,0.0007391999999999954,0.0007219999999999949,EQUAL
 exp_3,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -6604,7 +6604,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.8801596800039988,1.816781020007329,EQUAL,0.0005554000000000281,0.0006016000000000244,EQUAL
+check(multiply)",1.8003972000005888,1.8285438999970212,EQUAL,0.0005852999999999998,0.0006031999999999982,EQUAL
 exp_3,HumanEval/114,"def minSubArraySum(nums):
     """"""
     Given an array of integers nums, find the minimum sum of any non-empty sub-array
@@ -6680,7 +6680,7 @@ def check(candidate):
     assert candidate([7]) == 7
     assert candidate([1, -1]) == -1
 
-check(minSubArraySum)",1.8602011600043624,1.8193286000052467,EQUAL,0.0005906000000000189,0.0006032000000000482,EQUAL
+check(minSubArraySum)",1.8171375200065085,1.8701500600029248,EQUAL,0.000596999999999992,0.0005975999999999982,EQUAL
 exp_3,HumanEval/136,"def largest_smallest_integers(lst):
     '''
     Create a function that returns a tuple (a, b), where 'a' is
@@ -6776,7 +6776,7 @@ def check(candidate):
     # Check some edge cases that are easy to work out by hand.
     assert True
 
-check(largest_smallest_integers)",1.855274020001525,1.8371989600127563,EQUAL,0.0005774000000000167,0.0006016000000000244,EQUAL
+check(largest_smallest_integers)",1.618748769996455,1.8191837699967437,SOLUTION ONE,0.0005821999999999882,0.000597400000000009,EQUAL
 exp_3,HumanEval/151,"def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
@@ -6847,7 +6847,7 @@ def check(candidate):
     assert candidate(lst) == odd_sum , ""This prints if this assert fails 7 (good for debugging!)""
 
 
-check(double_the_difference)",1.8379216599918435,1.8406186599924694,EQUAL,0.0005798000000000192,0.0006128000000000134,EQUAL
+check(double_the_difference)",1.7675693899975158,1.798668460009503,EQUAL,0.0005979999999999985,0.0005968000000000029,EQUAL
 exp_3,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -6910,7 +6910,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.7970407199929468,1.7772241400089115,EQUAL,0.0005662000000000277,0.0006143999999999927,EQUAL
+check(compare)",1.8382361700030743,1.795510250001098,EQUAL,0.0005958999999999936,0.0006037000000000126,EQUAL
 exp_4,HumanEval/7,"from typing import List
 
 
@@ -6961,7 +6961,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.7773789600061718,1.9005514199961908,EQUAL,0.0006019999999999914,0.0006016000000000244,EQUAL
+check(filter_by_substring)",1.7447682799975155,1.8357830299966735,EQUAL,0.03920320000000001,0.0009231999999999962,EQUAL
 exp_4,HumanEval/9,"from typing import List, Tuple
 
 
@@ -7022,7 +7022,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 1]) == [4, 4, 4, 4]
     assert candidate([3, 2, 3, 100, 3]) == [3, 3, 3, 100, 100]
 
-check(rolling_max)",1.8177896000037435,1.8080165199935436,EQUAL,0.0005789999999999962,0.0006016000000000022,EQUAL
+check(rolling_max)",1.772306980000576,1.3210956299939425,SOLUTION TWO,0.0008989000000000136,0.0007867999999999931,SOLUTION TWO
 exp_4,HumanEval/11,"from typing import List
 
 
@@ -7072,7 +7072,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.5134649199957493,1.6742594399955124,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(string_xor)",1.1834747599990805,1.1534748499951093,EQUAL,0.000733499999999987,0.0006147999999999876,SOLUTION TWO
 exp_4,HumanEval/12,"from typing import List, Optional
 
 
@@ -7140,7 +7140,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.8196486999979242,1.8411583600041923,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(longest)",1.1113592000037897,1.1207945200032554,EQUAL,0.0006689999999999862,0.000627499999999992,EQUAL
 exp_4,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -7189,7 +7189,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.8635689200018533,1.8835598600038792,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(greatest_common_divisor)",1.1200407399999677,1.1491827899997589,EQUAL,0.0006992999999999971,0.0006490000000000107,EQUAL
 exp_4,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -7240,7 +7240,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.8635086199908983,1.836262800003169,EQUAL,0.0005882000000000165,0.0006016000000000022,EQUAL
+check(count_distinct_characters)",1.1309861099987757,1.1202530099981232,EQUAL,0.0006578000000000084,0.0006136000000000086,EQUAL
 exp_4,HumanEval/21,"from typing import List
 
 
@@ -7297,7 +7297,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.8413361999962945,1.8173096199927385,EQUAL,0.0006006000000000177,0.0006016000000000022,EQUAL
+check(rescale_to_unit)",1.1298309599951608,1.1538681299978635,EQUAL,0.0006515000000000104,0.0006155999999999884,EQUAL
 exp_4,HumanEval/22,"from typing import List, Any
 
 
@@ -7346,7 +7346,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.7134496600017883,1.4318071199930273,SOLUTION TWO,0.0005793999999999855,0.0006015999999999799,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_4,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -7389,7 +7389,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.6337759400019423,1.8187853799958247,EQUAL,0.0005773999999999946,0.0005896000000000124,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_4,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -7428,7 +7428,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.9012749399989843,1.859224200004246,EQUAL,0.0005476000000000259,0.0006016000000000022,EQUAL
+check(flip_case)",1.1627119500015397,1.1417527700017671,EQUAL,0.0006216999999999917,0.0005968000000000029,EQUAL
 exp_4,HumanEval/28,"from typing import List
 
 
@@ -7477,7 +7477,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.8170163200004026,1.8382622600067406,EQUAL,0.0005882000000000165,0.0006016000000000022,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_4,HumanEval/29,"from typing import List
 
 
@@ -7524,7 +7524,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.8588123599998654,1.838284759997623,EQUAL,0.0005885999999999836,0.0006015999999999799,EQUAL
+check(filter_by_prefix)",1.123542180005461,1.103205949999392,EQUAL,0.0006140000000000034,0.0006041999999999881,EQUAL
 exp_4,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -7565,7 +7565,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.7973136799992062,1.8389242199948057,EQUAL,0.0005994000000000055,0.0006016000000000022,EQUAL
+check(get_positive)",1.1806896599999164,1.2244746699958342,EQUAL,0.0005968000000000084,0.0006114000000000064,EQUAL
 exp_4,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -7596,7 +7596,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.7986085600045043,1.8197028199909255,EQUAL,0.0005993999999999832,0.0006015999999999799,EQUAL
+check(unique)",1.1522691799968015,1.1699076000018978,EQUAL,0.0006151999999999935,0.0006023999999999974,EQUAL
 exp_4,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -7631,7 +7631,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.8595039999927394,1.8417523200041614,EQUAL,0.0006135999999999919,0.0006252000000000147,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_4,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -7670,7 +7670,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.8222505400073714,1.8196675800019875,EQUAL,0.0005978000000000039,0.0006016000000000022,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_4,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -7705,7 +7705,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.7805608800030313,1.511876719997963,EQUAL,0.0005924000000000262,0.0006016000000000244,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_4,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -7758,7 +7758,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.859458159992937,1.7916764799971134,EQUAL,0.0005902000000000074,0.0006016000000000022,EQUAL
+check(median)",1.1712516199972014,1.3314743800001452,EQUAL,0.0006031000000000008,0.0005972999999999951,EQUAL
 exp_4,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -7815,7 +7815,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.614963700005319,1.4546817199909128,EQUAL,0.0005897999999999959,0.0006015999999999799,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_4,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -7874,7 +7874,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.4947945999971126,1.8188583399984055,SOLUTION ONE,0.0005773999999999946,0.0006000000000000005,EQUAL
+check(modp)",1.2141070999961812,1.1881352700002026,EQUAL,0.0006100000000000105,0.0005967999999999974,EQUAL
 exp_4,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -7929,7 +7929,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.8391276800073684,1.817022759997053,EQUAL,0.0005670000000000064,0.0006016000000000022,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_4,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -7984,7 +7984,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.8434355400037021,1.7794012399972416,EQUAL,0.0005865999999999927,0.0006016000000000244,EQUAL
+check(fib)",0.9896181899996008,1.1403092300053685,EQUAL,0.0006129999999999857,0.0006023999999999919,EQUAL
 exp_4,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -8028,7 +8028,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.8579294799885246,1.9205542600015177,EQUAL,0.0005666000000000171,0.0005904000000000132,EQUAL
+check(common)",1.1200384900002973,1.1201760099967941,EQUAL,0.0006091999999999931,0.0006153999999999937,EQUAL
 exp_4,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -8083,7 +8083,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.9831302799924742,1.8601492200046779,EQUAL,0.0005561999999999845,0.0006015999999999799,EQUAL
+check(sum_to_n)",1.1416973000072175,1.1206247600028292,EQUAL,0.0006304000000000032,0.0005970000000000087,EQUAL
 exp_4,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -8150,7 +8150,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",1.8568440199946052,1.7959975799894892,EQUAL,0.0005776000000000004,0.0006016000000000022,EQUAL
+check(digitSum)",1.1674596199998633,1.1630910699983361,EQUAL,0.0006086000000000036,0.0006082000000000032,EQUAL
 exp_4,HumanEval/68,"def pluck(arr):
     """"""
     ""Given an array representing a branch of a tree that has non-negative integer nodes
@@ -8282,7 +8282,7 @@ def check(candidate):
     assert candidate([7, 9, 7, 1]) == [], ""Error""
 
 
-check(pluck)",1.7982433199882508,1.8713678399974014,EQUAL,0.0005886000000000057,0.0006016000000000244,EQUAL
+check(pluck)",1.1576403800048864,1.1469201800005977,EQUAL,0.0006032000000000037,0.0006093999999999932,EQUAL
 exp_4,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -8366,7 +8366,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.8175442399980966,1.8584238600044045,EQUAL,0.000835600000000003,0.0008522000000000141,EQUAL
+check(will_it_fly)",1.1073631899926113,1.1495851999992737,SOLUTION ONE,0.0007386999999999921,0.000739499999999993,EQUAL
 exp_4,HumanEval/74,"def total_match(lst1, lst2):
     '''
     Write a function that accepts two lists of strings and returns the list that has 
@@ -8450,7 +8450,7 @@ def check(candidate):
     assert candidate(['this'], []) == []
 
 
-check(total_match)",1.8372811200097203,1.5394703800033311,SOLUTION TWO,0.0009058000000000011,0.0009509999999999907,EQUAL
+check(total_match)",1.1321398799977032,1.1297158699977445,EQUAL,0.0007902000000000076,0.0007658999999999971,EQUAL
 exp_4,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -8508,7 +8508,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.7182012600067538,1.8147879800002555,EQUAL,0.0005886000000000057,0.0006016000000000022,EQUAL
+check(multiply)",1.1401665599958506,1.129049899999518,EQUAL,0.0006084000000000034,0.0005920000000000037,EQUAL
 exp_4,HumanEval/116,"def sort_array(arr):
     """"""
     In this Kata, you have to sort an array of non-negative integers according to
@@ -8567,7 +8567,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(sort_array)",1.838382779993117,1.8384153800026979,EQUAL,0.0005668000000000007,0.0005991999999999997,EQUAL
+check(sort_array)",1.1087386100000003,1.1500512899947353,NA,NA,EQUAL,NA
 exp_4,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -8630,7 +8630,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.8367987000034192,1.8367080599942711,EQUAL,0.0005764000000000102,0.0006016000000000022,EQUAL
+check(compare)",1.1302341799979332,1.1828490899933968,EQUAL,0.0006138000000000144,0.0005968000000000084,EQUAL
 exp_5,HumanEval/7,"from typing import List
 
 
@@ -8681,7 +8681,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.8355773400049658,1.8995950400014407,EQUAL,0.0006005999999999956,0.0006016000000000022,EQUAL
+check(filter_by_substring)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/9,"from typing import List, Tuple
 
 
@@ -8739,7 +8739,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 1]) == [4, 4, 4, 4]
     assert candidate([3, 2, 3, 100, 3]) == [3, 3, 3, 100, 100]
 
-check(rolling_max)",1.8362633999960962,1.7958356599905527,EQUAL,0.0006134000000000084,0.0006016000000000022,EQUAL
+check(rolling_max)",1.0451343900029315,1.443468110001413,SOLUTION ONE,0.03915340000000001,0.0007516000000000079,EQUAL
 exp_5,HumanEval/11,"from typing import List
 
 
@@ -8789,7 +8789,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.8394319199898745,1.837508099997649,EQUAL,0.000592400000000004,0.0006016000000000022,EQUAL
+check(string_xor)",1.4621843099972467,1.433605099999113,EQUAL,0.000781199999999993,0.0006846999999999936,EQUAL
 exp_5,HumanEval/12,"from typing import List, Optional
 
 
@@ -8857,7 +8857,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.7949639200000091,1.9414578400028404,EQUAL,0.0005778000000000061,0.0006015999999999799,EQUAL
+check(longest)",1.4233827400021255,1.432556740002474,EQUAL,0.0006565000000000043,0.0006737999999999966,EQUAL
 exp_5,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -8906,7 +8906,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.8379155400034506,1.821278920007171,EQUAL,0.0006016000000000244,0.0006016000000000244,EQUAL
+check(greatest_common_divisor)",1.368970219991752,1.4514569399965693,SOLUTION ONE,0.0007620999999999988,0.0006388000000000116,SOLUTION TWO
 exp_5,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -8953,7 +8953,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.736797119997209,1.6992861199949403,EQUAL,0.0005800000000000027,0.0006016000000000022,EQUAL
+check(count_distinct_characters)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/21,"from typing import List
 
 
@@ -9010,7 +9010,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.8879656800010707,2.01434877999709,EQUAL,0.0006239999999999801,0.0006016000000000022,EQUAL
+check(rescale_to_unit)",1.4558590099972206,1.4428430499974638,EQUAL,0.0006101999999999941,0.000638500000000003,EQUAL
 exp_5,HumanEval/22,"from typing import List, Any
 
 
@@ -9059,7 +9059,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.9862563400005455,1.9306022199918516,EQUAL,0.0005802000000000307,0.0006016000000000244,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -9102,7 +9102,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.9080957600090187,1.9099980399943888,EQUAL,0.0006017999999999857,0.0006016000000000022,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -9141,7 +9141,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.8689239599916618,1.8672286199987866,EQUAL,0.0006015999999999799,0.0006015999999999799,EQUAL
+check(flip_case)",1.406184719997691,1.1804848499945364,SOLUTION TWO,0.000608599999999998,0.0006083999999999979,EQUAL
 exp_5,HumanEval/28,"from typing import List
 
 
@@ -9190,7 +9190,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.8683781200030354,1.9288781599956564,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/29,"from typing import List
 
 
@@ -9237,7 +9237,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.9483363200095483,1.90683806000161,EQUAL,0.0005926000000000097,0.0006016000000000022,EQUAL
+check(filter_by_prefix)",1.7090747299982467,1.8735415299976013,EQUAL,0.0005955000000000043,0.0006318000000000212,EQUAL
 exp_5,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -9278,7 +9278,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.9306922200019472,1.8887832800042816,EQUAL,0.0005906000000000189,0.0006016000000000244,EQUAL
+check(get_positive)",1.8045228999952088,1.7744171100028325,EQUAL,0.0006306000000000034,0.0006933000000000023,EQUAL
 exp_5,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -9309,7 +9309,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.8608000199950765,1.8389611000020523,EQUAL,0.0005697999999999981,0.0006016000000000022,EQUAL
+check(unique)",1.76106539000466,1.8241141700040315,SOLUTION ONE,0.0006388999999999978,0.0006020000000000025,EQUAL
 exp_5,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -9344,7 +9344,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.8992866799992043,1.7987869600008708,EQUAL,0.0006015999999999799,0.0006015999999999799,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -9383,7 +9383,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.8035401600005572,1.7986025799997152,EQUAL,0.0005797999999999747,0.0006127999999999912,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -9418,7 +9418,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.7753146199975163,1.798061760002747,EQUAL,0.0006000000000000005,0.0006016000000000244,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/46,"def fib4(n: int):
     """"""The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fib4(0) -> 0
@@ -9487,7 +9487,7 @@ def check(candidate):
     assert candidate(12) == 386
 
 
-check(fib4)",1.8609692600031849,1.756784539995715,SOLUTION TWO,0.0005910000000000082,0.0006016000000000022,EQUAL
+check(fib4)",1.7585740500042448,1.6994425799959572,EQUAL,0.0006148000000000209,0.0005968000000000084,EQUAL
 exp_5,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -9540,7 +9540,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.7590613999986089,1.8367847199959215,EQUAL,0.0006016000000000244,0.0005904000000000132,EQUAL
+check(median)",1.7479421900032321,1.769717339996714,EQUAL,0.0006152000000000102,0.000596400000000008,EQUAL
 exp_5,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -9597,7 +9597,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.7981279999949038,1.7382774600002449,EQUAL,0.0005937999999999999,0.0006016000000000022,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -9656,7 +9656,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.797374679998029,1.7963883799966425,EQUAL,0.0005902000000000074,0.0006016000000000022,EQUAL
+check(modp)",1.8101820400013822,1.7786211900034687,EQUAL,0.0005973999999999979,0.0005979999999999985,EQUAL
 exp_5,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -9711,7 +9711,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.7549508400144986,1.7570793999941088,EQUAL,0.000600400000000012,0.0006016000000000244,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -9764,7 +9764,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.7949920599989126,1.818323660007445,EQUAL,0.0005805999999999977,0.0006031999999999815,EQUAL
+check(fib)",1.7629896699974779,1.7668551100039622,EQUAL,0.000587999999999983,0.0005977999999999984,EQUAL
 exp_5,HumanEval/57,"def monotonic(l: list):
     """"""Return True is list elements are monotonically increasing or decreasing.
     >>> monotonic([1, 2, 4, 20])
@@ -9817,7 +9817,7 @@ def check(candidate):
     assert candidate([9, 9, 9, 9]) == True
 
 
-check(monotonic)",1.759658000001218,1.5335875599994324,SOLUTION TWO,0.0006015999999999799,0.0006015999999999799,EQUAL
+check(monotonic)",1.8305599700019228,1.6949250800011213,EQUAL,0.0006032000000000037,0.0005983999999999879,EQUAL
 exp_5,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -9861,7 +9861,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.7577914999972564,1.764535900001647,EQUAL,0.0005908000000000247,0.0006016000000000244,EQUAL
+check(common)",1.7677691699995193,1.7779706699948292,EQUAL,0.000595699999999999,0.0006029000000000006,EQUAL
 exp_5,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -9916,7 +9916,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.7984229599998798,1.8151552200026344,EQUAL,0.0005813999999999986,0.0005897999999999737,EQUAL
+check(sum_to_n)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_5,HumanEval/63,"def fibfib(n: int):
     """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fibfib(0) == 0
@@ -9990,7 +9990,7 @@ def check(candidate):
     assert candidate(14) == 927
 
 
-check(fibfib)",1.797892820002744,1.7811949000053573,EQUAL,0.0006120000000000125,0.0006000000000000005,EQUAL
+check(fibfib)",1.8005679199966835,1.8102993100008462,EQUAL,0.0005981999999999987,0.0006140999999999896,EQUAL
 exp_5,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -10074,7 +10074,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.8768475399992894,1.7987390799913556,EQUAL,0.0008492000000000166,0.0008519999999999861,EQUAL
+check(will_it_fly)",1.7491309900011403,1.7572661200014408,EQUAL,0.0007206000000000046,0.0007339999999999957,EQUAL
 exp_5,HumanEval/74,"def total_match(lst1, lst2):
     '''
     Write a function that accepts two lists of strings and returns the list that has 
@@ -10162,7 +10162,7 @@ def check(candidate):
     assert candidate(['this'], []) == []
 
 
-check(total_match)",1.8606451399973594,1.7771390999958385,EQUAL,0.0009167999999999843,0.0009494000000000114,EQUAL
+check(total_match)",1.808002779999515,1.7905473300052108,EQUAL,0.0007706999999999908,0.0007720999999999978,EQUAL
 exp_5,HumanEval/95,"def check_dict_case(dict):
     """"""
     Given a dictionary, return True if all keys are strings in lower 
@@ -10239,7 +10239,7 @@ def check(candidate):
     assert candidate({}) == False, ""1st edge test error: "" + str(candidate({}))
 
 
-check(check_dict_case)",1.757802759995684,1.7398762400145642,EQUAL,0.0006019999999999914,0.0006031999999999815,EQUAL
+check(check_dict_case)",1.7993955300044036,1.7773283599963179,EQUAL,0.000611000000000006,0.0005975999999999982,SOLUTION TWO
 exp_5,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -10297,7 +10297,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.8010874199972022,1.7381035200029147,EQUAL,0.000580399999999992,0.0006016000000000022,EQUAL
+check(multiply)",1.7992818900034764,1.7772935700049857,EQUAL,0.000602999999999998,0.0005976000000000037,EQUAL
 exp_5,HumanEval/114,"def minSubArraySum(nums):
     """"""
     Given an array of integers nums, find the minimum sum of any non-empty sub-array
@@ -10373,7 +10373,7 @@ def check(candidate):
     assert candidate([7]) == 7
     assert candidate([1, -1]) == -1
 
-check(minSubArraySum)",1.7363629799918272,1.780392039997969,SOLUTION ONE,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(minSubArraySum)",1.7794234200002392,1.7798949399963022,EQUAL,0.000591400000000003,0.0006023999999999974,EQUAL
 exp_5,HumanEval/136,"def largest_smallest_integers(lst):
     '''
     Create a function that returns a tuple (a, b), where 'a' is
@@ -10469,7 +10469,7 @@ def check(candidate):
     # Check some edge cases that are easy to work out by hand.
     assert True
 
-check(largest_smallest_integers)",1.8222226599988063,1.8013337599986698,EQUAL,0.0006015999999999799,0.0006031999999999815,EQUAL
+check(largest_smallest_integers)",2.085100059999968,2.8456495099992027,SOLUTION ONE,0.0006091999999999931,0.000614600000000004,EQUAL
 exp_5,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -10532,7 +10532,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.556884020002326,1.7967551200068557,SOLUTION ONE,0.0006020000000000137,0.0006016000000000022,EQUAL
+check(compare)",2.3208557600009954,1.578201829997124,SOLUTION TWO,0.0006034000000000039,0.0006024000000000029,EQUAL
 exp_6,HumanEval/7,"from typing import List
 
 
@@ -10583,7 +10583,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.7579794400022366,1.7814289600006306,EQUAL,0.000591800000000009,0.0006016000000000244,EQUAL
+check(filter_by_substring)",1.5832491000008304,1.6602364299993497,EQUAL,0.03921619999999999,0.0008981000000000017,SOLUTION TWO
 exp_6,HumanEval/11,"from typing import List
 
 
@@ -10633,7 +10633,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.7805040600069333,1.9588521800003946,SOLUTION ONE,0.0006015999999999799,0.0006015999999999799,EQUAL
+check(string_xor)",1.910439469999983,1.799466179992305,EQUAL,0.0006344000000000294,0.0007565999999999962,SOLUTION ONE
 exp_6,HumanEval/12,"from typing import List, Optional
 
 
@@ -10701,7 +10701,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.736445520009147,1.75751265999279,EQUAL,0.0006016000000000244,0.0006016000000000244,EQUAL
+check(longest)",1.7909417600021698,1.8095220899995184,EQUAL,0.0007643999999999874,0.0006911999999999919,EQUAL
 exp_6,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -10750,7 +10750,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.8217782600026111,1.8395910200022627,EQUAL,0.0005902000000000296,0.0006016000000000244,EQUAL
+check(greatest_common_divisor)",1.7816671300068265,1.8134082399978069,EQUAL,0.0006518999999999941,0.0006339999999999957,EQUAL
 exp_6,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -10801,7 +10801,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.7567903799994382,1.840058900002623,SOLUTION ONE,0.0005905999999999745,0.0006015999999999799,EQUAL
+check(count_distinct_characters)",1.768797760005691,1.7894014799996512,EQUAL,0.0007160000000000055,0.0006629999999999969,EQUAL
 exp_6,HumanEval/21,"from typing import List
 
 
@@ -10858,7 +10858,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.820166739996057,1.7760074999998323,EQUAL,0.0005907999999999802,0.0006015999999999799,EQUAL
+check(rescale_to_unit)",1.8390865899971687,1.7800161200022557,EQUAL,0.000680900000000001,0.0006079999999999974,SOLUTION TWO
 exp_6,HumanEval/22,"from typing import List, Any
 
 
@@ -10907,7 +10907,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.7795251399977132,1.81118729999871,EQUAL,0.0006014000000000186,0.0006015999999999799,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_6,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -10950,7 +10950,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.7561136799980885,1.7752010000054725,EQUAL,0.0006015999999999799,0.0006128000000000134,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_6,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -10989,7 +10989,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.5133460599987303,1.776567240001168,SOLUTION ONE,0.0005907999999999802,0.0006015999999999799,EQUAL
+check(flip_case)",1.7988936400040985,1.802016559994081,EQUAL,0.0006199999999999927,0.000603599999999993,EQUAL
 exp_6,HumanEval/28,"from typing import List
 
 
@@ -11038,7 +11038,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.8070896400080527,1.9225414000044112,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_6,HumanEval/29,"from typing import List
 
 
@@ -11085,7 +11085,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.856883399997605,1.591294000018388,SOLUTION TWO,0.0005793999999999855,0.0006015999999999799,EQUAL
+check(filter_by_prefix)",1.7996227000054206,1.7882446000061463,EQUAL,0.0006099999999999939,0.0006001999999999897,EQUAL
 exp_6,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -11126,7 +11126,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.7165292600053363,1.857453959994018,EQUAL,0.000604400000000016,0.0006000000000000227,EQUAL
+check(get_positive)",1.7987464300036664,1.800632729998324,EQUAL,0.0006199999999999927,0.000603999999999999,EQUAL
 exp_6,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -11157,7 +11157,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.7589478000008967,1.7829736199986654,EQUAL,0.0005684000000000022,0.0006128000000000134,EQUAL
+check(unique)",1.7786208700068529,1.6863857099990127,EQUAL,0.0005976000000000037,0.0005968000000000029,EQUAL
 exp_6,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -11192,7 +11192,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.8166133199993055,1.7770858199975919,EQUAL,0.0005907999999999802,0.0005999999999999784,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_6,HumanEval/40,"def triples_sum_to_zero(l: list):
     """"""
     triples_sum_to_zero takes a list of integers as an input.
@@ -11278,7 +11278,7 @@ def check(candidate):
     assert candidate([100, 3, 5, -100]) == False
 
 
-check(triples_sum_to_zero)",1.8177173800067976,1.5557231799990405,SOLUTION TWO,0.0006028000000000144,0.0006000000000000005,EQUAL
+check(triples_sum_to_zero)",1.4333783399983075,1.5429709699965315,SOLUTION ONE,0.0006029999999999924,0.0005975999999999926,EQUAL
 exp_6,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -11317,7 +11317,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.8777031999954488,1.7416388200130313,EQUAL,0.0006000000000000227,0.0006016000000000022,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_6,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -11352,7 +11352,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.7761477799969725,1.7986114000086673,EQUAL,0.0005678000000000072,0.0006016000000000022,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_6,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -11404,7 +11404,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.7584045799972956,1.756881019996945,EQUAL,0.0005908000000000247,0.0006016000000000244,EQUAL
+check(median)",1.1375777099950937,1.162010009997175,EQUAL,0.0005975999999999982,0.0005967999999999974,EQUAL
 exp_6,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -11461,7 +11461,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.9025735599978362,1.8387446400010958,EQUAL,0.0005811999999999929,0.0006016000000000022,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_6,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -11520,7 +11520,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.7779636799998115,1.8834938800020609,EQUAL,0.0005667999999999784,0.0006015999999999799,EQUAL
+check(modp)",1.1142976300005103,1.15387448000547,EQUAL,0.0005824000000000162,0.0006088999999999956,EQUAL
 exp_6,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -11575,7 +11575,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.779293419996975,1.80323408000404,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_6,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -11628,7 +11628,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.717919139994774,1.6783376599953044,EQUAL,0.0005892000000000009,0.0006000000000000005,EQUAL
+check(fib)",1.1243539500050246,1.1820424799981992,EQUAL,0.0005750999999999951,0.0006023999999999974,EQUAL
 exp_6,HumanEval/57,"def monotonic(l: list):
     """"""Return True is list elements are monotonically increasing or decreasing.
     >>> monotonic([1, 2, 4, 20])
@@ -11681,7 +11681,7 @@ def check(candidate):
     assert candidate([9, 9, 9, 9]) == True
 
 
-check(monotonic)",1.678800240001874,1.536204400000861,EQUAL,0.0006016000000000244,0.0006016000000000244,EQUAL
+check(monotonic)",1.1424218099971768,1.1479341099940938,EQUAL,0.0006560999999999983,0.0006155000000000078,EQUAL
 exp_6,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -11725,7 +11725,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.798778820008738,1.7365494999918156,SOLUTION TWO,0.0006000000000000227,0.0006016000000000022,EQUAL
+check(common)",1.142160200001672,1.1310171499993884,EQUAL,0.0006147999999999932,0.0005967999999999974,EQUAL
 exp_6,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -11780,7 +11780,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.7556132199941203,1.8161229000077583,EQUAL,0.0006016000000000022,0.0006032000000000037,EQUAL
+check(sum_to_n)",1.1407662700046786,1.0885515099973417,EQUAL,0.0006468999999999947,0.0006554999999999922,EQUAL
 exp_6,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -11847,7 +11847,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",1.8584497400035616,1.5963228399981744,EQUAL,0.0005923999999999819,0.0006015999999999799,EQUAL
+check(digitSum)",1.1008122799976263,1.1197959899960552,EQUAL,0.0006264999999999854,0.0005967999999999974,EQUAL
 exp_6,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -11931,7 +11931,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.534990699996706,1.5376131600001828,EQUAL,0.0008490000000000109,0.0008519999999999861,EQUAL
+check(will_it_fly)",1.128897899997537,1.1185959299997195,EQUAL,0.0008494000000000057,0.0007576999999999945,EQUAL
 exp_6,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -11988,7 +11988,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.7968520999944304,1.8195515999919736,EQUAL,0.0005802000000000085,0.0006015999999999799,EQUAL
+check(multiply)",1.1493120899918723,1.1598662699951092,EQUAL,0.0006981000000000015,0.0006440000000000057,EQUAL
 exp_6,HumanEval/114,"def minSubArraySum(nums):
     """"""
     Given an array of integers nums, find the minimum sum of any non-empty sub-array
@@ -12061,7 +12061,7 @@ def check(candidate):
     assert candidate([7]) == 7
     assert candidate([1, -1]) == -1
 
-check(minSubArraySum)",1.7564669400046113,1.8407973000023048,SOLUTION ONE,0.0005800000000000249,0.0006000000000000005,EQUAL
+check(minSubArraySum)",1.1683041999989654,1.4320711599983043,SOLUTION ONE,0.0006233999999999851,0.0006500999999999868,EQUAL
 exp_6,HumanEval/124,"def valid_date(date):
     """"""You have to write a function which validates a given date string and
     returns True if the date is valid otherwise False.
@@ -12214,7 +12214,7 @@ def check(candidate):
 
     assert candidate('04-2003') == False
 
-check(valid_date)",1.8272152399993502,1.7555637599958573,EQUAL,0.0006047999999999832,0.0006015999999999799,EQUAL
+check(valid_date)",1.4040048300026684,1.4526941699965392,EQUAL,0.0005919000000000063,0.0005968000000000029,EQUAL
 exp_6,HumanEval/136,"def largest_smallest_integers(lst):
     '''
     Create a function that returns a tuple (a, b), where 'a' is
@@ -12304,7 +12304,7 @@ def check(candidate):
     # Check some edge cases that are easy to work out by hand.
     assert True
 
-check(largest_smallest_integers)",1.6672734800027684,1.8027398200007156,EQUAL,0.000592400000000004,0.0006015999999999799,EQUAL
+check(largest_smallest_integers)",1.4621299599995836,1.4219297100091353,EQUAL,0.0006503999999999899,0.0006091999999999987,EQUAL
 exp_6,HumanEval/151,"def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
@@ -12377,7 +12377,7 @@ def check(candidate):
     assert candidate(lst) == odd_sum , ""This prints if this assert fails 7 (good for debugging!)""
 
 
-check(double_the_difference)",1.8586723600048571,2.0187132199993356,EQUAL,0.0005882000000000165,0.0006031999999999815,EQUAL
+check(double_the_difference)",1.4635586100048386,1.4236770300019999,EQUAL,0.0006431999999999937,0.0006025000000000058,EQUAL
 exp_6,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -12440,7 +12440,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.5997151400020813,1.6807720400043764,EQUAL,0.0005991999999999997,0.0006032000000000037,EQUAL
+check(compare)",1.410695180000039,1.4106835199956549,EQUAL,0.0006070999999999993,0.0005976000000000092,EQUAL
 exp_7,HumanEval/7,"from typing import List
 
 
@@ -12491,7 +12491,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.6196296399983112,1.6198915200016928,EQUAL,0.0006111999999999895,0.0006008000000000014,EQUAL
+check(filter_by_substring)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/11,"from typing import List
 
 
@@ -12541,7 +12541,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.7358738799986895,1.9896003800036852,SOLUTION ONE,0.0006135999999999919,0.0006000000000000227,EQUAL
+check(string_xor)",1.1876814200019,1.1873336400080006,EQUAL,0.039188600000000004,0.0007038999999999906,SOLUTION TWO
 exp_7,HumanEval/12,"from typing import List, Optional
 
 
@@ -12609,7 +12609,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.8662855599890462,1.5796828799997455,SOLUTION TWO,0.0005905999999999967,0.0006016000000000022,EQUAL
+check(longest)",1.314221909994376,1.4731154599954608,EQUAL,0.0007626000000000022,0.0007850000000000079,EQUAL
 exp_7,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -12658,7 +12658,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.841235580004286,1.7219675000000279,EQUAL,0.0006036000000000152,0.0006232000000000015,EQUAL
+check(greatest_common_divisor)",1.4855435299949022,1.4047767500014743,SOLUTION TWO,0.0007384000000000057,0.0006739000000000106,EQUAL
 exp_7,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -12709,7 +12709,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.8009370199986734,1.7813778200012167,EQUAL,0.0005908000000000024,0.0006032000000000037,EQUAL
+check(count_distinct_characters)",1.4527956899954007,1.474553330001072,EQUAL,0.0006644000000000039,0.0006910000000000027,EQUAL
 exp_7,HumanEval/21,"from typing import List
 
 
@@ -12765,7 +12765,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.8022230400005355,1.8419739800039678,EQUAL,0.0005800000000000027,0.0006032000000000037,EQUAL
+check(rescale_to_unit)",1.4611555899988162,1.3295277099969098,SOLUTION TWO,0.0006050999999999918,0.0006140000000000034,EQUAL
 exp_7,HumanEval/22,"from typing import List, Any
 
 
@@ -12814,7 +12814,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.9218330800009427,1.8187498799990862,SOLUTION TWO,0.0006031999999999815,0.0005927999999999711,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -12857,7 +12857,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.8432927799993195,1.762502720003249,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -12896,7 +12896,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.7649183199857361,1.819248600001447,EQUAL,0.0005902000000000074,0.0006016000000000244,EQUAL
+check(flip_case)",1.411608799995156,1.4841751799976919,EQUAL,0.0006440000000000112,0.0006743999999999917,EQUAL
 exp_7,HumanEval/28,"from typing import List
 
 
@@ -12945,7 +12945,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.779607100004796,1.7991525999910665,EQUAL,0.0006016000000000022,0.0006032000000000037,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/29,"from typing import List
 
 
@@ -12992,7 +12992,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.782909660000587,1.6667271400103345,EQUAL,0.0006000000000000005,0.0006015999999999799,EQUAL
+check(filter_by_prefix)",1.4437760599976173,1.4428899799968349,EQUAL,0.0006542999999999855,0.0006187999999999972,EQUAL
 exp_7,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -13033,7 +13033,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.5973510199866723,1.7809849999961442,SOLUTION ONE,0.0005999999999999784,0.0006015999999999799,EQUAL
+check(get_positive)",1.4209295900072902,1.472297930001514,EQUAL,0.0006273999999999891,0.0006199999999999984,EQUAL
 exp_7,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -13064,7 +13064,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.8589378600008786,1.7601744999992661,EQUAL,0.000592400000000004,0.0006016000000000022,EQUAL
+check(unique)",1.336296399999992,1.472931749993586,SOLUTION ONE,0.0006156000000000162,0.0006154000000000049,EQUAL
 exp_7,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -13099,7 +13099,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.7618779400072526,1.7407178000023122,EQUAL,0.0005673999999999735,0.0006111999999999895,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/40,"def triples_sum_to_zero(l: list):
     """"""
     triples_sum_to_zero takes a list of integers as an input.
@@ -13189,7 +13189,7 @@ def check(candidate):
     assert candidate([100, 3, 5, -100]) == False
 
 
-check(triples_sum_to_zero)",1.840252400015015,1.7612055999983567,EQUAL,0.0005799999999999805,0.0005999999999999784,EQUAL
+check(triples_sum_to_zero)",1.4846155300008832,1.4723679300019286,EQUAL,0.0006028000000000034,0.0006093999999999877,EQUAL
 exp_7,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -13228,7 +13228,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.7795502200024202,1.8048458600067534,EQUAL,0.000593200000000027,0.0006016000000000244,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -13263,7 +13263,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.780429160001222,1.7599536599998828,EQUAL,0.0005712000000000162,0.0006016000000000244,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -13316,7 +13316,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.8060676800028888,1.7793096999987028,EQUAL,0.0005676000000000014,0.0006144000000000149,EQUAL
+check(median)",1.3168259999947622,1.1904859300004318,SOLUTION TWO,0.0005977000000000176,0.0005968000000000029,EQUAL
 exp_7,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -13373,7 +13373,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.583849860006012,1.4780581200087908,EQUAL,0.0005877999999999827,0.0006015999999999799,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -13432,7 +13432,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.7012201600009575,1.756716500001494,EQUAL,0.0005907999999999802,0.0006015999999999799,EQUAL
+check(modp)",1.316440980002517,1.229925660000299,EQUAL,0.0005862000000000034,0.0005971999999999922,EQUAL
 exp_7,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -13487,7 +13487,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.8170008399989457,1.7976691399875562,EQUAL,0.0005870000000000042,0.0006016000000000022,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_7,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -13540,7 +13540,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.7565214000002016,1.7355411799973808,EQUAL,0.0005825999999999887,0.0006127999999999912,EQUAL
+check(fib)",1.1430906699999468,1.4411296699981904,SOLUTION ONE,0.0005862000000000034,0.0005968000000000029,EQUAL
 exp_7,HumanEval/57,"def monotonic(l: list):
     """"""Return True is list elements are monotonically increasing or decreasing.
     >>> monotonic([1, 2, 4, 20])
@@ -13593,7 +13593,7 @@ def check(candidate):
     assert candidate([9, 9, 9, 9]) == True
 
 
-check(monotonic)",1.796116919995984,1.780838300002506,EQUAL,0.0005940000000000057,0.0006016000000000244,EQUAL
+check(monotonic)",1.4219309299980523,1.3949653299961937,EQUAL,0.0005984000000000045,0.000602999999999998,EQUAL
 exp_7,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -13637,7 +13637,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.5537577799987048,1.6588491199945565,EQUAL,0.0005908000000000247,0.0006016000000000244,EQUAL
+check(common)",1.4549203100061276,1.4733213300001808,EQUAL,0.0005862999999999896,0.0005967999999999917,EQUAL
 exp_7,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -13692,7 +13692,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.8177925399970263,1.7613599800039084,EQUAL,0.0005901999999999852,0.0006016000000000244,EQUAL
+check(sum_to_n)",1.4454589800006943,1.4136754200037103,NA,NA,EQUAL,NA
 exp_7,HumanEval/63,"def fibfib(n: int):
     """"""The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fibfib(0) == 0
@@ -13766,7 +13766,7 @@ def check(candidate):
     assert candidate(14) == 927
 
 
-check(fibfib)",1.798429719998967,1.884758860000875,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(fibfib)",1.4354231300007085,1.4238944200071273,EQUAL,0.0005876000000000047,0.0006040999999999963,EQUAL
 exp_7,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -13833,7 +13833,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",1.8215669399942271,1.7975749999925028,EQUAL,0.0005692000000000252,0.0006016000000000244,EQUAL
+check(digitSum)",1.4256649999995716,1.4034284199966351,EQUAL,0.0006049999999999889,0.0006029000000000063,EQUAL
 exp_7,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -13917,7 +13917,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.758981599996332,1.8378017800045199,EQUAL,0.0008397999999999906,0.0008522000000000141,EQUAL
+check(will_it_fly)",1.473572769999737,1.4231660099991132,EQUAL,0.0007221000000000088,0.0007448999999999983,EQUAL
 exp_7,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -13974,7 +13974,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.6392719799943734,1.598063580004964,EQUAL,0.0005788000000000127,0.0006016000000000022,EQUAL
+check(multiply)",1.274943560003885,1.199947930005146,EQUAL,0.0006049999999999944,0.0005974000000000035,EQUAL
 exp_7,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -14037,7 +14037,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.8407221999950707,1.7595691399939823,EQUAL,0.0005999999999999784,0.0006015999999999799,EQUAL
+check(compare)",1.4109977200016146,1.4310417400003643,EQUAL,0.000609000000000004,0.0006091999999999987,EQUAL
 exp_8,HumanEval/7,"from typing import List
 
 
@@ -14088,7 +14088,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.7958051800029353,1.7575335799949243,EQUAL,0.0005816000000000044,0.0006016000000000022,EQUAL
+check(filter_by_substring)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/11,"from typing import List
 
 
@@ -14138,7 +14138,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.836564959998941,1.839092559996061,EQUAL,0.0005840000000000289,0.0005976000000000204,EQUAL
+check(string_xor)",1.1441436799970688,1.192466869999771,EQUAL,0.03908969999999999,0.0007932999999999968,EQUAL
 exp_8,HumanEval/12,"from typing import List, Optional
 
 
@@ -14206,7 +14206,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.8778704800002743,1.7950528200017288,EQUAL,0.0006015999999999799,0.0006015999999999799,EQUAL
+check(longest)",1.211172610000358,1.1619077299896161,EQUAL,0.0006505999999999901,0.0006372000000000044,EQUAL
 exp_8,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -14255,7 +14255,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.878247759997612,1.7968135199975221,EQUAL,0.0005904000000000132,0.0006028000000000144,EQUAL
+check(greatest_common_divisor)",1.3627636099932716,1.4429618599941023,EQUAL,0.0008282000000000012,0.0008124999999999883,EQUAL
 exp_8,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -14305,7 +14305,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.780807539995294,1.7364006599993445,SOLUTION TWO,0.0005908000000000247,0.0006016000000000244,EQUAL
+check(count_distinct_characters)",1.4119483600050444,1.4752863400033676,SOLUTION ONE,0.000898199999999999,0.0006873999999999991,SOLUTION TWO
 exp_8,HumanEval/21,"from typing import List
 
 
@@ -14360,7 +14360,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.7797536800033413,1.7217672599945217,EQUAL,0.0006000000000000227,0.0005992000000000219,EQUAL
+check(rescale_to_unit)",1.4772852900030558,1.4225632299989228,EQUAL,0.0006496000000000224,0.000749699999999992,EQUAL
 exp_8,HumanEval/22,"from typing import List, Any
 
 
@@ -14409,7 +14409,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.7814422399969772,1.761715380003443,EQUAL,0.0006008000000000235,0.0006016000000000022,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -14452,7 +14452,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.7418945199984592,1.8021487800055183,EQUAL,0.0006048000000000275,0.0006000000000000227,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -14491,7 +14491,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.7831504000001588,1.8213622399955056,EQUAL,0.0005895999999999902,0.0006015999999999799,EQUAL
+check(flip_case)",1.403335449998849,1.2508510700019542,SOLUTION TWO,0.0008324999999999971,0.0006861000000000006,SOLUTION TWO
 exp_8,HumanEval/28,"from typing import List
 
 
@@ -14540,7 +14540,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.8443537999992259,1.7970159400021657,EQUAL,0.000603599999999993,0.0006016000000000022,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/29,"from typing import List
 
 
@@ -14587,7 +14587,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.7787038199894596,1.8015801600064152,EQUAL,0.0005916000000000032,0.0006032000000000037,EQUAL
+check(filter_by_prefix)",1.2644809600024018,1.4864878499996848,SOLUTION ONE,0.0007096999999999965,0.0006029000000000118,EQUAL
 exp_8,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -14628,7 +14628,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.7362570199999028,1.7591600200044923,EQUAL,0.0005792000000000019,0.0006032000000000037,EQUAL
+check(get_positive)",1.2006158300093375,1.2541228800022508,EQUAL,0.0006740999999999941,0.000626799999999994,EQUAL
 exp_8,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -14659,7 +14659,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.7789626399928238,1.7589912199997344,EQUAL,0.0005918000000000312,0.0006016000000000244,EQUAL
+check(unique)",1.45157637000666,1.4316283599997406,EQUAL,0.0006407000000000051,0.0006211999999999829,EQUAL
 exp_8,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -14694,7 +14694,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.7837344400002622,1.6364269799902105,EQUAL,0.0006016000000000022,0.0006000000000000005,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -14733,7 +14733,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.6795106999925338,1.8777633799880278,EQUAL,0.0006032000000000259,0.0006016000000000244,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -14768,7 +14768,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.9594984799972734,1.922198999999091,EQUAL,0.0006016000000000244,0.0006016000000000244,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/46,"def fib4(n: int):
     """"""The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
     fib4(0) -> 0
@@ -14837,7 +14837,7 @@ def check(candidate):
     assert candidate(12) == 386
 
 
-check(fib4)",1.8810873000009452,1.9039563400030601,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(fib4)",1.4526844299951336,1.699352270003874,EQUAL,0.0006161999999999945,0.0005967999999999917,EQUAL
 exp_8,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -14889,7 +14889,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.818002820003312,1.7970864800037816,EQUAL,0.0005767999999999774,0.0005911999999999917,EQUAL
+check(median)",1.406322489999002,1.1720342000044184,SOLUTION TWO,0.0006165000000000031,0.0006022000000000027,EQUAL
 exp_8,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -14946,7 +14946,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.9412909999955446,1.8025973400042858,EQUAL,0.0005901999999999852,0.0006015999999999799,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -15005,7 +15005,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.736004140006844,1.776876100001391,EQUAL,0.0005816000000000265,0.0006016000000000022,EQUAL
+check(modp)",1.174361060000956,1.415880970004946,SOLUTION ONE,0.000687799999999994,0.0006197999999999926,EQUAL
 exp_8,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -15060,7 +15060,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",1.7843156999908387,1.7964354800002185,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_8,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -15113,7 +15113,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.779298959998414,1.8308295199996791,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(fib)",1.4152507999941009,1.403259219994652,EQUAL,0.0006090999999999958,0.0005959999999999854,EQUAL
 exp_8,HumanEval/57,"def monotonic(l: list):
     """"""Return True is list elements are monotonically increasing or decreasing.
     >>> monotonic([1, 2, 4, 20])
@@ -15166,7 +15166,7 @@ def check(candidate):
     assert candidate([9, 9, 9, 9]) == True
 
 
-check(monotonic)",1.8584872199979146,1.7896705199964345,EQUAL,0.000580399999999992,0.0006016000000000022,EQUAL
+check(monotonic)",1.4324448400118854,1.41223389999941,EQUAL,0.0006454999999999878,0.0005967999999999917,EQUAL
 exp_8,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -15210,7 +15210,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",1.8025931400014088,1.7956308799970429,EQUAL,0.0005911999999999695,0.0006015999999999799,EQUAL
+check(common)",1.478107480003382,1.4049712700070813,EQUAL,0.0006155999999999995,0.0006205999999999879,EQUAL
 exp_8,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -15265,7 +15265,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.777864660002524,1.7587725199991837,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(sum_to_n)",1.462810139998328,1.462635369997588,EQUAL,0.0006037999999999932,0.0006151999999999935,EQUAL
 exp_8,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -15332,7 +15332,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",1.779865939996671,1.839018639997812,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(digitSum)",1.3862067600042791,1.208963049997692,SOLUTION TWO,0.0006043999999999939,0.0006023999999999974,EQUAL
 exp_8,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -15416,7 +15416,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.7829595000075642,1.8580648200004362,EQUAL,0.0008523999999999754,0.0008519999999999861,EQUAL
+check(will_it_fly)",1.1127211700018962,1.1736906399950384,EQUAL,0.0007269999999999944,0.0007285999999999849,EQUAL
 exp_8,HumanEval/74,"def total_match(lst1, lst2):
     '''
     Write a function that accepts two lists of strings and returns the list that has 
@@ -15504,7 +15504,7 @@ def check(candidate):
     assert candidate(['this'], []) == []
 
 
-check(total_match)",1.8192695000034291,1.7810555599979125,EQUAL,0.0009160000000000057,0.0009509999999999907,EQUAL
+check(total_match)",1.4236746299953666,1.4135028599994257,EQUAL,0.0007669000000000037,0.0007779000000000036,EQUAL
 exp_8,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -15562,7 +15562,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",1.8402158999990206,1.8001784800086171,EQUAL,0.0006016000000000022,0.0006016000000000022,EQUAL
+check(multiply)",1.4235192799998913,1.1694074500032001,SOLUTION TWO,0.0005974000000000035,0.000603700000000007,EQUAL
 exp_8,HumanEval/114,"def minSubArraySum(nums):
     """"""
     Given an array of integers nums, find the minimum sum of any non-empty sub-array
@@ -15636,7 +15636,7 @@ def check(candidate):
     assert candidate([7]) == 7
     assert candidate([1, -1]) == -1
 
-check(minSubArraySum)",1.7775312800018583,1.7778103200020268,EQUAL,0.0006032000000000037,0.0006016000000000022,EQUAL
+check(minSubArraySum)",1.3810700000060023,1.4233635599986882,EQUAL,0.0006148999999999905,0.0005968000000000029,EQUAL
 exp_8,HumanEval/124,"def valid_date(date):
     """"""You have to write a function which validates a given date string and
     returns True if the date is valid otherwise False.
@@ -15789,7 +15789,7 @@ def check(candidate):
 
     assert candidate('04-2003') == False
 
-check(valid_date)",1.762498319998849,1.820077079994371,EQUAL,0.0005685999999999857,0.0006016000000000022,EQUAL
+check(valid_date)",1.5025111300026766,1.389821889999439,SOLUTION TWO,0.0005941999999999892,0.0006023999999999974,EQUAL
 exp_8,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -15852,7 +15852,7 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.8434427800064441,1.8204511000018102,EQUAL,0.0005773999999999724,0.0006027999999999922,EQUAL
+check(compare)",1.2695277899882058,1.1400896300008754,EQUAL,0.0005845999999999907,0.0006044999999999856,SOLUTION ONE
 exp_9,HumanEval/7,"from typing import List
 
 
@@ -15903,7 +15903,7 @@ def check(candidate):
     assert candidate(['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx') == ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']
     assert candidate(['grunt', 'trumpet', 'prune', 'gruesome'], 'run') == ['grunt', 'prune']
 
-check(filter_by_substring)",1.775877859996399,1.695874539995566,EQUAL,0.0005910000000000082,0.0006016000000000022,EQUAL
+check(filter_by_substring)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/11,"from typing import List
 
 
@@ -15953,7 +15953,7 @@ def check(candidate):
     assert candidate('1', '1') == '0'
     assert candidate('0101', '0000') == '0101'
 
-check(string_xor)",1.4340098400018177,1.4557013399957213,EQUAL,0.0005789999999999962,0.0006015999999999799,EQUAL
+check(string_xor)",1.0939375200046926,1.1221313699934399,EQUAL,0.0391734,0.0007857000000000003,EQUAL
 exp_9,HumanEval/12,"from typing import List, Optional
 
 
@@ -16021,7 +16021,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'x'
     assert candidate(['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc']) == 'zzzz'
 
-check(longest)",1.779931019997457,1.8442005999968387,EQUAL,0.0006051999999999947,0.0006015999999999799,EQUAL
+check(longest)",1.14105018999835,1.2007956899993588,EQUAL,0.0007925000000000015,0.0007916000000000034,EQUAL
 exp_9,HumanEval/13,"def greatest_common_divisor(a: int, b: int) -> int:
     """""" Return a greatest common divisor of two integers a and b
     >>> greatest_common_divisor(3, 5)
@@ -16070,7 +16070,7 @@ def check(candidate):
     assert candidate(49, 14) == 7
     assert candidate(144, 60) == 12
 
-check(greatest_common_divisor)",1.822731400007615,1.8004337800026406,EQUAL,0.0005892000000000009,0.0006016000000000022,EQUAL
+check(greatest_common_divisor)",1.1608817400003317,1.1535157699952834,EQUAL,0.000805500000000009,0.000708299999999995,SOLUTION TWO
 exp_9,HumanEval/14,"from typing import List
 
 
@@ -16115,7 +16115,7 @@ def check(candidate):
     assert candidate('asdfgh') == ['a', 'as', 'asd', 'asdf', 'asdfg', 'asdfgh']
     assert candidate('WWW') == ['W', 'WW', 'WWW']
 
-check(all_prefixes)",1.800164939998649,1.7976126000052317,EQUAL,0.0006013999999999964,0.0006016000000000022,EQUAL
+check(all_prefixes)",1.1324290899996412,1.1207249999948545,EQUAL,0.0008404000000000022,0.0008095999999999881,EQUAL
 exp_9,HumanEval/16,"def count_distinct_characters(string: str) -> int:
     """""" Given a string, find out how many distinct characters (regardless of case) does it consist of
     >>> count_distinct_characters('xyzXYZ')
@@ -16166,7 +16166,7 @@ def check(candidate):
     assert candidate('aaaaAAAAaaaa') == 1
     assert candidate('Jerry jERRY JeRRRY') == 5
 
-check(count_distinct_characters)",1.7568820599932224,1.7827061600110028,EQUAL,0.0005902000000000074,0.0006016000000000022,EQUAL
+check(count_distinct_characters)",1.149007650007843,1.1492798300023424,EQUAL,0.0007305999999999979,0.0007081000000000004,EQUAL
 exp_9,HumanEval/21,"from typing import List
 
 
@@ -16223,7 +16223,7 @@ def check(candidate):
     assert candidate([2.0, 1.0, 5.0, 3.0, 4.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
     assert candidate([12.0, 11.0, 15.0, 13.0, 14.0]) == [0.25, 0.0, 1.0, 0.5, 0.75]
 
-check(rescale_to_unit)",1.7562012600013985,1.6355257000017445,EQUAL,0.0005902000000000074,0.0006016000000000022,EQUAL
+check(rescale_to_unit)",1.1505807599955005,1.1073818999982905,EQUAL,0.0006740999999999886,0.0006434000000000107,EQUAL
 exp_9,HumanEval/22,"from typing import List, Any
 
 
@@ -16272,7 +16272,7 @@ def check(candidate):
     assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
     assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
 
-check(filter_integers)",1.8012115000048652,1.7805122199992183,EQUAL,0.0005912000000000139,0.0006016000000000022,EQUAL
+check(filter_integers)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/23,"def strlen(string: str) -> int:
     """""" Return length of given string
     >>> strlen('')
@@ -16315,7 +16315,7 @@ def check(candidate):
     assert candidate('x') == 1
     assert candidate('asdasnakj') == 9
 
-check(strlen)",1.738535299996147,1.8014670599950477,EQUAL,0.0005908000000000024,0.0006127999999999912,EQUAL
+check(strlen)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/27,"def flip_case(string: str) -> str:
     """""" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
     >>> flip_case('Hello')
@@ -16354,7 +16354,7 @@ def check(candidate):
     assert candidate('Hello!') == 'hELLO!'
     assert candidate('These violent delights have violent ends') == 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'
 
-check(flip_case)",1.820092759997351,1.8182655400014482,EQUAL,0.000590999999999986,0.0006016000000000022,EQUAL
+check(flip_case)",1.0987467399943853,1.1579880000033882,EQUAL,0.0007032999999999956,0.0006397999999999959,EQUAL
 exp_9,HumanEval/28,"from typing import List
 
 
@@ -16403,7 +16403,7 @@ def check(candidate):
     assert candidate(['x', 'y', 'z']) == 'xyz'
     assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
 
-check(concatenate)",1.8162150999996811,1.7786012999946252,EQUAL,0.0005907999999999802,0.0006015999999999799,EQUAL
+check(concatenate)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/29,"from typing import List
 
 
@@ -16450,7 +16450,7 @@ def check(candidate):
     assert candidate([], 'john') == []
     assert candidate(['xxx', 'asd', 'xxy', 'john doe', 'xxxAAA', 'xxx'], 'xxx') == ['xxx', 'xxxAAA', 'xxx']
 
-check(filter_by_prefix)",1.797005679999711,1.7566333399969154,EQUAL,0.0005781999999999954,0.0006015999999999799,EQUAL
+check(filter_by_prefix)",1.1273857399995904,1.1209721500024898,EQUAL,0.0006162999999999918,0.0005984000000000045,EQUAL
 exp_9,HumanEval/30,"def get_positive(l: list):
     """"""Return only positive numbers in the list.
     >>> get_positive([-1, 2, -4, 5, 6])
@@ -16491,7 +16491,7 @@ def check(candidate):
     assert candidate([]) == []
 
 
-check(get_positive)",1.756385220005177,1.7365697800007183,EQUAL,0.0005905999999999967,0.0006127999999999912,EQUAL
+check(get_positive)",1.0907117200025822,1.1427616099943407,EQUAL,0.0007031000000000065,0.0006441000000000086,EQUAL
 exp_9,HumanEval/34,"def unique(l: list):
     """"""Return sorted unique elements in a list
     >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
@@ -16522,7 +16522,7 @@ def check(candidate):
     assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
 
 
-check(unique)",1.7993179799988865,1.8185696599946823,EQUAL,0.0005779999999999897,0.0006000000000000005,EQUAL
+check(unique)",1.1836029699945356,1.0983604900015052,SOLUTION TWO,0.0006980000000000042,0.0006172000000000122,EQUAL
 exp_9,HumanEval/35,"def max_element(l: list):
     """"""Return maximum element in the list.
     >>> max_element([1, 2, 3])
@@ -16557,7 +16557,7 @@ def check(candidate):
     assert candidate([1, 2, 3]) == 3
     assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
 
-check(max_element)",1.7786683399928733,1.7969872400048188,EQUAL,0.0005591999999999819,0.0005984000000000212,EQUAL
+check(max_element)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/42,"def incr_list(l: list):
     """"""Return list with elements incremented by 1.
     >>> incr_list([1, 2, 3])
@@ -16596,7 +16596,7 @@ def check(candidate):
     assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
 
 
-check(incr_list)",1.7789325000019744,1.8400239199982025,EQUAL,0.0006106000000000167,0.0006127999999999912,EQUAL
+check(incr_list)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/45,"def triangle_area(a, h):
     """"""Given length of a side and high return area for a triangle.
     >>> triangle_area(5, 3)
@@ -16631,7 +16631,7 @@ def check(candidate):
     assert candidate(10, 8) == 40.0
 
 
-check(triangle_area)",1.8172085399972275,1.7788621000072453,EQUAL,0.0005798000000000192,0.0005999999999999784,EQUAL
+check(triangle_area)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/47,"def median(l: list):
     """"""Return median of elements in the list l.
     >>> median([3, 1, 2, 4, 5])
@@ -16683,7 +16683,7 @@ def check(candidate):
     assert candidate([8, 1, 3, 9, 9, 2, 7]) == 7 
 
 
-check(median)",1.775097639998421,1.8003488400019705,EQUAL,0.000577200000000011,0.0006016000000000022,EQUAL
+check(median)",1.1404319900029805,1.1149174499878427,EQUAL,0.0005929999999999935,0.0006510000000000072,SOLUTION ONE
 exp_9,HumanEval/48,"def is_palindrome(text: str):
     """"""
     Checks if given string is a palindrome
@@ -16740,7 +16740,7 @@ def check(candidate):
     assert candidate('xywzx') == False
 
 
-check(is_palindrome)",1.7577138799999374,1.7628650000027846,EQUAL,0.0005936000000000164,0.0006016000000000022,EQUAL
+check(is_palindrome)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/49,"def modp(n: int, p: int):
     """"""Return 2^n modulo p (be aware of numerics).
     >>> modp(3, 5)
@@ -16799,7 +16799,7 @@ def check(candidate):
     assert candidate(31, 5) == 3
 
 
-check(modp)",1.7613093400024808,1.8210644600039814,EQUAL,0.0005767999999999774,0.0006015999999999799,EQUAL
+check(modp)",1.1618451300018933,1.1095276200008812,EQUAL,0.0005976000000000037,0.0005968000000000029,EQUAL
 exp_9,HumanEval/53,"def add(x: int, y: int):
     """"""Add two numbers x and y
     >>> add(2, 3)
@@ -16854,7 +16854,7 @@ def check(candidate):
         assert candidate(x, y) == x + y
 
 
-check(add)",2.368170039996039,1.897983419999946,EQUAL,0.0005663999999999892,0.0006127999999999912,EQUAL
+check(add)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/55,"def fib(n: int):
     """"""Return n-th Fibonacci number.
     >>> fib(10)
@@ -16909,7 +16909,7 @@ def check(candidate):
     assert candidate(12) == 144
 
 
-check(fib)",1.956472399987979,2.0601467999920713,EQUAL,0.0005916000000000032,0.0006000000000000005,EQUAL
+check(fib)",1.1427717899932759,1.1004731299966806,EQUAL,0.0005980999999999958,0.0005967999999999974,EQUAL
 exp_9,HumanEval/58,"def common(l1: list, l2: list):
     """"""Return sorted unique common elements for two lists.
     >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
@@ -16953,7 +16953,7 @@ def check(candidate):
     assert candidate([4, 3, 2, 8], []) == []
 
 
-check(common)",4.6958731999970045,1.9762777799973263,EQUAL,0.0005908000000000024,0.0006016000000000022,EQUAL
+check(common)",1.11553930999944,1.1299275100056547,EQUAL,0.0006337999999999899,0.0005968000000000029,EQUAL
 exp_9,HumanEval/60,"def sum_to_n(n: int):
     """"""sum_to_n is a function that sums numbers from 1 to n.
     >>> sum_to_n(30)
@@ -17008,7 +17008,7 @@ def check(candidate):
     assert candidate(100) == 5050
 
 
-check(sum_to_n)",1.9862751200038473,1.9223942799959333,SOLUTION TWO,0.0005700000000000039,0.0006015999999999799,EQUAL
+check(sum_to_n)",NA,NA,EQUAL,NA,NA,EQUAL
 exp_9,HumanEval/66,"def digitSum(s):
     """"""Task
     Write a function that takes a string as input and returns the sum of the upper characters only'
@@ -17075,7 +17075,7 @@ def check(candidate):
     assert candidate(""You arE Very Smart"") == 327, ""Error""
 
 
-check(digitSum)",1.9060285000014119,1.8864458999945781,EQUAL,0.0005934000000000106,0.0006016000000000022,EQUAL
+check(digitSum)",1.1023604599991814,1.122053080002661,EQUAL,0.0006271000000000082,0.000608000000000003,EQUAL
 exp_9,HumanEval/72,"def will_it_fly(q,w):
     '''
     Write a function that returns True if the object q will fly, and False otherwise.
@@ -17159,7 +17159,7 @@ def check(candidate):
     assert candidate([5], 5) is True
 
 
-check(will_it_fly)",1.9026020200108178,1.83726429999806,EQUAL,0.0008489999999999887,0.0008521999999999919,EQUAL
+check(will_it_fly)",1.1343173899978864,1.121072529995581,EQUAL,0.0007471000000000172,0.000722600000000001,SOLUTION TWO
 exp_9,HumanEval/97,"def multiply(a, b):
     """"""Complete the function that takes two integers and returns 
     the product of their unit digits.
@@ -17216,7 +17216,7 @@ def check(candidate):
     assert candidate(0, 0) == 0, ""2nd edge test error: "" + str(candidate(0, 0))
 
 
-check(multiply)",2.1086898200097495,2.1232323799980803,EQUAL,0.0005773999999999946,0.0006016000000000022,EQUAL
+check(multiply)",1.1319221299985656,1.1735901200008811,EQUAL,0.0005831999999999837,0.0005980000000000041,EQUAL
 exp_9,HumanEval/124,"def valid_date(date):
     """"""You have to write a function which validates a given date string and
     returns True if the date is valid otherwise False.
@@ -17369,7 +17369,7 @@ def check(candidate):
 
     assert candidate('04-2003') == False
 
-check(valid_date)",1.9895155999984127,1.8118088399933185,EQUAL,0.0005756000000000094,0.0006016000000000022,EQUAL
+check(valid_date)",1.159498390002409,1.1597920200001681,EQUAL,0.0005821999999999882,0.0006027999999999922,EQUAL
 exp_9,HumanEval/136,"def largest_smallest_integers(lst):
     '''
     Create a function that returns a tuple (a, b), where 'a' is
@@ -17467,7 +17467,7 @@ def check(candidate):
     # Check some edge cases that are easy to work out by hand.
     assert True
 
-check(largest_smallest_integers)",1.5017105000035371,1.7015749200072605,EQUAL,0.0005767999999999995,0.0006016000000000022,EQUAL
+check(largest_smallest_integers)",1.2033742500032532,1.3127050099923507,EQUAL,0.0005983999999999879,0.0005967999999999974,EQUAL
 exp_9,HumanEval/151,"def double_the_difference(lst):
     '''
     Given a list of numbers, return the sum of squares of the numbers
@@ -17540,7 +17540,7 @@ def check(candidate):
     assert candidate(lst) == odd_sum , ""This prints if this assert fails 7 (good for debugging!)""
 
 
-check(double_the_difference)",1.9035411200020462,1.8824862400069833,EQUAL,0.0005558000000000174,0.0006016000000000022,EQUAL
+check(double_the_difference)",1.1290108800021699,0.9961285700061125,EQUAL,0.000592400000000004,0.0005973999999999979,EQUAL
 exp_9,HumanEval/152,"def compare(game,guess):
     """"""I think we all remember that feeling when the result of some long-awaited
     event is finally known. The feelings and thoughts you have at that moment are
@@ -17603,4 +17603,4 @@ def check(candidate):
     assert True, ""This prints if this assert fails 2 (also good for debugging!)""
 
 
-check(compare)",1.826301160006551,1.9055899200087878,EQUAL,0.000576399999999988,0.0006000000000000005,EQUAL
+check(compare)",1.163182870001765,1.1433429999946383,EQUAL,0.0005863999999999925,0.0005968000000000029,EQUAL
