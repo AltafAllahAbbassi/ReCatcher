@@ -268,12 +268,12 @@ def execute_unittest(test_code, timeout=60, memory_limit=10*1024*1024*1024):
                     loader = unittest.TestLoader()
                     suite = loader.loadTestsFromTestCase(test_case_class)
                     runner = unittest.TextTestRunner(verbosity=2, stream=output)
-                    runner.run(suite)
-                    q.put(output.getvalue())  
+                    test_result = runner.run(suite)
+                    q.put((test_result.wasSuccessful(), output.getvalue()))
                 else:
-                    q.put("Error: TestCases class not defined in the code")
+                    q.put((False, "Error: TestCases class not defined in the code"))
             except Exception as e:
-                q.put(str(e))
+                q.put((False, str(e)))
         q = multiprocessing.Queue()
         
         # Create a process to run the test
@@ -288,17 +288,13 @@ def execute_unittest(test_code, timeout=60, memory_limit=10*1024*1024*1024):
                 test_process.join()  # Ensure process termination is complete
                 return False
             time.sleep(0.1)  # Avoid tight looping
-        # Get the captured test output from the queue        # print(test_output)
+        # Get the captured test result from the queue
 
         if not q.empty():
-            test_output = q.get()
+            success, test_output = q.get()
         else:
-            test_output = "Error: No output captured"
-        # Check for failures or errors in the output
-        # print(test_output)
-        if "FAILED" in test_output:
-            return False
-        return True
+            success, test_output = False, "Error: No output captured"
+        return success
     except Exception as e:
         return False
     finally:
