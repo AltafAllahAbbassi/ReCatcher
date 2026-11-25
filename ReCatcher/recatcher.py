@@ -144,9 +144,9 @@ class ReCatcher(object):
                 write_jsonl_line(result_file, to_save)
                 result.append(to_save)
             results[f"exp_{j}"] = result
-            summary[f"exp_{j}"] = {"Correct code": len([x for x in result if not x["correct_code"]])}       
+            summary[f"exp_{j}"] = {"Correct code": len([x for x in result if x["correct_code"]])}
         return result_file, summary
-    
+
     def test_general_logic_bigcode_bench(self, result_df, result_dir):
         os.makedirs(result_dir, exist_ok=True)
         result_file = os.path.join(result_dir, f"{str(uuid.uuid4())}.jsonl")
@@ -156,8 +156,7 @@ class ReCatcher(object):
         summary = {}
         for j in range(n_rep):
             result = []
-            # for i in tqdm(range(len(result_df))):
-            for i in tqdm(range(5)):
+            for i in tqdm(range(len(result_df))):
                 task_id = result_df["task_id"][i]
                 prompt = result_df["prompt"][i]
                 code = result_df[f"exp_{str(j)}"][i]
@@ -176,8 +175,8 @@ class ReCatcher(object):
                 write_jsonl_line(result_file, to_save)
                 result.append(to_save)
             results[f"exp_{j}"] = result
-            summary[f"exp_{j}"] = {"Correct code": len([x for x in result if not x["correct_code"]])}
-            
+            summary[f"exp_{j}"] = {"Correct code": len([x for x in result if x["correct_code"]])}
+
         return result_file, summary
         
     def test_performance(self, result1_df, result2_df, result_dir, large_input, timeout):
